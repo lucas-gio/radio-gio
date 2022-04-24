@@ -24,6 +24,5 @@ hs_err_pid*
 /.gradle/
 /gradle/
 /gradlew
-/.gradle/
 /build/compose/default-icons/1.0.0/icon-windows.ico
 /build/
