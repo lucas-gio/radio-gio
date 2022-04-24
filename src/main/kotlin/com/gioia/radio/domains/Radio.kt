@@ -5,7 +5,7 @@ import org.dizitart.no2.mapper.Mappable
 import org.dizitart.no2.mapper.NitriteMapper
 
 class Radio(
-    private var name: String,
+    private var name: String?,
     private var url: String?,
     private var url2: String?,
     private var url3: String?,
@@ -18,7 +18,7 @@ class Radio(
 
     constructor() : this("", "", "", "", "", "", "", "", "")
 
-    override fun nameValue(): String {
+    override fun nameValue(): String? {
         return name
     }
 

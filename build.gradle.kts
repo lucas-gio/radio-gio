@@ -9,9 +9,10 @@ plugins {
 
 group = "com.gioia"
 version = "1.0"
-var treeViewVersion = "1.1.0"
-var materialIconsVersion = "1.1.1"
-var nitriteVersion = "3.4.4"
+var treeView = "1.1.0"
+var nitrite = "3.4.4"
+var kodein = "7.10.0"
+var gson = "2.9.0"
 
 repositories {
     google()
@@ -22,11 +23,12 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
-    implementation("cafe.adriel.bonsai:bonsai-core:${treeViewVersion}")
-    implementation("cafe.adriel.bonsai:bonsai-file-system:${treeViewVersion}")
-    implementation("cafe.adriel.bonsai:bonsai-json:${treeViewVersion}")
-    implementation("org.dizitart:nitrite:${nitriteVersion}")
-    //implementation("org.jetbrains.compose.material:material-icons-extended-desktop:${materialIconsVersion}")
+    implementation("cafe.adriel.bonsai:bonsai-core:$treeView")
+    implementation("cafe.adriel.bonsai:bonsai-file-system:$treeView")
+    implementation("cafe.adriel.bonsai:bonsai-json:$treeView")
+    implementation("org.dizitart:nitrite:$nitrite")
+    implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
+    implementation("com.google.code.gson:gson:$gson")
 }
 
 tasks.test {
@@ -39,7 +41,7 @@ tasks.withType<KotlinCompile>() {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.gioia.radio.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "untitled"
