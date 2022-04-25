@@ -18,6 +18,9 @@ fun MainWindow() {
                 text = "",
                 onTextChanged = {}
             )
+            RadiosTree(
+                modifier = Modifier,
+            )
         }
     }
 }

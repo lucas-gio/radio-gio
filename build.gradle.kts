@@ -3,16 +3,17 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
-    id("org.jetbrains.compose") version "1.0.0"
+    kotlin("jvm") version "1.6.10"
+    id("org.jetbrains.compose") version "1.1.1"
 }
 
 group = "com.gioia"
 version = "1.0"
-var treeView = "1.1.0"
+var treeView = "1.2.0"
 var nitrite = "3.4.4"
 var kodein = "7.10.0"
 var gson = "2.9.0"
+var icons = "1.1.1"
 
 repositories {
     google()
@@ -29,13 +30,14 @@ dependencies {
     implementation("org.dizitart:nitrite:$nitrite")
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
+    implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
 }
 
 tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile>() {
+tasks.withType<KotlinCompile>().all{
     kotlinOptions.jvmTarget = "11"
 }
 
