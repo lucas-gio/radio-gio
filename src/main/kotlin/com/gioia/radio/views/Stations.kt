@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Earth(){
+fun Stations(modifier: Modifier = Modifier){
     OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         value = "",
         onValueChange = {  },
         label = {
@@ -17,7 +17,7 @@ fun Earth(){
         }
     )
     OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         value = "",
         onValueChange = {  },
         label = {
@@ -25,6 +25,6 @@ fun Earth(){
         }
     )
     RadiosTree(
-        modifier = Modifier,
+        modifier = modifier,
     )
 }

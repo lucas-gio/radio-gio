@@ -8,9 +8,9 @@ import java.util.stream.Collectors
 
 class Country (
     @Id
-    private var id: String,
-    private var name: String?,
-    private var radios: List<Radio>?
+    var id: String,
+    var name: String?,
+    var radios: List<Radio>?
 ) : Mappable, Nameable {
     override fun nameValue(): String? {
         return name

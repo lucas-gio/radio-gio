@@ -10,6 +10,7 @@ import org.kodein.di.compose.withDI
 fun main(args: Array<String>) = application {
     if (args.any { it == "initDatabase" }) {
         DatabaseGenerator.generateDatabase()
+        return@application
     }
 
     withDI(di) {
