@@ -5,15 +5,15 @@ import org.dizitart.no2.mapper.Mappable
 import org.dizitart.no2.mapper.NitriteMapper
 
 class Radio(
-    private var name: String?,
-    private var url: String?,
-    private var url2: String?,
-    private var url3: String?,
-    private var url4: String?,
-    private var url5: String?,
-    private var description: String?,
-    private var category: String?,
-    private var language: String?
+    var name: String?,
+    var url: String?,
+    var url2: String?,
+    var url3: String?,
+    var url4: String?,
+    var url5: String?,
+    var description: String?,
+    var category: String?,
+    var language: String?
 ) : Mappable, Nameable{
 
     constructor() : this("", "", "", "", "", "", "", "", "")
