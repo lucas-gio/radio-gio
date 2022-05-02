@@ -1,4 +1,4 @@
-package com.gioia.radio.domains
+package com.gioia.radio.data.domains
 
 interface Nameable {
     fun nameValue(): String?

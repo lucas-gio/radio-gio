@@ -1,4 +1,4 @@
-package com.gioia.radio.singletons
+package com.gioia.radio.data
 
 import org.dizitart.no2.Nitrite
 import java.io.File
@@ -8,7 +8,7 @@ class Database private constructor(){
         private var dbName = "file.db"
         @Volatile private var instance: Nitrite? = null
 
-        fun getInstance(): Nitrite? {
+        fun getInstance(): Nitrite? { // fixme: Llevarlo al d.i.
             if (instance == null) {
                 synchronized(Nitrite::class.java) {
                     if (instance == null) {

@@ -14,6 +14,7 @@ var nitrite = "3.4.4"
 var kodein = "7.10.0"
 var gson = "2.9.0"
 var icons = "1.1.1"
+var log = "1.7.36"
 
 repositories {
     google()
@@ -31,6 +32,7 @@ dependencies {
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
     implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
+    implementation("org.slf4j:slf4j-log4j12:$log")
 }
 
 tasks.test {

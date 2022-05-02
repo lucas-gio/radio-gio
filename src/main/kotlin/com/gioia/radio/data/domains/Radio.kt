@@ -1,4 +1,4 @@
-package com.gioia.radio.domains
+package com.gioia.radio.data.domains
 
 import org.dizitart.no2.Document
 import org.dizitart.no2.mapper.Mappable
@@ -14,8 +14,7 @@ class Radio(
     var description: String?,
     var category: String?,
     var language: String?
-) : Mappable, Nameable{
-
+) : Mappable, Nameable {
     constructor() : this("", "", "", "", "", "", "", "", "")
 
     override fun nameValue(): String? {
