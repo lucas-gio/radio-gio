@@ -11,10 +11,10 @@ group = "com.gioia"
 version = "1.0"
 var treeView = "1.2.0"
 var nitrite = "3.4.4"
-var kodein = "7.10.0"
+var kodein = "7.11.0"
 var gson = "2.9.0"
 var icons = "1.1.1"
-var log = "1.7.36"
+var log = "2.0.0-alpha7"
 
 repositories {
     google()
@@ -33,6 +33,7 @@ dependencies {
     implementation("com.google.code.gson:gson:$gson")
     implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
     implementation("org.slf4j:slf4j-log4j12:$log")
+
 }
 
 tasks.test {

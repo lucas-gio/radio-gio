@@ -1,9 +1,7 @@
 package com.gioia.radio.data.repositories
 
 import com.gioia.radio.data.domains.Country
-import org.dizitart.no2.IndexOptions
-import org.dizitart.no2.IndexType
-import org.dizitart.no2.Nitrite
+import org.dizitart.no2.*
 import org.dizitart.no2.objects.filters.ObjectFilters
 
 class CountryRepositoryImpl (
@@ -31,5 +29,28 @@ class CountryRepositoryImpl (
                 IndexOptions.indexOptions(IndexType.NonUnique, false)
             )*///fixme:No funciona el nombre
         }
+    }
+
+    override fun getInitialRadioStations(): List<Country>{
+        return database
+            .getRepository(Country::class.java)
+            ?.find(
+                FindOptions
+                    .sort("name", SortOrder.Ascending)
+                    .thenLimit(0, 5)
+            )
+            ?.toList() ?: emptyList()
+    }
+
+    override fun findByCountryNameLike(countryName: String): List<Country>{
+        return database
+            .getRepository(Country::class.java)
+            ?.find(
+                ObjectFilters.regex("name", "^(?i).{0,}$countryName.{0,}$"),
+                FindOptions
+                    .sort("name", SortOrder.Ascending)
+                    .thenLimit(0, 5)
+            )
+            ?.toList() ?: emptyList()
     }
 }

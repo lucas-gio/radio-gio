@@ -4,6 +4,7 @@ import com.gioia.radio.data.repositories.CountryRepository
 import com.gioia.radio.data.repositories.CountryRepositoryImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
+import com.gioia.radio.views.viewModels.BoxStationsViewModel
 import org.dizitart.no2.Nitrite
 import org.kodein.di.DI
 import org.kodein.di.bindConstant
@@ -15,6 +16,7 @@ import java.io.File
 val di = DI {
     bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance())}
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
+    bindSingleton {BoxStationsViewModel()}
     bindSingleton<Nitrite>{
         Nitrite
             .builder()
@@ -22,5 +24,5 @@ val di = DI {
             .openOrCreate()
     }
     bindConstant(tag = "defaultHeight") {500}
-    bindConstant(tag = "defaultwidth") {900}
+    bindConstant(tag = "defaultWidth") {900}
 }
