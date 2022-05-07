@@ -6,4 +6,7 @@ interface CountryRepository {
     fun removeAll()
     fun saveAll(countries:List<Country>)
     fun createIndexes()
+    fun getInitialRadioStations(): List<Country>
+
+    fun findByCountryNameLike(countryName: String): List<Country>
 }
