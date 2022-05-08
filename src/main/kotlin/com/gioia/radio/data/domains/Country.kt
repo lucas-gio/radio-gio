@@ -9,7 +9,7 @@ import java.util.stream.Collectors
 class Country(
     @Id
     var id: String,
-    var name: String?,
+    var name: String,
     var radios: List<Radio>?
 ) : Mappable, Nameable {
 

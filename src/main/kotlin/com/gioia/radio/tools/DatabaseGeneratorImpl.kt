@@ -4,12 +4,15 @@ import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
 import com.gioia.radio.data.repositories.CountryRepository
 import com.google.gson.Gson
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.InputStreamReader
 import java.io.Reader
 
 class DatabaseGeneratorImpl (
     private val countryRepository: CountryRepository
 ) : DatabaseGenerator{
+    private var logger: Logger = LoggerFactory.getLogger(DatabaseGeneratorImpl::class.java)
     override fun generateDatabase() {
         countryRepository.removeAll()
         countryRepository.saveAll(parseStationsJsonToList())
@@ -36,29 +39,39 @@ class DatabaseGeneratorImpl (
         //fixme: cambiar a un map() collect()
         val result : MutableList<Country> = mutableListOf()
         for(country in countriesAndRadios){
-            val radioList: MutableList<Radio> = mutableListOf()
-            for(radio in country.value){
-                radioList.add(
-                    Radio(
-                        name = radio["1"] ,
-                        description = radio["2"],
-                        category = radio["3"],
-                        language = radio["5"],
-                        url = radio["6"],
-                        url2 = radio["7"],
-                        url3 = radio["8"],
-                        url4 = radio["9"],
-                        url5 = radio["10"])
+            if(country.key.isEmpty() || country.key == "-"){
+                logger.atWarn().log("PAÍS SIN NOMBRE: $country" )
+            }
+            else {
+                val radioList: MutableList<Radio> = mutableListOf()
+                for (radio in country.value) {
+                    if (radio["1"].isNullOrEmpty() || radio["6"].isNullOrEmpty()) {
+                        logger.atWarn().log("RADIO SIN NOMBRE: $radio")
+                    } else {
+                        radioList.add(
+                            Radio(
+                                name = radio["1"] as String,
+                                description = radio["2"],
+                                category = radio["3"],
+                                language = radio["5"],
+                                url = radio["6"] as String,
+                                url2 = radio["7"],
+                                url3 = radio["8"],
+                                url4 = radio["9"],
+                                url5 = radio["10"]
+                            )
+                        )
+                    }
+                }
+
+                result.add(
+                    Country(
+                        id = country.key,
+                        name = country.key,
+                        radios = radioList
+                    )
                 )
             }
-
-            result.add(
-                Country(
-                    id=country.key,
-                    name=country.key,
-                    radios = radioList
-                )
-            )
         }
 
         return result

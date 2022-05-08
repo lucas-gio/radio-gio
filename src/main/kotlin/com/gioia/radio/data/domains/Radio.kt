@@ -5,8 +5,8 @@ import org.dizitart.no2.mapper.Mappable
 import org.dizitart.no2.mapper.NitriteMapper
 
 class Radio(
-    var name: String?,
-    var url: String?,
+    var name: String,
+    var url: String,
     var url2: String?,
     var url3: String?,
     var url4: String?,

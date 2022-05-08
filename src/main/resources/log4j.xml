@@ -6,6 +6,12 @@
             <param name="ConversionPattern" value="%d{HH,mm,ss,SSS} %p [%c@%t] %m\r\n" />
         </layout>
     </appender>
+    <category name="uk.co.jemos">
+        <priority value="ERROR" />
+    </category>
+    <category name="org.dizitart">
+        <priority value="ERROR" />
+    </category>
     <root>
         <priority value="ALL" />
         <appender-ref ref="Console" />

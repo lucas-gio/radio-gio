@@ -7,8 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import cafe.adriel.bonsai.core.Bonsai
-import cafe.adriel.bonsai.core.node.Branch
-import cafe.adriel.bonsai.core.node.Leaf
+import cafe.adriel.bonsai.core.node.*
 import cafe.adriel.bonsai.core.tree.Tree
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
@@ -39,27 +38,48 @@ fun BoxStations(
             Text(text = "Nombre de la radio")
         }
     )
-    Bonsai(
+    BonsaiBranches(
         modifier = Modifier,
-        tree = BonsaiBranches(state.countries)
+        countries = state.countries,
+        onDoubleClick = {node: Node<Country> ->
+            when (node) {
+                is LeafNode -> boxStationsViewModel.onRadioSelectedInTree(node as LeafNode<Radio>)
+                is BranchNode -> toggleExpansionBranch(node)
+            }
+        }
     )
 }
 
+private fun toggleExpansionBranch(node: BranchNode<Country>){
+    node.setExpanded( if(node.isExpanded) false else true, 1 )
+    println("${if(!node.isExpanded) "Expandido" else "Colapsado"} el nodo ${node.name}")
+}
+
 @Composable
-fun BonsaiBranches(countries: List<Country>): Tree<String> {
-    val tree = Tree<String> {
-        countries
-            .forEach { country: Country ->
+fun BonsaiBranches(modifier: Modifier = Modifier,
+                   countries: List<Country>,
+                   onDoubleClick:  ((Node<Country>) -> Unit)?
+){
+    val tree = Tree<Country> {
+        countries.forEach { country: Country ->
                 // fixme: Cambiar el ícono a cada país. Guardarlo en la bd.
-                Branch(country.name) {
-                    country
-                        .radios
-                        ?.forEach { radio: Radio ->
-                            Leaf(radio.name)
-                        }
+                Branch(
+                    name = country.name,
+                    content = country,
+                ) {
+                    country.radios?.forEach { radio: Radio ->
+                        Leaf(
+                            name = radio.name,
+                            content = radio,
+
+                        )
+                    }
                 }
             }
     }
 
-    return tree
+    Bonsai(
+        tree = tree,
+        onDoubleClick = onDoubleClick
+    )
 }
