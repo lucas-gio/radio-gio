@@ -37,7 +37,7 @@
 
 ## ✍️ Author
 
-👤 **Lucas Gioia**
+🧑🏻 **Lucas Gioia**
 
 * Email: gioialucasf@gmail.com
 
