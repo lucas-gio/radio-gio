@@ -13,6 +13,7 @@ import org.dizitart.no2.Nitrite
 import org.kodein.di.compose.withDI
 import org.kodein.di.constant
 import org.kodein.di.instance
+import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 
 fun main(args: Array<String>) = application {
     if (args.any { it == "initDatabase" }) {
@@ -24,6 +25,7 @@ fun main(args: Array<String>) = application {
     withDI(di) {
         val defaultWidth: Int by di.constant()
         val defaultHeight: Int by di.constant()
+        val audioPlayerComponent: AudioPlayerComponent by di.instance()
 
         Window(
             state = WindowState(
@@ -34,6 +36,8 @@ fun main(args: Array<String>) = application {
                 if (!database.isClosed) {
                     database.close()
                 }
+
+                audioPlayerComponent.release()
 
                 exitApplication()
             }) {

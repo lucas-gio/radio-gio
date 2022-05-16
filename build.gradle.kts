@@ -15,11 +15,13 @@ var kodein = "7.11.0"
 var gson = "2.9.0"
 var icons = "1.1.1"
 var log = "2.0.0-alpha7"
+var vlc = "4.7.2"
 
 repositories {
     google()
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven("https://maven.google.com")
 }
 
 dependencies {
@@ -33,6 +35,8 @@ dependencies {
     implementation("com.google.code.gson:gson:$gson")
     implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
     implementation("org.slf4j:slf4j-log4j12:$log")
+    // https://mvnrepository.com/artifact/uk.co.caprica/vlcj
+    implementation("uk.co.caprica:vlcj:$vlc")
 
 }
 
