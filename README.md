@@ -12,7 +12,7 @@
 ![latestVersion](https://img.shields.io/github/v/release/lucas-gio/lucasgi)
 
 
-> Radio kotlin compose, un reproductor de radios del mundo implementada en estas tecnologías.
+> Radio kotlin compose, un reproductor de radios online.
 
 ### ✨ Demo
 
