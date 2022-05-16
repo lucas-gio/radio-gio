@@ -1,7 +1,3 @@
-travis banner
-codecov banner
-codefactor banner
-
 <p>
   <a href="#">Español</a> |
   <a href="">Português</a> |
@@ -12,7 +8,7 @@ codefactor banner
 
 # lucasgi
 
-![buildStatus](https://img.shields.io/github/workflow/status/lucas-gio/lucasgi/Java%20CI%20with%20Gradle?style=plastic)
+[![CI](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml)
 ![latestVersion](https://img.shields.io/github/v/release/lucas-gio/lucasgi)
 
 
