@@ -6,7 +6,7 @@
 
 ## ![](cover.jpeg) (añadir cover)
 
-# lucasgi
+# Radio Kotlin Compose
 
 [![CI](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml)
 ![latestVersion](https://img.shields.io/github/v/release/lucas-gio/lucasgi)
