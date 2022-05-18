@@ -2,6 +2,7 @@ package com.gioia.radio.views.viewModels
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import cafe.adriel.bonsai.core.node.LeafNode
 import com.gioia.radio.config.di
 import com.gioia.radio.data.domains.Country
@@ -17,7 +18,9 @@ class BoxStationsViewModel  {
     private val countryRepository: CountryRepository by di.instance()
     private var logger: Logger = LoggerFactory.getLogger(BoxStationsViewModel::class.java)
 
-    data class Model(
+
+
+    /*data class Model(
         var countries: List<Country> = emptyList(),
         val countryName: String = "",
         val radioName: String = ""
@@ -28,15 +31,15 @@ class BoxStationsViewModel  {
                 countries = countryRepository.getInitialRadioStations()
             }
         }
-    }
+    }*/
 
-    private val _model = mutableStateOf(Model())
-    val model: State<Model> = _model
+    //private val _model = mutableStateOf(Model())
+    //val model: State<Model> = _model
 
-    private inline fun changeState(reducer: Model.() -> Model): Model {
+    /*private inline fun changeState(reducer: Model.() -> Model): Model {
         _model.value = model.value.reducer()
         return _model.value
-    }
+    }*/
 
     fun onSearchByCountryName(countryName: String) {
         changeState { copy(countryName = countryName) }
