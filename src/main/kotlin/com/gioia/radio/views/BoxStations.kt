@@ -38,30 +38,9 @@ fun BoxStations(
             Text(text = "Nombre de la radio")
         }
     )
-    BonsaiBranches(
-        modifier = Modifier,
-        countries = state.countries,
-        onDoubleClick = {node: Node<Country> ->
-            when (node) {
-                is LeafNode -> boxStationsViewModel.onRadioSelectedInTree(node as LeafNode<Radio>)
-                is BranchNode -> toggleExpansionBranch(node)
-            }
-        }
-    )
-}
-
-private fun toggleExpansionBranch(node: BranchNode<Country>){
-    node.setExpanded( if(node.isExpanded) false else true, 1 )
-    println("${if(!node.isExpanded) "Expandido" else "Colapsado"} el nodo ${node.name}")
-}
-
-@Composable
-fun BonsaiBranches(modifier: Modifier = Modifier,
-                   countries: List<Country>,
-                   onDoubleClick:  ((Node<Country>) -> Unit)?
-){
-    val tree = Tree<Country> {
-        countries.forEach { country: Country ->
+    Bonsai(
+        tree = Tree {
+            state.countries.forEach { country: Country ->
                 // fixme: Cambiar el ícono a cada país. Guardarlo en la bd.
                 Branch(
                     name = country.name,
@@ -70,16 +49,17 @@ fun BonsaiBranches(modifier: Modifier = Modifier,
                     country.radios?.forEach { radio: Radio ->
                         Leaf(
                             name = radio.name,
-                            content = radio,
-
+                            content = radio
                         )
                     }
                 }
             }
-    }
-
-    Bonsai(
-        tree = tree,
-        onDoubleClick = onDoubleClick
+        },
+        onDoubleClick = {node: Node<Country> ->
+            when (node) {
+                is LeafNode -> boxStationsViewModel.onRadioSelectedInTree(node as LeafNode<Radio>)
+                is BranchNode -> boxStationsViewModel.toggleExpansionBranch(node)
+            }
+        }
     )
 }

@@ -25,25 +25,30 @@ fun main(args: Array<String>) = application {
     withDI(di) {
         val defaultWidth: Int by di.constant()
         val defaultHeight: Int by di.constant()
-        val audioPlayerComponent: AudioPlayerComponent by di.instance()
 
         Window(
             state = WindowState(
                 size = DpSize(defaultWidth.dp, defaultHeight.dp)
             ),
             onCloseRequest = {
-                val database: Nitrite by di.instance()
-                if (!database.isClosed) {
-                    database.close()
-                }
-
-                audioPlayerComponent.release()
-
+                releaseComponents()
                 exitApplication()
-            }) {
+            }
+        ) {
             MaterialTheme {
                 MainWindow()
             }
         }
     }
+}
+
+fun releaseComponents(){
+    val audioPlayerComponent: AudioPlayerComponent by di.instance()
+
+    val database: Nitrite by di.instance()
+    if (!database.isClosed) {
+        database.close()
+    }
+
+    audioPlayerComponent.release()
 }

@@ -45,16 +45,29 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>().all{
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "16"
 }
 
 compose.desktop {
     application {
+        //https://github.com/JetBrains/compose-jb/tree/master/tutorials/Native_distributions_and_local_execution
         mainClass = "com.gioia.radio.MainKt"
+        // java home para el plugin de compilación nativa.
+        javaHome = System.getenv("JDK_11")
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "untitled"
-            packageVersion = "1.0.0"
+            macOS {
+                //iconFile.set(project.file("icon.icns"))
+            }
+            windows {
+                //iconFile.set(project.file("icon.ico"))
+            }
+            linux {
+                //iconFile.set(project.file("icon.png"))
+            }
+            targetFormats(TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "radioKotlinCompose"
+            packageVersion = "0.1.0"
+            description = "Radio online hecha con kotlin y compose"
         }
     }
 }
