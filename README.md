@@ -73,7 +73,7 @@ Give a ⭐️ if this project helped you!
 -->
 ## ☑️ Restante
 
-- [ ] Task 1
+- Las tareas del proyecto están en la solapa projects: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
 
 ## 📝 License
 
