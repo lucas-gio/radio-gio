@@ -1,7 +1,3 @@
-travis banner
-codecov banner
-codefactor banner
-
 <p>
   <a href="#">Español</a> |
   <a href="">Português</a> |
@@ -10,13 +6,13 @@ codefactor banner
 
 ## ![](cover.jpeg) (añadir cover)
 
-# lucasgi
+# Radio Kotlin Compose
 
-![buildStatus](https://img.shields.io/github/workflow/status/lucas-gio/lucasgi/Java%20CI%20with%20Gradle?style=plastic)
+[![CI](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml)
 ![latestVersion](https://img.shields.io/github/v/release/lucas-gio/lucasgi)
 
 
-> Radio kotlin compose, un reproductor de radios del mundo implementada en estas tecnologías.
+> Radio kotlin compose, un reproductor de radios online.
 
 ### ✨ Demo
 
@@ -41,7 +37,7 @@ codefactor banner
 
 ## ✍️ Author
 
-👤 **Lucas Gioia**
+🧑🏻 **Lucas Gioia**
 
 * Email: gioialucasf@gmail.com
 
@@ -77,7 +73,7 @@ Give a ⭐️ if this project helped you!
 -->
 ## ☑️ Restante
 
-- [ ] Task 1
+- Las tareas del proyecto están en la solapa projects: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
 
 ## 📝 License
 
