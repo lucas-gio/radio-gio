@@ -19,6 +19,7 @@ val di = DI {
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
     bindSingleton<AudioPlayerComponent> {AudioPlayerComponent()}
     bindSingleton {BoxStationsViewModel()}
+    
     bindSingleton<Nitrite>{
         Nitrite
             .builder()
