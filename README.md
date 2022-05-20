@@ -8,8 +8,7 @@
 
 # Radio Kotlin Compose
 
-[![CI](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/blank.yml)
-![latestVersion](https://img.shields.io/github/v/release/lucas-gio/lucasgi)
+[![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
 
 
 > Radio kotlin compose, un reproductor de radios online.
