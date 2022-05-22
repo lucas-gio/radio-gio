@@ -29,19 +29,16 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
     implementation("cafe.adriel.bonsai:bonsai-core:$treeView")
-    //implementation("cafe.adriel.bonsai:bonsai-file-system:$treeView")
-    //implementation("cafe.adriel.bonsai:bonsai-json:$treeView")
     implementation("org.dizitart:nitrite:$nitrite")
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
-    //implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
+    implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
     implementation("org.slf4j:slf4j-log4j12:$log")
     // https://mvnrepository.com/artifact/uk.co.caprica/vlcj
     implementation("uk.co.caprica:vlcj:$vlc")
 
-    implementation("com.arkivanov.decompose:decompose:$decompose")
-    implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decompose")
-
+    //implementation("com.arkivanov.decompose:decompose:$decompose")
+    //implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decompose")
 }
 
 tasks.test {

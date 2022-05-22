@@ -2,10 +2,14 @@ package com.gioia.radio.data.repositories
 
 import com.gioia.radio.data.domains.Country
 import org.dizitart.no2.*
+import org.dizitart.no2.objects.ObjectFilter
 import org.dizitart.no2.objects.filters.ObjectFilters
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class CountryRepositoryImpl (
-    private val database: Nitrite
+    private val database: Nitrite,
+    private var logger: Logger = LoggerFactory.getLogger(CountryRepositoryImpl::class.java)
 ): CountryRepository {
     override fun removeAll(){
         database.getRepository(Country::class.java).remove(ObjectFilters.ALL)
@@ -25,9 +29,6 @@ class CountryRepositoryImpl (
             repository.createIndex("name",
                 IndexOptions.indexOptions(IndexType.NonUnique, false)
             )
-            /*repository.createIndex("radios.name",
-                IndexOptions.indexOptions(IndexType.NonUnique, false)
-            )*///fixme:No funciona el nombre
         }
     }
 
@@ -43,14 +44,38 @@ class CountryRepositoryImpl (
     }
 
     override fun findByCountryNameLike(countryName: String): List<Country>{
-        return database
+        return findFiveCountryResults(
+            ObjectFilters.regex("name", "^(?i).{0,}$countryName.{0,}$"))
+    }
+
+    override fun findByRadioNameLike(radioName: String): List<Country>{
+        return findFiveCountryResults(
+            ObjectFilters.elemMatch("radios",
+                    ObjectFilters.regex("name", "^(?i).{0,}$radioName{0,}$")))
+    }
+
+    private fun findFiveCountryResults(criteria: ObjectFilter): List<Country>{
+        val result: List<Country> = database
             .getRepository(Country::class.java)
             ?.find(
-                ObjectFilters.regex("name", "^(?i).{0,}$countryName.{0,}$"),
+                criteria,
                 FindOptions
                     .sort("name", SortOrder.Ascending)
                     .thenLimit(0, 5)
             )
             ?.toList() ?: emptyList()
+
+        if(logger.isDebugEnabled){
+            logger.atDebug().log("Resultados obtenidos de la búsqueda: ")
+            logger.atDebug().log("**************************************************************************************************")
+            for (country in result) {
+                logger.atDebug().log("-------------------------------------------------------------------------------------------------")
+                for(radio in country.radios!!){
+                    logger.atDebug().log("${country.name.uppercase()} -- ${radio.name}")
+                }
+            }
+        }
+
+        return result
     }
 }

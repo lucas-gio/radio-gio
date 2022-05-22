@@ -9,4 +9,5 @@ interface CountryRepository {
     fun getInitialRadioStations(): List<Country>
 
     fun findByCountryNameLike(countryName: String): List<Country>
+    fun findByRadioNameLike(radioName: String): List<Country>
 }

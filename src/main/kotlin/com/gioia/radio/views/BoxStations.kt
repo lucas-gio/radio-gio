@@ -5,11 +5,11 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import cafe.adriel.bonsai.core.Bonsai
-import cafe.adriel.bonsai.core.node.*
+import cafe.adriel.bonsai.core.node.Branch
+import cafe.adriel.bonsai.core.node.Leaf
+import cafe.adriel.bonsai.core.node.Node
 import cafe.adriel.bonsai.core.tree.Tree
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
@@ -57,11 +57,6 @@ fun BoxStations(
                 }
             }
         },
-        onDoubleClick = {node: Node<Country> ->
-            when (node) {
-                is LeafNode -> boxStationsViewModel.onRadioSelectedInTree(node as LeafNode<Radio>)
-                is BranchNode -> boxStationsViewModel.toggleExpansionBranch(node)
-            }
-        }
+        onDoubleClick = {node: Node<Country> -> boxStationsViewModel.onDoubleclickInNode(node) }
     )
 }

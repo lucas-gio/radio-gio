@@ -2,8 +2,11 @@ package com.gioia.radio.config
 
 import com.gioia.radio.data.repositories.CountryRepository
 import com.gioia.radio.data.repositories.CountryRepositoryImpl
+import com.gioia.radio.services.PlayerService
+import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
+import com.gioia.radio.views.viewModels.BoxPlayerViewModel
 import com.gioia.radio.views.viewModels.BoxStationsViewModel
 import org.dizitart.no2.Nitrite
 import org.kodein.di.DI
@@ -17,8 +20,11 @@ import java.io.File
 val di = DI {
     bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance())}
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
-    bindSingleton<AudioPlayerComponent> {AudioPlayerComponent()}
+    bindSingleton<PlayerService> {PlayerServiceImpl(instance())}
+    //bindSingleton<StateKeeper> {()}
+    bindSingleton {AudioPlayerComponent()}
     bindSingleton {BoxStationsViewModel()}
+    bindSingleton {BoxPlayerViewModel(instance())}
     bindSingleton<Nitrite>{
         Nitrite
             .builder()
