@@ -13,11 +13,13 @@ import cafe.adriel.bonsai.core.node.Node
 import cafe.adriel.bonsai.core.tree.Tree
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.services.MessageService
 import com.gioia.radio.views.viewModels.StationsViewModel
 
 @Composable
 fun BoxStations(
-    stationsViewModel: StationsViewModel
+    stationsViewModel: StationsViewModel,
+    messageService: MessageService
 ){
     val state by stationsViewModel.model
 
@@ -27,7 +29,7 @@ fun BoxStations(
         value = state.countryFilter,
         onValueChange = stationsViewModel::onSearchByCountryName,
         label = {
-            Text(text = "Nombre de país")
+            Text(text = messageService.msg("search.countryName"))
         }
     )
     OutlinedTextField(
@@ -36,13 +38,12 @@ fun BoxStations(
         value = state.radioFilter,
         onValueChange = stationsViewModel::onSearchByRadioName,
         label = {
-            Text(text = "Nombre de la radio")
+            Text(text = messageService.msg("search.radioName"))
         }
     )
     Bonsai(
         tree = Tree {
             state.countries.forEach { country: Country ->
-                // fixme: Cambiar el ícono a cada país. Guardarlo en la bd.
                 Branch(
                     name = country.name,
                     content = country,

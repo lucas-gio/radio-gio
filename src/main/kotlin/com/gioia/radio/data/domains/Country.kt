@@ -11,12 +11,7 @@ class Country(
     var id: String,
     var name: String,
     var radios: List<Radio>?
-) : Mappable, Nameable {
-
-
-    override fun nameValue(): String? {
-        return name
-    }
+) : Mappable{
 
     override fun write(mapper: NitriteMapper?): Document {
         val document = Document()

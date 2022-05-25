@@ -12,11 +12,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.gioia.radio.services.MessageService
 import com.gioia.radio.views.viewModels.StationsViewModel
 
 @Composable
 fun BoxPlayer(
-    stationsViewModel: StationsViewModel
+    stationsViewModel: StationsViewModel,
+    messageService: MessageService,
 ){
     val state by stationsViewModel.model
 
@@ -24,8 +26,8 @@ fun BoxPlayer(
         Button(
             enabled = !state.isPlaying && state.selectedRadio != null,
             onClick = stationsViewModel::onPlayPressed,
-            border = BorderStroke(1.dp, Color.Black), //fixme: Pasar a un tema
-            elevation =  ButtonDefaults.elevation(    //fixme: Pasar a un tema
+            border = BorderStroke(1.dp, Color.Black),
+            elevation =  ButtonDefaults.elevation(
                 defaultElevation = 10.dp,
                 pressedElevation = 15.dp,
                 disabledElevation = 0.dp
@@ -33,7 +35,7 @@ fun BoxPlayer(
         ) {
             Icon(
                 imageVector = Icons.Rounded.PlayArrow,
-                contentDescription = "play" //fixme: Traducciones
+                contentDescription = messageService.msg("button.play")
             )
         }
         Button(
@@ -48,7 +50,7 @@ fun BoxPlayer(
         ) {
             Icon(
                 imageVector = Icons.Rounded.Stop,
-                contentDescription = "stop" //fixme: Traducciones
+                contentDescription = messageService.msg("button.stop")
             )
         }
         Button(
@@ -63,7 +65,7 @@ fun BoxPlayer(
         ) {
             Icon(
                 imageVector = if(state.isFavourite) Icons.Rounded.PlaylistAdd else Icons.Rounded.PlaylistAddCheck,
-                contentDescription = "add to favourite" //fixme: Traducciones
+                contentDescription = messageService.msg("button.addToFavourites")
             )
         }
         Button(
@@ -78,7 +80,7 @@ fun BoxPlayer(
         ) {
             Icon(
                 imageVector = Icons.Rounded.SkipPrevious,
-                contentDescription = "Previous" //fixme: Traducciones
+                contentDescription = messageService.msg("button.previous")
             )
         }
         Button(
@@ -93,7 +95,7 @@ fun BoxPlayer(
         ) {
             Icon(
                 imageVector = Icons.Rounded.SkipNext,
-                contentDescription = "Next" //fixme: Traducciones
+                contentDescription = messageService.msg("button.next")
             )
         }
     }

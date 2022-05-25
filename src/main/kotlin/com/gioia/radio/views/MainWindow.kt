@@ -8,25 +8,25 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.gioia.radio.config.di
+import com.gioia.radio.services.MessageService
 import com.gioia.radio.views.viewModels.StationsViewModel
-import org.kodein.di.instance
 
 @Composable
 @Preview
-fun MainWindow() {
-    val stationsViewModel: StationsViewModel by di.instance()
-
+fun MainWindow(messageService: MessageService,
+               stationsViewModel: StationsViewModel) {
     Row(modifier = Modifier.fillMaxHeight().padding(16.dp)) {
         Column(
             Modifier.weight(1f)
         ) {
-            BoxStations(stationsViewModel = stationsViewModel)
+            BoxStations(stationsViewModel = stationsViewModel,
+                messageService = messageService)
         }
         Column(
             Modifier.weight(1f)
         ) {
-            BoxPlayer(stationsViewModel = stationsViewModel)
+            BoxPlayer(stationsViewModel = stationsViewModel,
+                messageService = messageService)
         }
     }
 }

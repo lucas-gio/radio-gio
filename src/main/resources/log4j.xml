@@ -3,17 +3,17 @@
 <log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' debug="false">
     <appender name="Console" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{HH,mm,ss,SSS} %p [%c@%t] %m\r\n" />
+            <param name="ConversionPattern" value="%d{HH,mm,ss,SSS} %p [%c@%t] %m\r\n"/>
         </layout>
     </appender>
     <category name="uk.co.jemos">
-        <priority value="ERROR" />
+        <priority value="ERROR"/>
     </category>
     <category name="org.dizitart">
-        <priority value="ERROR" />
+        <priority value="ERROR"/>
     </category>
     <root>
-        <priority value="ALL" />
-        <appender-ref ref="Console" />
+        <priority value="ALL"/>
+        <appender-ref ref="Console"/>
     </root>
 </log4j:configuration>

@@ -3,8 +3,7 @@
   <a href="">Português</a> |
   <a href="">English</a> 
 </p>
-
-## ![](cover.jpeg) (añadir cover)
+ 
 
 # Radio Kotlin Compose
 
@@ -14,8 +13,6 @@
 > Radio kotlin compose, un reproductor de radios online.
 
 ### ✨ Demo
-
-## ![](demo.gif) (añadir demo)
 
 ## 🦿 Prerequisites
 

@@ -1,7 +1,11 @@
 package com.gioia.radio.tools
 
+import com.gioia.radio.data.domains.Configuration
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.enums.ConfigKey
+import com.gioia.radio.data.enums.Locales
+import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.CountryRepository
 import com.google.gson.Gson
 import org.slf4j.Logger
@@ -10,17 +14,30 @@ import java.io.InputStreamReader
 import java.io.Reader
 
 class DatabaseGeneratorImpl (
-    private val countryRepository: CountryRepository
+    private val countryRepository: CountryRepository,
+    private val configurationRepository: ConfigurationRepository,
 ) : DatabaseGenerator{
     private var logger: Logger = LoggerFactory.getLogger(DatabaseGeneratorImpl::class.java)
     override fun generateDatabase() {
+        initCountries()
+        initConfigurations()
+    }
+
+    private fun initConfigurations(){
+        listOf(
+            Configuration(ConfigKey.Locale.toString(), Locales.EN.toString(), "Selected locale for translations")
+        )
+        .forEach(configurationRepository::upsert)
+
+        configurationRepository.createIndexes()
+    }
+
+    private fun initCountries(){
         countryRepository.removeAll()
         countryRepository.saveAll(parseStationsJsonToList())
         countryRepository.createIndexes()
     }
 
-    //fixme: Enrealidad hay que hacerlo por lotes, no llevar todo a memoria.
-    // Ver como usar mejor una estructura para leerlo en vez de serializar y deserializar para llevarlo a la bd.
     private fun parseStationsJsonToList(): List<Country> {
         val gson = Gson()
         val reader: Reader = InputStreamReader(DatabaseGeneratorImpl::class.java.classLoader.getResourceAsStream("radios.json"))
@@ -36,7 +53,6 @@ class DatabaseGeneratorImpl (
             }
         }
 
-        //fixme: cambiar a un map() collect()
         val result : MutableList<Country> = mutableListOf()
         for(country in countriesAndRadios){
             if(country.key.isEmpty() || country.key == "-"){

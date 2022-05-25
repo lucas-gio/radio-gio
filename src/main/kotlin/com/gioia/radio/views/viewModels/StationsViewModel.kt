@@ -37,7 +37,7 @@ class StationsViewModel(
         val radioFilter: String = "",
         val selectedCountryName: String = "",
         val selectedRadio: Radio? = null,
-        var isPlaying: Boolean = false, //fixme: En un futuro podría ser configurable
+        var isPlaying: Boolean = false,
         val isFavourite: Boolean = false
     )/*: Parcelable */{
         init{
@@ -88,7 +88,7 @@ class StationsViewModel(
 
     fun onPlayPressed(isPlaying: Boolean? = null, radio: Radio? = null){
         changeState { state.copy(isPlaying = isPlaying ?: !state.isPlaying, selectedRadio = radio ?: state.selectedRadio)}
-        playerService.playRadio(state.selectedRadio?.url ?: radio?.url ?: "") // fixme: hay varias url, debe considerarlas a todas si una falla. Además cada una de ellas da diferente calidad.
+        playerService.playRadio(state.selectedRadio?.url ?: radio?.url ?: "")
         logger.atDebug().log("Reproduciendo la radio ${state.selectedRadio?.name}")
     }
 

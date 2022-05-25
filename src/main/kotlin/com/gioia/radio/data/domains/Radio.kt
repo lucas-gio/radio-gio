@@ -15,12 +15,8 @@ class Radio(
     var category: String?,
     var language: String?,
     var isFavourite: Boolean
-) : Mappable, Nameable {
+) : Mappable{
     constructor() : this("", "", "", "", "", "", "", "", "", false)
-
-    override fun nameValue(): String {
-        return name
-    }
 
     override fun write(mapper: NitriteMapper?): Document {
         val document = Document()
