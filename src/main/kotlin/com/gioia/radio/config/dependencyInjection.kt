@@ -6,8 +6,7 @@ import com.gioia.radio.services.PlayerService
 import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
-import com.gioia.radio.views.viewModels.BoxPlayerViewModel
-import com.gioia.radio.views.viewModels.BoxStationsViewModel
+import com.gioia.radio.views.viewModels.StationsViewModel
 import org.dizitart.no2.Nitrite
 import org.kodein.di.DI
 import org.kodein.di.bindConstant
@@ -23,8 +22,7 @@ val di = DI {
     bindSingleton<PlayerService> {PlayerServiceImpl(instance())}
     //bindSingleton<StateKeeper> {()}
     bindSingleton {AudioPlayerComponent()}
-    bindSingleton {BoxStationsViewModel()}
-    bindSingleton {BoxPlayerViewModel(instance())}
+    bindSingleton {StationsViewModel(instance(), instance())}
     bindSingleton<Nitrite>{
         Nitrite
             .builder()

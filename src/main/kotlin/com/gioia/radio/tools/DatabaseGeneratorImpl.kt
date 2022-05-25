@@ -58,7 +58,8 @@ class DatabaseGeneratorImpl (
                                 url2 = radio["7"],
                                 url3 = radio["8"],
                                 url4 = radio["9"],
-                                url5 = radio["10"]
+                                url5 = radio["10"],
+                                isFavourite = false
                             )
                         )
                     }

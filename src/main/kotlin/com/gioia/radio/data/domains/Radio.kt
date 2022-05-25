@@ -13,11 +13,12 @@ class Radio(
     var url5: String?,
     var description: String?,
     var category: String?,
-    var language: String?
+    var language: String?,
+    var isFavourite: Boolean
 ) : Mappable, Nameable {
-    constructor() : this("", "", "", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "", "", "", false)
 
-    override fun nameValue(): String? {
+    override fun nameValue(): String {
         return name
     }
 
@@ -32,6 +33,7 @@ class Radio(
         document["description"] = description
         document["category"] = category
         document["language"] = language
+        document["isFavourite"] = isFavourite
         return document
     }
 
@@ -48,5 +50,6 @@ class Radio(
         this.description = (document["description"] as String)
         this.category = (document["category"] as String)
         this.language = (document["language"] as String)
+        this.isFavourite = (document["isFavourite"] as Boolean)
     }
 }

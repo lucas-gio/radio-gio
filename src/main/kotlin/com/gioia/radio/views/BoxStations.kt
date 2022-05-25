@@ -13,20 +13,19 @@ import cafe.adriel.bonsai.core.node.Node
 import cafe.adriel.bonsai.core.tree.Tree
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
-import com.gioia.radio.views.viewModels.BoxStationsViewModel
+import com.gioia.radio.views.viewModels.StationsViewModel
 
 @Composable
 fun BoxStations(
-    modifier: Modifier = Modifier,
-    boxStationsViewModel: BoxStationsViewModel
+    stationsViewModel: StationsViewModel
 ){
-    val state by boxStationsViewModel.model
+    val state by stationsViewModel.model
 
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
-        value = state.countryName,
-        onValueChange = boxStationsViewModel::onSearchByCountryName,
+        value = state.countryFilter,
+        onValueChange = stationsViewModel::onSearchByCountryName,
         label = {
             Text(text = "Nombre de país")
         }
@@ -34,8 +33,8 @@ fun BoxStations(
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
-        value = state.radioName,
-        onValueChange = boxStationsViewModel::onSearchByRadioName,
+        value = state.radioFilter,
+        onValueChange = stationsViewModel::onSearchByRadioName,
         label = {
             Text(text = "Nombre de la radio")
         }
@@ -57,6 +56,6 @@ fun BoxStations(
                 }
             }
         },
-        onDoubleClick = {node: Node<Country> -> boxStationsViewModel.onDoubleclickInNode(node) }
+        onDoubleClick = {node: Node<Country> -> stationsViewModel.onDoubleclickInNode(node) }
     )
 }

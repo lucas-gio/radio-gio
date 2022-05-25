@@ -10,4 +10,6 @@ interface CountryRepository {
 
     fun findByCountryNameLike(countryName: String): List<Country>
     fun findByRadioNameLike(radioName: String): List<Country>
+
+    fun setFavourite(countryName: String, radioName: String)
 }

@@ -54,6 +54,14 @@ class CountryRepositoryImpl (
                     ObjectFilters.regex("name", "^(?i).{0,}$radioName{0,}$")))
     }
 
+    override fun setFavourite(countryName: String, radioName: String) {
+        /*database
+            .getRepository(Country::class.java)
+            .update(
+
+            )*/
+    }
+
     private fun findFiveCountryResults(criteria: ObjectFilter): List<Country>{
         val result: List<Country> = database
             .getRepository(Country::class.java)
