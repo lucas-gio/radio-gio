@@ -1,8 +1,12 @@
 package com.gioia.radio.views
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Cancel
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -30,6 +34,15 @@ fun BoxStations(
         onValueChange = stationsViewModel::onSearchByCountryName,
         label = {
             Text(text = messageService.msg("search.countryName"))
+        },
+        trailingIcon = {
+            if (state.countryFilter.isNotBlank())
+                IconButton(onClick = stationsViewModel::clearCountryFilter) {
+                    Icon(
+                        imageVector = Icons.Rounded.Cancel,
+                        contentDescription = messageService.msg("search.countryName.clear")
+                    )
+                }
         }
     )
     OutlinedTextField(
@@ -39,9 +52,19 @@ fun BoxStations(
         onValueChange = stationsViewModel::onSearchByRadioName,
         label = {
             Text(text = messageService.msg("search.radioName"))
+        },
+        trailingIcon = {
+            if (state.radioFilter.isNotBlank())
+                IconButton(onClick = stationsViewModel::clearRadioFilter) {
+                    Icon(
+                        imageVector = Icons.Rounded.Cancel,
+                        contentDescription = messageService.msg("search.radioName.clear")
+                    )
+                }
         }
     )
     Bonsai(
+        modifier = Modifier,
         tree = Tree {
             state.countries.forEach { country: Country ->
                 Branch(
@@ -57,6 +80,6 @@ fun BoxStations(
                 }
             }
         },
-        onDoubleClick = {node: Node<Country> -> stationsViewModel.onDoubleclickInNode(node) }
+        onDoubleClick = {node: Node<Country> -> stationsViewModel.onDoubleclickInNode(node as Node<Any>) }
     )
 }

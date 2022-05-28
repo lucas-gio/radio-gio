@@ -63,7 +63,7 @@ compose.desktop {
         //https://github.com/JetBrains/compose-jb/tree/master/tutorials/Native_distributions_and_local_execution
         mainClass = "com.gioia.radio.MainKt"
         // java home para el plugin de compilación nativa.
-        javaHome = System.getenv("JDK_11")
+        javaHome = System.getenv("JDK_16")
         nativeDistributions {
             macOS {
                 //iconFile.set(project.file("icon.icns"))

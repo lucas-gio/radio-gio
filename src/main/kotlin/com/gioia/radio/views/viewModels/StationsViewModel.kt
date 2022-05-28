@@ -38,12 +38,17 @@ class StationsViewModel(
         val selectedCountryName: String = "",
         val selectedRadio: Radio? = null,
         var isPlaying: Boolean = false,
-        val isFavourite: Boolean = false
+        val isFavourite: Boolean = false,
+        var resume: String = "",
     )/*: Parcelable */{
         init{
             if(countries.isEmpty()) {
                 val countryRepository: CountryRepository by di.instance()
                 countries = countryRepository.getInitialRadioStations()
+            }
+
+            if(selectedRadio != null){
+                resume = "${selectedRadio.name} - ${selectedRadio.description}"
             }
         }
     }
@@ -58,7 +63,7 @@ class StationsViewModel(
         return newModel
     }
 
-    private fun toggleExpansionBranch(node: BranchNode<Country>){
+    private fun toggleExpansionBranch(node: BranchNode<Any>){
         node.setExpanded(!node.isExpanded, 1 )
         println("${if(!node.isExpanded) "Expandido" else "Colapsado"} el nodo ${node.name}")
     }
@@ -79,10 +84,10 @@ class StationsViewModel(
         logger.atDebug().log("Buscó por nombre de radio, buscando por $text")
     }
 
-    fun onDoubleclickInNode(node: Node<Country>){
+    fun onDoubleclickInNode(node: Node<Any>){
         when (node) {
             is LeafNode<*> -> onRadioSelected(node.content as Radio)
-            is BranchNode<Country> -> toggleExpansionBranch(node)
+            is BranchNode<*> -> toggleExpansionBranch(node as BranchNode<Any>)
         }
     }
 
@@ -102,6 +107,16 @@ class StationsViewModel(
         logger.atDebug().log("Añandiendo a / eliminando de favoritos la radio ${state.selectedRadio?.name}")
         playerService.toggleFavourite(state.isFavourite, state.selectedRadio)
         changeState { state.copy(isFavourite = !state.isFavourite) }
+    }
+
+    fun clearCountryFilter(){
+        logger.atDebug().log("Limpiando filtro de país")
+        changeState { state.copy(countryFilter = "") }
+    }
+
+    fun clearRadioFilter(){
+        logger.atDebug().log("Limpiando filtro de radio")
+        changeState { state.copy(radioFilter = ""/*, countries = countryRepository.findByCountryNameLike("")*/) }
     }
 
     fun onPreviousPressed(){
