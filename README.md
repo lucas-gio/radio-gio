@@ -7,6 +7,7 @@
 # Radio Kotlin Compose
 
 [![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-kotlin-compose&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-kotlin-compose)
 
 > Radio kotlin compose, an online radio player for desktop and android.
 
