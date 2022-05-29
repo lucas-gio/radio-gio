@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
+import androidx.compose.material.Slider
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
@@ -97,6 +98,12 @@ fun BoxPlayer(
                 )
             }
         }
+        Slider(
+            value = state.volume,
+            valueRange = 0f..100f,
+            onValueChange = stationsViewModel::onVolumeChange,
+            onValueChangeFinished = stationsViewModel::onVolumeConfirmed
+        )
         Text(
             modifier = Modifier.padding(5.dp),
             text = state.resume

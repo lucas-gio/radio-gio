@@ -18,6 +18,7 @@ class ConfigurationRepositoryImpl(
         database
             .getRepository(Configuration::class.java)
             .update(configuration, true)
+        logger.atDebug().log("Actualizada la configuración ${configuration.key}, valor: ${configuration.value}")
     }
 
     override fun find(key: String): Configuration? {
@@ -28,7 +29,7 @@ class ConfigurationRepositoryImpl(
                 ObjectFilters.eq("key", key)
             )
             ?.firstOrDefault()
-        logger.atDebug().log("Configuración $key, valor: ${config?.value?: "n.d"}")
+        logger.atDebug().log("Leída la configuración $key, valor: ${config?.value?: "n.d"}")
         return config
     }
 

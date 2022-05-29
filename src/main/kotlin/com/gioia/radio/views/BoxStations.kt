@@ -37,7 +37,7 @@ fun BoxStations(
         },
         trailingIcon = {
             if (state.countryFilter.isNotBlank())
-                IconButton(onClick = stationsViewModel::clearCountryFilter) {
+                IconButton(onClick = stationsViewModel::onClearCountryFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.countryName.clear")
@@ -55,7 +55,7 @@ fun BoxStations(
         },
         trailingIcon = {
             if (state.radioFilter.isNotBlank())
-                IconButton(onClick = stationsViewModel::clearRadioFilter) {
+                IconButton(onClick = stationsViewModel::onClearRadioFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.radioName.clear")

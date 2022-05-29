@@ -26,6 +26,7 @@ var icons = "1.1.1"
 var log = "2.0.0-alpha7"
 var vlc = "4.7.2"
 var decompose = "0.6.0-native-compose-01"
+var coroutines = "1.6.1"
 
 repositories {
     google()
@@ -45,6 +46,8 @@ dependencies {
     implementation("org.slf4j:slf4j-log4j12:$log")
     // https://mvnrepository.com/artifact/uk.co.caprica/vlcj
     implementation("uk.co.caprica:vlcj:$vlc")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
+
 
     //implementation("com.arkivanov.decompose:decompose:$decompose")
     //implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decompose")

@@ -6,4 +6,5 @@ interface PlayerService {
     fun playRadio(url: String)
     fun stopRadio()
     fun toggleFavourite(isNowInFavourite: Boolean, radio: Radio?)
+    fun changeVolume(value: Int)
 }

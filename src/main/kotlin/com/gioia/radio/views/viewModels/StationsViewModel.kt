@@ -9,6 +9,8 @@ import cafe.adriel.bonsai.core.node.Node
 import com.gioia.radio.config.di
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.enums.ConfigKey
+import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.CountryRepository
 import com.gioia.radio.services.PlayerService
 import org.kodein.di.instance
@@ -18,9 +20,9 @@ import org.slf4j.LoggerFactory
 
 class StationsViewModel(
     private val playerService: PlayerService,
-    private val countryRepository: CountryRepository
+    private val countryRepository: CountryRepository,
+    private val configurationRepository: ConfigurationRepository,
 )  {
-
     //  private val stateKeeper: StateKeeper by di.instance()
     private var logger: Logger = LoggerFactory.getLogger(StationsViewModel::class.java)
     //private val boxStationsState: String = "boxStationsState"
@@ -29,6 +31,15 @@ class StationsViewModel(
     private val _model = mutableStateOf(/*stateKeeper.consume(boxStationsState) ?: */StationsModel())
     val model: State<StationsModel> = _model
     private val state by model // para evitar hacer model.value todo el tiempo
+
+    init {
+        changeState { state.copy(
+            countries = countryRepository.getInitialRadioStations(),
+            volume = configurationRepository.find(ConfigKey.Volume.toString())?.value?.toFloatOrNull() ?: 50f,
+        )}
+        logger.atDebug().log("Valores iniciales estalecidos")
+        configurationRepository.find(ConfigKey.Locale.toString())
+    }
 
     /* @Parcelize*/ // Preserva el estado cuando se rota una pantalla android.
     data class StationsModel(
@@ -40,13 +51,9 @@ class StationsViewModel(
         var isPlaying: Boolean = false,
         val isFavourite: Boolean = false,
         var resume: String = "",
+        var volume: Float = 50f
     )/*: Parcelable */{
         init{
-            if(countries.isEmpty()) {
-                val countryRepository: CountryRepository by di.instance()
-                countries = countryRepository.getInitialRadioStations()
-            }
-
             if(selectedRadio != null){
                 resume = "${selectedRadio.name} - ${selectedRadio.description}"
             }
@@ -109,12 +116,12 @@ class StationsViewModel(
         changeState { state.copy(isFavourite = !state.isFavourite) }
     }
 
-    fun clearCountryFilter(){
+    fun onClearCountryFilter(){
         logger.atDebug().log("Limpiando filtro de país")
         changeState { state.copy(countryFilter = "") }
     }
 
-    fun clearRadioFilter(){
+    fun onClearRadioFilter(){
         logger.atDebug().log("Limpiando filtro de radio")
         changeState { state.copy(radioFilter = ""/*, countries = countryRepository.findByCountryNameLike("")*/) }
     }
@@ -125,5 +132,19 @@ class StationsViewModel(
 
     fun onNextPressed(){
 
+    }
+
+    fun onVolumeChange(value: Float){
+        logger.atDebug().log("Cambiando el volumen a $value")
+        playerService.changeVolume(value.toInt())
+        changeState { state.copy(volume = value) }
+    }
+
+    fun onVolumeConfirmed(){
+        val volumeConfig = configurationRepository.find(ConfigKey.Volume.toString())
+        if(volumeConfig != null){
+            volumeConfig.value = state.volume.toString()
+            configurationRepository.upsert(volumeConfig)
+        }
     }
 }

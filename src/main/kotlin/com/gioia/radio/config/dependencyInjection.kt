@@ -28,7 +28,7 @@ val di = DI {
     bindSingleton<MessageService> {MessageServiceImpl(instance())}
     //bindSingleton<StateKeeper> {()}
     bindSingleton {AudioPlayerComponent()}
-    bindSingleton {StationsViewModel(instance(), instance())}
+    bindSingleton {StationsViewModel(instance(), instance(), instance())}
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{

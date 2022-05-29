@@ -25,7 +25,8 @@ class DatabaseGeneratorImpl (
 
     private fun initConfigurations(){
         listOf(
-            Configuration(ConfigKey.Locale.toString(), Locales.EN.toString(), "Selected locale for translations")
+            Configuration(ConfigKey.Locale.toString(), Locales.EN.toString(), "Selected locale for translations"),
+            Configuration(ConfigKey.Volume.toString(), "50", "Last volume used"),
         )
         .forEach(configurationRepository::upsert)
 

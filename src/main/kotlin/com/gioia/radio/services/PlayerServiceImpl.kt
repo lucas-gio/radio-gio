@@ -22,4 +22,8 @@ class PlayerServiceImpl(
         if(radio == null) return
         logger.atDebug().log("${if(isNowInFavourite) "Añandiendo a" else "Eliminando de"} favoritos la radio ${radio.name}")
     }
+
+    override fun changeVolume(value: Int){
+        audioPlayerComponent.mediaPlayer().audio().setVolume(value)
+    }
 }
