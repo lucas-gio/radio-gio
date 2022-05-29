@@ -1,7 +1,7 @@
 <p>
-  <a href="#">Español</a> |
+  <a href="">Español</a> |
   <a href="">Português</a> |
-  <a href="">English</a> 
+  <a href="#">English</a> 
 </p>
  
 
@@ -10,7 +10,7 @@
 [![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
 
 
-> Radio kotlin compose, un reproductor de radios online.
+> Radio kotlin compose, an online radio player for desktop and android.
 
 ### ✨ Demo
 
@@ -25,7 +25,7 @@
 1. Step 3
 
 
-## 🏗 Estado
+## 🏗 State
 
 |![](https://media.giphy.com/media/jkSvCVEXWlOla/giphy.gif) |
 |:--:|
@@ -54,22 +54,14 @@ Please make sure to update tests as appropriate.
 ## ⭐ Show your support
 
 Give a ⭐️ if this project helped you!
-<!--
-<a href="https://www.patreon.com/-">
-  <img alt="Patron Link" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"/>
-</a>
 
-<a href="https://www.buymeacoffee.com/-" target="_blank">
+<a href="https://www.buymeacoffee.com/lucasgioia" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="160">
 </a>
 
-<a href="https://www.paypal.me/-" target="_blank">
-    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donation" width="160">
-</a>
--->
 ## ☑️ Restante
 
-- Las tareas del proyecto están en la solapa projects: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
+- The todo list is in projects tab: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
 
 ## 📝 License
 
