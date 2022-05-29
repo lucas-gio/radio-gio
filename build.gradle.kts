@@ -17,7 +17,7 @@ sonarqube {
 }
 
 group = "com.gioia"
-version = "v1.0.0-alpha"
+//version = "v1.0.0"
 var nitrite = "3.4.4"
 var kodein = "7.11.0"
 var gson = "2.9.0"
@@ -75,10 +75,17 @@ compose.desktop {
             linux {
                 //iconFile.set(project.file("icon.png"))
             }
-            targetFormats(TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "radioKotlinCompose"
-            packageVersion = "0.1.0"
-            description = "Radio online hecha con kotlin y compose"
+            targetFormats(
+                TargetFormat.Deb,
+                TargetFormat.Rpm,
+                TargetFormat.Dmg,
+                TargetFormat.Exe,
+                TargetFormat.Msi)
+            packageName = "Radio kotlin compose"
+            //packageVersion = "v1.0.0"
+            //version = "v1.0.0"
+            description = "Radio kotlin compose, an online radio player for desktop and android."
+            appResourcesRootDir.set(project.layout.projectDirectory.file("file.db").asFile)
         }
     }
 }
