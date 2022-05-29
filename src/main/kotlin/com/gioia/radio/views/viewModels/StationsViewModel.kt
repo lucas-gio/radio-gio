@@ -3,17 +3,12 @@ package com.gioia.radio.views.viewModels
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import cafe.adriel.bonsai.core.node.BranchNode
-import cafe.adriel.bonsai.core.node.LeafNode
-import cafe.adriel.bonsai.core.node.Node
-import com.gioia.radio.config.di
 import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
 import com.gioia.radio.data.enums.ConfigKey
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.CountryRepository
 import com.gioia.radio.services.PlayerService
-import org.kodein.di.instance
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -51,7 +46,8 @@ class StationsViewModel(
         var isPlaying: Boolean = false,
         val isFavourite: Boolean = false,
         var resume: String = "",
-        var volume: Float = 50f
+        var volume: Float = 50f,
+        var isExpanded: Boolean = false,
     )/*: Parcelable */{
         init{
             if(selectedRadio != null){
@@ -70,12 +66,7 @@ class StationsViewModel(
         return newModel
     }
 
-    private fun toggleExpansionBranch(node: BranchNode<Any>){
-        node.setExpanded(!node.isExpanded, 1 )
-        println("${if(!node.isExpanded) "Expandido" else "Colapsado"} el nodo ${node.name}")
-    }
-
-    private fun onRadioSelected(radio: Radio) {
+    fun onRadioSelected(radio: Radio) {
         if(radio.name == state.selectedRadio?.name) return
         logger.atDebug().log("Seleccionada la radio ${radio.name}")
         onPlayPressed(true, radio)
@@ -89,13 +80,6 @@ class StationsViewModel(
     fun onSearchByRadioName(text: String) {
         changeState { state.copy(radioFilter = text, countries = countryRepository.findByRadioNameLike(countryFilter)) }
         logger.atDebug().log("Buscó por nombre de radio, buscando por $text")
-    }
-
-    fun onDoubleclickInNode(node: Node<Any>){
-        when (node) {
-            is LeafNode<*> -> onRadioSelected(node.content as Radio)
-            is BranchNode<*> -> toggleExpansionBranch(node as BranchNode<Any>)
-        }
     }
 
     fun onPlayPressed(isPlaying: Boolean? = null, radio: Radio? = null){
@@ -126,10 +110,16 @@ class StationsViewModel(
         changeState { state.copy(radioFilter = ""/*, countries = countryRepository.findByCountryNameLike("")*/) }
     }
 
+    /**
+     * Todo: implementar
+     */
     fun onPreviousPressed(){
 
     }
 
+    /**
+     * Todo: implementar
+     */
     fun onNextPressed(){
 
     }

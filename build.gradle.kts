@@ -18,7 +18,6 @@ sonarqube {
 
 group = "com.gioia"
 version = "1.0"
-var treeView = "1.2.0"
 var nitrite = "3.4.4"
 var kodein = "7.11.0"
 var gson = "2.9.0"
@@ -38,7 +37,6 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
-    implementation("cafe.adriel.bonsai:bonsai-core:$treeView")
     implementation("org.dizitart:nitrite:$nitrite")
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
