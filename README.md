@@ -4,11 +4,9 @@
   <a href="#">English</a> 
 </p>
  
-
 # Radio Kotlin Compose
 
 [![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
-
 
 > Radio kotlin compose, an online radio player for desktop and android.
 
@@ -24,12 +22,11 @@
 1. Step 2
 1. Step 3
 
-
 ## 🏗 State
 
 |![](https://media.giphy.com/media/jkSvCVEXWlOla/giphy.gif) |
 |:--:|
-| En construcción |
+| In development |
 
 ## ✍️ Author
 
@@ -37,7 +34,7 @@
 
 * Email: gioialucasf@gmail.com
 
-## 🤝 Contribución
+## 🤝 Contribution
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any
 contributions you make are **greatly appreciated**.
@@ -59,7 +56,7 @@ Give a ⭐️ if this project helped you!
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="160">
 </a>
 
-## ☑️ Restante
+## ☑️ To do list
 
 - The todo list is in projects tab: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
 
