@@ -17,7 +17,7 @@ sonarqube {
 }
 
 group = "com.gioia"
-version = "1.0"
+version = "v1.0.0-alpha"
 var nitrite = "3.4.4"
 var kodein = "7.11.0"
 var gson = "2.9.0"
