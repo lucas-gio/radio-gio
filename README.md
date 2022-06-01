@@ -1,4 +1,4 @@
-<!-- ![](cover.jpeg) -->
+![](cover.jpeg) 
 <p>
   <a href="">Español</a> |
   <a href="">Português</a> |
