@@ -1,4 +1,7 @@
 ![](cover.jpg) 
+
+[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose)
+
 <p>
   <a href="">Español</a> |
   <a href="">Português</a> |
