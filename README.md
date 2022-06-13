@@ -1,7 +1,5 @@
 ![](cover.jpg) 
 
-[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose)
-
 <p>
   <a href="">Español</a> |
   <a href="">Português</a> |
@@ -12,6 +10,7 @@
 
 [![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-kotlin-compose&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-kotlin-compose)
+[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose)
 [![Discussion](https://img.shields.io/badge/chat-Discussion-blueviolet)](https://github.com/lucas-gio/radio-kotlin-compose/discussions)
 
 > Radio kotlin compose, an online radio player for desktop and android.
