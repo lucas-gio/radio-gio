@@ -33,7 +33,7 @@
 |:--:|
 | In development |
 
-## Applied Technologies
+## ⭐️ Applied Technologies
 - [Kodein DI](https://kodein.org/di/) - Dependency injection
 - [Slf4j - log4j12](https://www.slf4j.org/) - Logging's api with log4j implementation
 - [Google Gson](https://github.com/google/gson) - Json interpreter
