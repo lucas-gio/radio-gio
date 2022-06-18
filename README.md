@@ -1,11 +1,11 @@
 ![](cover.jpg) 
-
+ <!--
 <p>
-  <a href="">Español</a> |
+ <a href="">Español</a> |
   <a href="">Português</a> |
   <a href="#">English</a> 
 </p>
- 
+  -->
 # Radio Kotlin Compose
 
 [![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
@@ -33,14 +33,14 @@
 |:--:|
 | In development |
 
-## Tecnologías aplicadas
-- [Kodein DI](https://kodein.org/di/) - Inyección de dependencias
-- [Slf4j - log4j12](https://www.slf4j.org/) - Api de logging con log4j como implementación
-- [Google Gson](https://github.com/google/gson) - Intérprete json
-- [NitriteDB](https://github.com/nitrite/nitrite-java) - Base de datos embebida
-- [Vlc4j](https://github.com/caprica/vlcj) - Backend de reproducción de radio
-- [Decompose](https://github.com/arkivanov/Decompose) - Navegación entre pantallas
-- [Kotlin](https://kotlinlang.org/) - Lenguaje de programación
+## Applied Technologies
+- [Kodein DI](https://kodein.org/di/) - Dependency injection
+- [Slf4j - log4j12](https://www.slf4j.org/) - Logging's api with log4j implementation
+- [Google Gson](https://github.com/google/gson) - Json interpreter
+- [NitriteDB](https://github.com/nitrite/nitrite-java) - Embedded database
+- [Vlc4j](https://github.com/caprica/vlcj) - Backend radio stations player
+- [Decompose](https://github.com/arkivanov/Decompose) - Screens navigation
+- [Kotlin](https://kotlinlang.org/) - Programming language
 
 ## ✍️ Author
 
