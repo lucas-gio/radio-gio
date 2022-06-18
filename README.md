@@ -33,6 +33,15 @@
 |:--:|
 | In development |
 
+## Tecnologías aplicadas
+- [Kodein DI](https://kodein.org/di/) - Inyección de dependencias
+- [Slf4j - log4j12](https://www.slf4j.org/) - Api de logging con log4j como implementación
+- [Google Gson](https://github.com/google/gson) - Intérprete json
+- [NitriteDB](https://github.com/nitrite/nitrite-java) - Base de datos embebida
+- [Vlc4j](https://github.com/caprica/vlcj) - Backend de reproducción de radio
+- [Decompose](https://github.com/arkivanov/Decompose) - Navegación entre pantallas
+- [Kotlin](https://kotlinlang.org/) - Lenguaje de programación
+
 ## ✍️ Author
 
 🧑🏻 **Lucas Gioia**
