@@ -37,15 +37,15 @@ class Radio(
         if (document == null) {
             return
         }
-        this.name = (document["name"] as String)
-        this.url = (document["url"] as String)
-        this.url2 = (document["url2"] as String)
-        this.url3 = (document["url3"] as String)
-        this.url4 = (document["url4"] as String)
-        this.url5 = (document["url5"] as String)
-        this.description = (document["description"] as String)
-        this.category = (document["category"] as String)
-        this.language = (document["language"] as String)
-        this.isFavourite = (document["isFavourite"] as Boolean)
+        this.name = document["name"] as String
+        this.url = document["url"] as String
+        this.url2 = document["url2"] as String
+        this.url3 = document["url3"] as String
+        this.url4 = document["url4"] as String
+        this.url5 = document["url5"] as String
+        this.description = document["description"] as String
+        this.category = document["category"] as String
+        this.language = document["language"] as String
+        this.isFavourite = document["isFavourite"] as Boolean
     }
 }
