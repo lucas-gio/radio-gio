@@ -1,31 +1,38 @@
-package com.gioia.radio.views
+package com.gioia.radio.ui.screens.main
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.arkivanov.decompose.ComponentContext
 import com.gioia.radio.services.MessageService
-import com.gioia.radio.views.viewModels.StationsViewModel
 
 @Composable
-@Preview
-fun MainWindow(messageService: MessageService,
-               stationsViewModel: StationsViewModel) {
+fun Main(componentContext: ComponentContext?,
+         messageService: MessageService,
+         mainComponent: MainComponent,
+) {
     Row(modifier = Modifier.fillMaxHeight().padding(16.dp)) {
         Column(
             Modifier.weight(1f)
         ) {
-            BoxStations(stationsViewModel = stationsViewModel,
+            Button(
+                onClick = mainComponent.onConfigPressed
+            ){
+                Text("Ir a configuración")
+            }
+            Stations(mainComponent = mainComponent,
                 messageService = messageService)
         }
         Column(
             Modifier.weight(1f)
         ) {
-            BoxPlayer(stationsViewModel = stationsViewModel,
+            Player(mainComponent = mainComponent,
                 messageService = messageService)
         }
     }

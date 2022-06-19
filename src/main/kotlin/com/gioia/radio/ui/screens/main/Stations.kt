@@ -1,4 +1,4 @@
-package com.gioia.radio.views
+package com.gioia.radio.ui.screens.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,26 +12,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.gioia.radio.services.MessageService
-import com.gioia.radio.views.viewModels.StationsViewModel
+import com.gioia.radio.ui.screens.common.ExpandableCountryRow
 
 @Composable
-fun BoxStations(
-    stationsViewModel: StationsViewModel,
+fun Stations(
+    mainComponent: MainComponent,
     messageService: MessageService
 ) {
-    val state by stationsViewModel.model
+    val state by mainComponent.model
 
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
         value = state.countryFilter,
-        onValueChange = stationsViewModel::onSearchByCountryName,
+        onValueChange = mainComponent::onSearchByCountryName,
         label = {
             Text(text = messageService.msg("search.countryName"))
         },
         trailingIcon = {
             if (state.countryFilter.isNotBlank())
-                IconButton(onClick = stationsViewModel::onClearCountryFilter) {
+                IconButton(onClick = mainComponent::onClearCountryFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.countryName.clear")
@@ -43,13 +43,13 @@ fun BoxStations(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
         value = state.radioFilter,
-        onValueChange = stationsViewModel::onSearchByRadioName,
+        onValueChange = mainComponent::onSearchByRadioName,
         label = {
             Text(text = messageService.msg("search.radioName"))
         },
         trailingIcon = {
             if (state.radioFilter.isNotBlank())
-                IconButton(onClick = stationsViewModel::onClearRadioFilter) {
+                IconButton(onClick = mainComponent::onClearRadioFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.radioName.clear")
@@ -61,7 +61,7 @@ fun BoxStations(
         state.countries.forEach {
             ExpandableCountryRow(
                 country = it,
-                onRadioClick = stationsViewModel::onRadioSelected
+                onRadioClick = mainComponent::onRadioSelected
             )
         }
     }

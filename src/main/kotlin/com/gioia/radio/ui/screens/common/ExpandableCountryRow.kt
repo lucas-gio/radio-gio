@@ -1,4 +1,4 @@
-package com.gioia.radio.views
+package com.gioia.radio.ui.screens.common
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable

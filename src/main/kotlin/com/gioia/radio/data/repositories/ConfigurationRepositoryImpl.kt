@@ -1,7 +1,6 @@
 package com.gioia.radio.data.repositories
 
 import com.gioia.radio.data.domains.Configuration
-import com.gioia.radio.tools.DatabaseGeneratorImpl
 import org.dizitart.no2.IndexOptions
 import org.dizitart.no2.IndexType
 import org.dizitart.no2.Nitrite

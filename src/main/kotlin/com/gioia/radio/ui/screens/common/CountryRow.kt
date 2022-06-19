@@ -1,4 +1,4 @@
-package com.gioia.radio.views
+package com.gioia.radio.ui.screens.common
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,20 +10,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.domains.Country
 
 @Composable
-fun radioRow(
-    radio: Radio,
+fun countryRow(
+    country: Country,
     modifier: Modifier = Modifier,
+    control: @Composable () -> Unit,
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
             .height(48.dp)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        contentAlignment = Alignment.CenterStart
+            .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
-        Text(text = radio.name, style = MaterialTheme.typography.caption)
+        Text(
+            text = country.name,
+            style = MaterialTheme.typography.body2,
+            modifier = Modifier.align(
+                Alignment.CenterStart
+            )
+        )
+        Box(modifier = Modifier.align(Alignment.CenterEnd)) {
+            control()
+        }
     }
+
 }

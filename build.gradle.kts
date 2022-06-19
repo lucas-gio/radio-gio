@@ -19,36 +19,35 @@ sonarqube {
 group = "com.gioia"
 //version = "v1.0.0"
 var nitrite = "3.4.4"
-var kodein = "7.11.0"
+var kodein = "7.12.0"
 var gson = "2.9.0"
 var icons = "1.1.1"
 var log = "2.0.0-alpha7"
-var vlc = "4.7.2"
+var vlc = "4.7.3"
 var decompose = "0.6.0-native-compose-01"
-var coroutines = "1.6.1"
+var coroutines = "1.6.2"
+var navigation = "2.4.2"
 
 repositories {
     google()
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    maven("https://maven.google.com")
+    maven("https://maven.google.com/")
 }
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation(kotlin("stdlib-jdk8"))
     implementation(compose.desktop.currentOs)
     implementation("org.dizitart:nitrite:$nitrite")
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
     implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
     implementation("org.slf4j:slf4j-log4j12:$log")
-    // https://mvnrepository.com/artifact/uk.co.caprica/vlcj
     implementation("uk.co.caprica:vlcj:$vlc")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
-
-
-    //implementation("com.arkivanov.decompose:decompose:$decompose")
-    //implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decompose")
+    implementation("com.arkivanov.decompose:decompose:$decompose")
+    implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decompose")
 }
 
 tasks.test {

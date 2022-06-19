@@ -1,5 +1,7 @@
 package com.gioia.radio.config
 
+import com.arkivanov.essenty.statekeeper.StateKeeper
+import com.arkivanov.essenty.statekeeper.StateKeeperDispatcher
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.ConfigurationRepositoryImpl
 import com.gioia.radio.data.repositories.CountryRepository
@@ -10,12 +12,12 @@ import com.gioia.radio.services.PlayerService
 import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
-import com.gioia.radio.views.viewModels.StationsViewModel
+import com.gioia.radio.ui.screens.configuration.ConfigurationComponent
+import com.gioia.radio.ui.screens.configuration.ConfigurationComponentImpl
+import com.gioia.radio.ui.screens.main.MainComponent
+import com.gioia.radio.ui.screens.main.MainComponentImpl
 import org.dizitart.no2.Nitrite
-import org.kodein.di.DI
-import org.kodein.di.bindConstant
-import org.kodein.di.bindSingleton
-import org.kodein.di.instance
+import org.kodein.di.*
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 import java.io.File
 
@@ -26,9 +28,10 @@ val di = DI {
     bindSingleton<ConfigurationRepository> {ConfigurationRepositoryImpl(instance())}
     bindSingleton<PlayerService> {PlayerServiceImpl(instance())}
     bindSingleton<MessageService> {MessageServiceImpl(instance())}
-    //bindSingleton<StateKeeper> {()}
     bindSingleton {AudioPlayerComponent()}
-    bindSingleton {StationsViewModel(instance(), instance(), instance())}
+    bindSingleton<StateKeeper> { StateKeeperDispatcher() }
+    bindSingleton<MainComponent> { MainComponentImpl(instance(), instance(), instance(), instance()) }
+    bindSingleton<ConfigurationComponent> { ConfigurationComponentImpl(instance()) }
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{
@@ -40,3 +43,5 @@ val di = DI {
     bindConstant(tag = "defaultHeight") {500}
     bindConstant(tag = "defaultWidth") {900}
 }
+
+val dk = di.direct
