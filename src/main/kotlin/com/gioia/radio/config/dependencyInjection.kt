@@ -12,6 +12,7 @@ import com.gioia.radio.services.PlayerService
 import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
+import com.gioia.radio.ui.screens.common.NavigationItem
 import com.gioia.radio.ui.screens.configuration.ConfigurationComponent
 import com.gioia.radio.ui.screens.configuration.ConfigurationComponentImpl
 import com.gioia.radio.ui.screens.main.MainComponent
@@ -40,8 +41,19 @@ val di = DI {
             .filePath(".${File.separator}file.db")
             .openOrCreate()
     }
-    bindConstant(tag = "defaultHeight") {500}
-    bindConstant(tag = "defaultWidth") {900}
+
+    bindSingleton(tag = DependencyInjectionTags.NavigationItems.toString()){
+        listOf(
+            NavigationItem.Radios,
+            NavigationItem.Search,
+            NavigationItem.Favourites,
+            NavigationItem.Settings,
+        )
+    }
 }
 
 val dk = di.direct
+
+enum class DependencyInjectionTags{
+    NavigationItems,
+}
