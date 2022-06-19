@@ -29,7 +29,7 @@ class MainComponentImpl(
     // Si statekeeper contiene el valor almacenado, entonces lo usa, sino usa un nuevo objeto Model.
     private val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: MainModel())
     override val model: State<MainModel> = _model
-    private val state by model // para evitar hacer model.value todo el tiempo
+    private val state by model // para evitar hacer model.value siempre
 
     override var componentContext: ComponentContext? = null
     override var onConfigPressed: () -> Unit = {}
@@ -54,7 +54,7 @@ class MainComponentImpl(
     @Composable
     override fun render() {
         Main(
-            componentContext = componentContext,
+            //componentContext = componentContext,
             messageService = dk.instance(),
             mainComponent = this
         )

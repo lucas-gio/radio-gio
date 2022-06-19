@@ -13,7 +13,7 @@ import com.arkivanov.decompose.ComponentContext
 import com.gioia.radio.services.MessageService
 
 @Composable
-fun Main(componentContext: ComponentContext?,
+fun Main(/*componentContext: ComponentContext?,*/
          messageService: MessageService,
          mainComponent: MainComponent,
 ) {
