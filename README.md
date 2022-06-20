@@ -15,7 +15,8 @@
 
 > Radio kotlin compose, an online radio player for desktop and android.
 
-### ✨ Demo
+### ✨ Screenshoot
+![](screen.jpg)
 
 ## 🦿 Prerequisites
 

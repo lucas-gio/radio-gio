@@ -2,6 +2,17 @@ import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+group = "com.gioia"
+//version = "v1.0.0"
+var nitrite = "3.4.4"
+var kodein = "7.12.0"
+var gson = "2.9.0"
+var log = "2.0.0-alpha7"
+var vlc = "4.7.3"
+var decompose = "0.6.0-native-compose-01"
+var coroutines = "1.6.2"
+var navigation = "2.4.2"
+
 plugins {
     kotlin("jvm") version "1.6.10"
     id("org.jetbrains.compose") version "1.1.1"
@@ -16,18 +27,6 @@ sonarqube {
   }
 }
 
-group = "com.gioia"
-//version = "v1.0.0"
-var nitrite = "3.4.4"
-var kodein = "7.12.0"
-var gson = "2.9.0"
-var icons = "1.1.1"
-var log = "2.0.0-alpha7"
-var vlc = "4.7.3"
-var decompose = "0.6.0-native-compose-01"
-var coroutines = "1.6.2"
-var navigation = "2.4.2"
-
 repositories {
     google()
     mavenCentral()
@@ -39,10 +38,11 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(kotlin("stdlib-jdk8"))
     implementation(compose.desktop.currentOs)
+    implementation(compose.materialIconsExtended)
+    implementation(compose.foundation)
     implementation("org.dizitart:nitrite:$nitrite")
     implementation("org.kodein.di:kodein-di-framework-compose:$kodein")
     implementation("com.google.code.gson:gson:$gson")
-    implementation("org.jetbrains.compose.material:material-icons-extended-desktop:$icons")
     implementation("org.slf4j:slf4j-log4j12:$log")
     implementation("uk.co.caprica:vlcj:$vlc")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
@@ -56,6 +56,7 @@ tasks.test {
 
 tasks.withType<KotlinCompile>().all{
     kotlinOptions.jvmTarget = "16"
+    kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
 }
 
 compose.desktop {

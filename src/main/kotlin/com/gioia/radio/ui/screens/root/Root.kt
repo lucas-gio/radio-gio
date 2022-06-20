@@ -7,7 +7,7 @@ import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.animation.child.childAnimation
 import com.arkivanov.decompose.extensions.compose.jetbrains.animation.child.slide
-import com.gioia.radio.ui.screens.common.NavigationBar
+import com.gioia.radio.ui.screens.root.bottom.NavigationBar
 
 @OptIn(ExperimentalDecomposeApi::class)
 @Composable
@@ -19,7 +19,7 @@ fun Root(rootComponent: RootComponent) {
         Scaffold(
             bottomBar = {
                 BottomAppBar {
-                    NavigationBar()
+                    NavigationBar(rootComponent)
                 }
             }
         ) {

@@ -105,11 +105,11 @@ class MainComponentImpl(
     }
 
     override fun onPreviousPressed(){
-        TODO("")
+        TODO("") //fixme
     }
 
     override fun onNextPressed(){
-        TODO("")
+        TODO("")//fixme
     }
 
     override fun onVolumeChange(value: Float){

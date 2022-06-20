@@ -12,13 +12,15 @@ import com.gioia.radio.services.PlayerService
 import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
-import com.gioia.radio.ui.screens.common.NavigationItem
-import com.gioia.radio.ui.screens.configuration.ConfigurationComponent
-import com.gioia.radio.ui.screens.configuration.ConfigurationComponentImpl
 import com.gioia.radio.ui.screens.main.MainComponent
 import com.gioia.radio.ui.screens.main.MainComponentImpl
+import com.gioia.radio.ui.screens.settings.SettingsComponent
+import com.gioia.radio.ui.screens.settings.SettingsComponentImpl
 import org.dizitart.no2.Nitrite
-import org.kodein.di.*
+import org.kodein.di.DI
+import org.kodein.di.bindSingleton
+import org.kodein.di.direct
+import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 import java.io.File
 
@@ -32,7 +34,7 @@ val di = DI {
     bindSingleton {AudioPlayerComponent()}
     bindSingleton<StateKeeper> { StateKeeperDispatcher() }
     bindSingleton<MainComponent> { MainComponentImpl(instance(), instance(), instance(), instance()) }
-    bindSingleton<ConfigurationComponent> { ConfigurationComponentImpl(instance()) }
+    bindSingleton<SettingsComponent> { SettingsComponentImpl(instance()) }
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{
@@ -41,19 +43,6 @@ val di = DI {
             .filePath(".${File.separator}file.db")
             .openOrCreate()
     }
-
-    bindSingleton(tag = DependencyInjectionTags.NavigationItems.toString()){
-        listOf(
-            NavigationItem.Radios,
-            NavigationItem.Search,
-            NavigationItem.Favourites,
-            NavigationItem.Settings,
-        )
-    }
 }
 
 val dk = di.direct
-
-enum class DependencyInjectionTags{
-    NavigationItems,
-}

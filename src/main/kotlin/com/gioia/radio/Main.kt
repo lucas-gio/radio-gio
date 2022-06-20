@@ -10,13 +10,11 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.gioia.radio.config.DependencyInjectionTags
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.ui.screens.root.Root
 import com.gioia.radio.ui.screens.root.RootComponentImpl
 import org.dizitart.no2.Nitrite
-import org.kodein.di.constant
 import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 
@@ -35,8 +33,8 @@ fun main(args: Array<String>) {
             return@application
         }
 
-        val defaultWidth = 500.dp
-        val defaultHeight = 900.dp
+        val defaultWidth = 450.dp
+        val defaultHeight = 500.dp
 
         val windowState = rememberWindowState(
             size = DpSize(defaultWidth, defaultHeight)
