@@ -41,6 +41,7 @@
 - [NitriteDB](https://github.com/nitrite/nitrite-java) - Embedded database
 - [Vlc4j](https://github.com/caprica/vlcj) - Backend radio stations player
 - [Decompose](https://github.com/arkivanov/Decompose) - Screens navigation
+- [Compose multiplatform](https://github.com/JetBrains/compose-jb) - User interface framework
 - [Kotlin](https://kotlinlang.org/) - Programming language
 
 ## ✍️ Author
