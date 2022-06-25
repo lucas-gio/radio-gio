@@ -2,6 +2,7 @@ package com.gioia.radio.config
 
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.StateKeeperDispatcher
+import com.gioia.radio.App
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.ConfigurationRepositoryImpl
 import com.gioia.radio.data.repositories.CountryRepository
@@ -38,9 +39,20 @@ val di = DI {
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{
+        /*val filePath = if(App.isInitDatabase) {
+            val s = File.separator
+            ".${s}src${s}main${s}resources${s}common${s}file.db"
+        }
+        else{
+            File(System.getProperty("compose.application.resources.dir"))
+                .resolve("file.db")
+                .absolutePath
+        } fixme*/
+
         Nitrite
             .builder()
-            .filePath(".${File.separator}file.db")
+            //.filePath(filePath) fixme
+            .filePath("C:${File.separator}file.db")
             .openOrCreate()
     }
 }

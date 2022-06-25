@@ -66,9 +66,6 @@ compose.desktop {
         // java home para el plugin de compilación nativa.
         javaHome = System.getenv("JDK_16")
         nativeDistributions {
-            macOS {
-                //iconFile.set(project.file("icon.icns"))
-            }
             windows {
                 //iconFile.set(project.file("icon.ico"))
             }
@@ -78,14 +75,14 @@ compose.desktop {
             targetFormats(
                 TargetFormat.Deb,
                 TargetFormat.Rpm,
-                TargetFormat.Dmg,
                 TargetFormat.Exe,
                 TargetFormat.Msi)
             packageName = "Radio kotlin compose"
             //packageVersion = "v1.0.0"
             //version = "v1.0.0"
             description = "Radio kotlin compose, an online radio player for desktop and android."
-            appResourcesRootDir.set(project.layout.projectDirectory.file("file.db").asFile)
+            //appResourcesRootDir.set(project.layout.projectDirectory.file("file.db").asFile)
+            appResourcesRootDir.set(project.layout.projectDirectory.dir("resources"))
         }
     }
 }

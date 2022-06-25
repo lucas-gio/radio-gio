@@ -1,6 +1,7 @@
 package com.gioia.radio
 
 import androidx.compose.material.MaterialTheme
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
@@ -10,16 +11,44 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
+import com.gioia.radio.App.Companion.appName
+import com.gioia.radio.App.Companion.appVersion
+import com.gioia.radio.App.Companion.isInitDatabase
+import com.gioia.radio.App.Companion.releaseComponents
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.ui.screens.root.Root
 import com.gioia.radio.ui.screens.root.RootComponentImpl
+import com.gioia.radio.ui.themes.AppTheme
 import org.dizitart.no2.Nitrite
 import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 
+
+
+class App{
+    companion object{
+        var isInitDatabase: Boolean = false
+        var appName = "Radio kotlin compose by Lucas Gioia"
+        var appVersion = "v0.1"
+
+        fun releaseComponents(){
+            val audioPlayerComponent: AudioPlayerComponent by di.instance()
+
+            val database: Nitrite by di.instance()
+            if (!database.isClosed) {
+                database.close()
+            }
+
+            audioPlayerComponent.release()
+        }
+    }
+}
+
 @OptIn(ExperimentalDecomposeApi::class)
 fun main(args: Array<String>) {
+    isInitDatabase = args.any { it == "initDatabase" }
+
     val lifecycle = LifecycleRegistry()
 
     val rootComponent = RootComponentImpl(
@@ -27,7 +56,7 @@ fun main(args: Array<String>) {
     )
 
     application {
-        if (args.any { it == "initDatabase" }) {
+        if (isInitDatabase) {
             val databaseGenerator: DatabaseGenerator by di.instance()
             databaseGenerator.generateDatabase()
             return@application
@@ -44,14 +73,15 @@ fun main(args: Array<String>) {
 
         Window(
             state = windowState,
+            icon = painterResource("drawables/launcher_icons/system.png"),
             onCloseRequest = {
                 releaseComponents()
                 exitApplication()
             },
-            title = "Radio Kotlin Compose"
+            title = "$appName $appVersion"
         ) {
             //Surface(modifier = Modifier.fillMaxSize()) {
-                MaterialTheme {
+                AppTheme {
                     //CompositionLocalProvider(LocalScrollbarStyle provides defaultScrollbarStyle()) {
                         Root(
                             rootComponent = rootComponent
@@ -63,13 +93,3 @@ fun main(args: Array<String>) {
     }
 }
 
-fun releaseComponents(){
-    val audioPlayerComponent: AudioPlayerComponent by di.instance()
-
-    val database: Nitrite by di.instance()
-    if (!database.isClosed) {
-        database.close()
-    }
-
-    audioPlayerComponent.release()
-}

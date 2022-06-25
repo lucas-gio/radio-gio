@@ -33,14 +33,15 @@ class CountryRepositoryImpl (
     }
 
     override fun getInitialRadioStations(): List<Country>{
-        return database
+        return findByCountryNameLike("Portugal")
+        /*return database
             .getRepository(Country::class.java)
             ?.find(
                 FindOptions
                     .sort("name", SortOrder.Ascending)
                     .thenLimit(0, 5)
             )
-            ?.toList() ?: emptyList()
+            ?.toList() ?: emptyList()*/ //fixme
     }
 
     override fun findByCountryNameLike(countryName: String): List<Country>{

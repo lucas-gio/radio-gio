@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.root.bottom
+package com.gioia.radio.ui.screens.root.bottomAppBar
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -15,7 +15,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import com.gioia.radio.ui.screens.root.RootComponent
 
 @Composable
-fun NavigationBar(
+fun NavigationBottomBar(
     rootComponent: RootComponent
 ){
     val routerState by rootComponent.routerState.subscribeAsState()
