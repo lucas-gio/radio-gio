@@ -8,10 +8,10 @@
   -->
 # Radio Gio
 
-[![Build](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-kotlin-compose/actions/workflows/build.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-kotlin-compose&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-kotlin-compose)
-[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-kotlin-compose)
-[![Discussion](https://img.shields.io/badge/chat-Discussion-blueviolet)](https://github.com/lucas-gio/radio-kotlin-compose/discussions)
+[![Build](https://github.com/lucas-gio/radio-gio/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-gio/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-gio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-gio)
+[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-gio/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-gio)
+[![Discussion](https://img.shields.io/badge/chat-Discussion-blueviolet)](https://github.com/lucas-gio/radio-gio/discussions)
 
 > Radio gio, an online radio player for desktop and android.
 
@@ -74,7 +74,7 @@ Give a ⭐️ if this project helped you!
 
 ## ☑️ To do list
 
-- The todo list is in projects tab: https://github.com/lucas-gio/radio-kotlin-compose/projects/1
+- The todo list is in projects tab: https://github.com/lucas-gio/radio-gio/projects/1
 
 ## 📝 License
 
