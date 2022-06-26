@@ -25,8 +25,6 @@ import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 import java.io.File
 
-//fixme: Cambiar kodein por dagger/hilt (o no)
-// fixme: Ver si los viewmodel son singleton o factory
 val di = DI {
     bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance(), instance())}
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
@@ -37,7 +35,7 @@ val di = DI {
     bindSingleton<StateKeeper> { StateKeeperDispatcher() }
     bindSingleton<StationsViewModel> { StationsViewModelImpl(instance(), instance(), instance(), instance()) }
     bindSingleton<SettingsViewModel> { SettingsViewModelImpl(instance()) }
-    bindSingleton { WelcomeViewModelImpl() } //fixme
+    bindSingleton { WelcomeViewModelImpl() }
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{
@@ -49,11 +47,11 @@ val di = DI {
             File(System.getProperty("compose.application.resources.dir"))
                 .resolve("file.db")
                 .absolutePath
-        } fixme*/
+        } */
 
         Nitrite
             .builder()
-            //.filePath(filePath) fixme
+            //.filePath(filePath)
             .filePath("C:${File.separator}file.db")
             .openOrCreate()
     }

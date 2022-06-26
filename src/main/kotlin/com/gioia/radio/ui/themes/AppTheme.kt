@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 // Color set
-val LightTheme = lightColors() // TODO :
+val LightTheme = lightColors()
 val DarkTheme = darkColors(
     primary = Color(0xff30A3E6),
     onPrimary = Color.White,
@@ -22,7 +22,7 @@ val DarkTheme = darkColors(
 
 @Composable
 fun AppTheme(
-    isDark: Boolean = true, //fixme
+    isDark: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     MaterialTheme(

@@ -41,7 +41,7 @@ class CountryRepositoryImpl (
                     .sort("name", SortOrder.Ascending)
                     .thenLimit(0, 5)
             )
-            ?.toList() ?: emptyList()*/ //fixme
+            ?.toList() ?: emptyList()*/ //
     }
 
     override fun findByCountryNameLike(countryName: String): List<Country>{
@@ -56,7 +56,7 @@ class CountryRepositoryImpl (
     }
 
     override fun setFavourite(countryName: String, radioName: String) {
-        TODO("")//fixme
+        TODO("")//
         /*database
             .getRepository(Country::class.java)
             .update(

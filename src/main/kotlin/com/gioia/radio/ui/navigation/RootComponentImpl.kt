@@ -73,7 +73,7 @@ class RootComponentImpl(
                     componentContext = componentContext,
                     stationsViewModel = dk.instance()
                 )
-            ) //fixme: Pasar a la forma de WelcomeComponent, de un componente y viewModel
+            )
             is Config.Search -> Child.Search(
                 StationsComponent(
                     componentContext = componentContext,
