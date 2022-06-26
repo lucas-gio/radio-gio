@@ -16,14 +16,14 @@ var navigation = "2.4.2"
 plugins {
     kotlin("jvm") version "1.6.10"
     id("org.jetbrains.compose") version "1.1.1"
-    id("org.sonarqube") version "3.3"
+    id("org.sonarqube") version "3.4.0.2513"
 }
 
 sonarqube {
   properties {
-    property("sonar.projectKey", "lucas-gio_radio-gio")
-    property("sonar.organization", "lucas-gio")
-    property("sonar.host.url", "https://sonarcloud.io")
+      property("sonar.projectKey", "lucas-gio_radio-gio")
+      property("sonar.organization", "lucas-gio")
+      property("sonar.host.url", "https://sonarcloud.io")
   }
 }
 
