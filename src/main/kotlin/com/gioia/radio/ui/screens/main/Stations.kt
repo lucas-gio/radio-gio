@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.gioia.radio.services.MessageService
-import com.gioia.radio.ui.screens.common.ExpandableCountryRow
+import com.gioia.radio.ui.toreview.ExpandableCountryRow
 
 @Composable
 fun Stations(

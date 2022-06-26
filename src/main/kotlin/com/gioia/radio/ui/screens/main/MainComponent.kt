@@ -3,7 +3,7 @@ package com.gioia.radio.ui.screens.main
 import androidx.compose.runtime.State
 import com.arkivanov.decompose.ComponentContext
 import com.gioia.radio.data.domains.Radio
-import com.gioia.radio.ui.screens.root.Component
+import com.gioia.radio.ui.navigation.Component
 
 interface MainComponent: Component {
     val model: State<MainModel>

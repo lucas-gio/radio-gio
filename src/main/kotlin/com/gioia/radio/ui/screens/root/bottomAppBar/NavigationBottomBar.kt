@@ -12,7 +12,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.gioia.radio.ui.screens.root.RootComponent
+import com.gioia.radio.ui.navigation.RootComponent
 
 @Composable
 fun NavigationBottomBar(

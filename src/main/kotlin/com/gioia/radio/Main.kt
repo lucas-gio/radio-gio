@@ -1,6 +1,5 @@
 package com.gioia.radio
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -17,14 +16,12 @@ import com.gioia.radio.App.Companion.isInitDatabase
 import com.gioia.radio.App.Companion.releaseComponents
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
+import com.gioia.radio.ui.navigation.RootComponentImpl
 import com.gioia.radio.ui.screens.root.Root
-import com.gioia.radio.ui.screens.root.RootComponentImpl
 import com.gioia.radio.ui.themes.AppTheme
 import org.dizitart.no2.Nitrite
 import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
-
-
 
 class App{
     companion object{
@@ -80,15 +77,11 @@ fun main(args: Array<String>) {
             },
             title = "$appName $appVersion"
         ) {
-            //Surface(modifier = Modifier.fillMaxSize()) {
-                AppTheme {
-                    //CompositionLocalProvider(LocalScrollbarStyle provides defaultScrollbarStyle()) {
-                        Root(
-                            rootComponent = rootComponent
-                        )
-                   //}
-                }
-           // }
+            AppTheme {
+                Root(
+                    rootComponent = rootComponent
+                )
+            }
         }
     }
 }

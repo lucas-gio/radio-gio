@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.TOREVIEWOBSOLETE
+package com.gioia.radio.ui.toreview
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.gioia.radio.services.MessageService
-import com.gioia.radio.ui.screens.common.ExpandableCountryRow
 import com.gioia.radio.ui.screens.main.MainComponent
 
 @Composable

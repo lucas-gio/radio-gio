@@ -26,3 +26,5 @@ hs_err_pid*
 /gradlew
 /build/compose/default-icons/1.0.0/icon-windows.ico
 /build/
+/out/
+/src/main/resources/common/file.db

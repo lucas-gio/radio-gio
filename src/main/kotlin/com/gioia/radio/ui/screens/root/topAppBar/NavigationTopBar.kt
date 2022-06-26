@@ -1,12 +1,7 @@
 package com.gioia.radio.ui.screens.root.topAppBar
 
-import androidx.compose.material.Button
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Radio
 import androidx.compose.runtime.Composable
-import com.gioia.radio.ui.screens.root.RootComponent
 
 @Composable
 fun NavigationTopBar() {

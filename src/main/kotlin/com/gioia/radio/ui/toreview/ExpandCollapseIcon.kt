@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.common
+package com.gioia.radio.ui.toreview
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton

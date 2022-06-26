@@ -2,7 +2,6 @@ package com.gioia.radio.config
 
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.StateKeeperDispatcher
-import com.gioia.radio.App
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.ConfigurationRepositoryImpl
 import com.gioia.radio.data.repositories.CountryRepository
@@ -17,6 +16,7 @@ import com.gioia.radio.ui.screens.main.MainComponent
 import com.gioia.radio.ui.screens.main.MainComponentImpl
 import com.gioia.radio.ui.screens.settings.SettingsComponent
 import com.gioia.radio.ui.screens.settings.SettingsComponentImpl
+import com.gioia.radio.ui.screens.welcome.WelcomeViewModelImpl
 import org.dizitart.no2.Nitrite
 import org.kodein.di.DI
 import org.kodein.di.bindSingleton
@@ -36,6 +36,7 @@ val di = DI {
     bindSingleton<StateKeeper> { StateKeeperDispatcher() }
     bindSingleton<MainComponent> { MainComponentImpl(instance(), instance(), instance(), instance()) }
     bindSingleton<SettingsComponent> { SettingsComponentImpl(instance()) }
+    bindSingleton { WelcomeViewModelImpl() } //fixme
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")
     bindSingleton<Nitrite>{

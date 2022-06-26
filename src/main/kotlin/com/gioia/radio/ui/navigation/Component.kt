@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.root
+package com.gioia.radio.ui.navigation
 
 import androidx.compose.runtime.Composable
 
