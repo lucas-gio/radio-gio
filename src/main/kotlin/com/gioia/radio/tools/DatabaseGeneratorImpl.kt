@@ -60,38 +60,42 @@ class DatabaseGeneratorImpl (
                 logger.atWarn().log("PAÍS SIN NOMBRE: $country" )
             }
             else {
-                val radioList: MutableList<Radio> = mutableListOf()
-                for (radio in country.value) {
-                    if (radio["1"].isNullOrEmpty() || radio["6"].isNullOrEmpty()) {
-                        logger.atWarn().log("RADIO SIN NOMBRE: $radio")
-                    } else {
-                        radioList.add(
-                            Radio(
-                                name = radio["1"] as String,
-                                description = radio["2"],
-                                category = radio["3"],
-                                language = radio["5"],
-                                url = radio["6"] as String,
-                                url2 = radio["7"],
-                                url3 = radio["8"],
-                                url4 = radio["9"],
-                                url5 = radio["10"],
-                                isFavourite = false
-                            )
-                        )
-                    }
-                }
-
                 result.add(
                     Country(
                         id = country.key,
                         name = country.key,
-                        radios = radioList
+                        radios = parseRadioList(country)
                     )
                 )
             }
         }
 
+        return result
+    }
+
+    private fun parseRadioList(country: MutableMap.MutableEntry<String, List<Map<String, String>>>): List<Radio>{
+        val result: MutableList<Radio> = mutableListOf()
+
+        for (radio in country.value) {
+            if (radio["1"].isNullOrEmpty() || radio["6"].isNullOrEmpty()) {
+                logger.atWarn().log("RADIO SIN NOMBRE: $radio")
+            } else {
+                result.add(
+                    Radio(
+                        name = radio["1"] as String,
+                        description = radio["2"],
+                        category = radio["3"],
+                        language = radio["5"],
+                        url = radio["6"] as String,
+                        url2 = radio["7"],
+                        url3 = radio["8"],
+                        url4 = radio["9"],
+                        url5 = radio["10"],
+                        isFavourite = false
+                    )
+                )
+            }
+        }
         return result
     }
 }
