@@ -5,7 +5,7 @@ import com.arkivanov.decompose.ComponentContext
 import com.gioia.radio.data.domains.Radio
 
 interface StationsViewModel{
-    val model: State<MainModel>
+    val model: State<StationsModel>
     var componentContext: ComponentContext?
 
     fun onRadioSelected(radio: Radio)

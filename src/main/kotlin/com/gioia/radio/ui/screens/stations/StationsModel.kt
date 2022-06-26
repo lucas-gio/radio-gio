@@ -6,7 +6,7 @@ import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.Radio
 
 @Parcelize
-data class MainModel(
+data class StationsModel(
     var countries: List<Country> = emptyList(),
     val countryFilter: String = "",
     val radioFilter: String = "",

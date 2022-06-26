@@ -1,6 +1,5 @@
-package com.gioia.radio.ui.screens.stations
+package com.gioia.radio.ui.toreview
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -12,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.gioia.radio.services.MessageService
-import com.gioia.radio.ui.toreview.ExpandableCountryRow
+import com.gioia.radio.ui.screens.stations.StationsViewModel
 
 @Composable
 fun OldStations(
@@ -57,12 +56,4 @@ fun OldStations(
                 }
         }
     )
-    Column {
-        state.countries.forEach {
-            ExpandableCountryRow(
-                country = it,
-                onRadioClick = stationsViewModel::onRadioSelected
-            )
-        }
-    }
 }

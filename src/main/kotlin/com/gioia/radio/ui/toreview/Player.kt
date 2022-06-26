@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.stations
+package com.gioia.radio.ui.toreview
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.gioia.radio.services.MessageService
+import com.gioia.radio.ui.screens.stations.StationsViewModel
 
 @Composable
 fun Player(

@@ -26,8 +26,8 @@ class StationsViewModelImpl(
     private var logger: Logger = LoggerFactory.getLogger(StationsViewModelImpl::class.java)
 
     // Si statekeeper contiene el valor almacenado, entonces lo usa, sino usa un nuevo objeto Model.
-    private val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: MainModel())
-    override val model: State<MainModel> = _model
+    private val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: StationsModel())
+    override val model: State<StationsModel> = _model
     private val state by model // para evitar hacer model.value siempre
 
     override var componentContext: ComponentContext? = null
@@ -50,7 +50,7 @@ class StationsViewModelImpl(
         }*/
     }
 
-    private inline fun changeState(reducer: MainModel.() -> MainModel): MainModel {
+    private inline fun changeState(reducer: StationsModel.() -> StationsModel): StationsModel {
         val newModel = state.reducer()
         _model.value = newModel
         return newModel

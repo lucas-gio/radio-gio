@@ -1,10 +1,7 @@
 package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
@@ -29,9 +26,7 @@ fun Stations(
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-
-        ){
-
+    ){
         state.countries.forEach{ country->
            /* stickyHeader {
                 Text(text = country.name)
@@ -44,7 +39,9 @@ fun Stations(
                 }
             ) { radio: Radio ->
                 Row(
-                    modifier = Modifier.clickable { stationsViewModel.onRadioSelected(radio) }
+                    modifier = Modifier
+                        .clickable { stationsViewModel.onRadioSelected(radio) }
+                        .fillMaxWidth()
                 ){
                     Column {
                         Text(text = radio.name, style = AppTypography.subtitle1)

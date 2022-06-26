@@ -23,7 +23,7 @@ fun Root(rootComponent: RootComponent) {
         Scaffold(
             topBar = {
                 TopAppBar {
-                    NavigationTopBar(dk.instance())
+                    NavigationTopBar(dk.instance(), dk.instance())
                 }
             },
             bottomBar = {
