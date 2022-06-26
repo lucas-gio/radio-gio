@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gioia.radio.data.domains.Country
-
+//fixme: Reutilizar lo de este paquete y desechar lo obsoleto.
 @Composable
 fun countryRow(
     country: Country,

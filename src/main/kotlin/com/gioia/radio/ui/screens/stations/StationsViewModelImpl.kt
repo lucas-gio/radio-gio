@@ -1,30 +1,29 @@
-package com.gioia.radio.ui.screens.main
+package com.gioia.radio.ui.screens.stations
 
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.consume
-import com.gioia.radio.config.dk
 import com.gioia.radio.data.domains.Radio
 import com.gioia.radio.data.enums.ConfigKey
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.CountryRepository
 import com.gioia.radio.services.PlayerService
-import org.kodein.di.instance
+import com.gioia.radio.ui.util.ViewModel
+import kotlinx.coroutines.CoroutineScope
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 
-class MainComponentImpl(
+class StationsViewModelImpl(
     private val playerService: PlayerService,
     private val countryRepository: CountryRepository,
     private val configurationRepository: ConfigurationRepository,
     stateKeeper: StateKeeper,
-) : MainComponent {
-    private var logger: Logger = LoggerFactory.getLogger(MainComponentImpl::class.java)
+) : StationsViewModel, ViewModel() {
+    private var logger: Logger = LoggerFactory.getLogger(StationsViewModelImpl::class.java)
 
     // Si statekeeper contiene el valor almacenado, entonces lo usa, sino usa un nuevo objeto Model.
     private val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: MainModel())
@@ -32,18 +31,24 @@ class MainComponentImpl(
     private val state by model // para evitar hacer model.value siempre
 
     override var componentContext: ComponentContext? = null
-    override var onConfigPressed: () -> Unit = {}
     init {
         changeState { state.copy(
             countries = countryRepository.getInitialRadioStations(),
             volume = configurationRepository.find(ConfigKey.Volume.toString())?.value?.toFloatOrNull() ?: 50f,
         )}
         logger.atDebug().log("Valores iniciales estalecidos")
+
+        stateKeeper.register(this.javaClass.name) { state }
     }
 
-     init {
-         stateKeeper.register(this.javaClass.name) { state }
-     }
+    override fun init(viewModelScope: CoroutineScope) {
+        super.init(viewModelScope)
+
+        /*viewModelScope.launch {
+            delay(WelcomeViewModelImpl.SPLASH_DELAY)
+            _isWelcomeFinished.value = true
+        }*/
+    }
 
     private inline fun changeState(reducer: MainModel.() -> MainModel): MainModel {
         val newModel = state.reducer()
@@ -51,14 +56,7 @@ class MainComponentImpl(
         return newModel
     }
 
-    @Composable
-    override fun render() {
-        Main(
-            //componentContext = componentContext,
-            messageService = dk.instance(),
-            mainComponent = this
-        )
-    }
+
 
     override fun onRadioSelected(radio: Radio) {
         if(radio.name == state.selectedRadio?.name) return

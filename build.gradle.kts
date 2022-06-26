@@ -21,7 +21,7 @@ plugins {
 
 sonarqube {
   properties {
-    property("sonar.projectKey", "lucas-gio_radio-kotlin-compose")
+    property("sonar.projectKey", "lucas-gio_radio-gio")
     property("sonar.organization", "lucas-gio")
     property("sonar.host.url", "https://sonarcloud.io")
   }

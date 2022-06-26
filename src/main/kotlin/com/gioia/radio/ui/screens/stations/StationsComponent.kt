@@ -1,19 +1,21 @@
-package com.gioia.radio.ui.screens.settings
+package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
+import com.gioia.radio.config.dk
 import com.gioia.radio.ui.navigation.Component
+import org.kodein.di.instance
 
-class SettingsComponent(
+class StationsComponent(
     private val componentContext: ComponentContext,
-    private val settingsViewModel: SettingsViewModel,
+    private val stationsViewModel: StationsViewModel,
 ) : Component, ComponentContext by componentContext {
     @Composable
     override fun render() {
-        Settings(
+        Stations(
             componentContext = componentContext,
-            settingsViewModel = settingsViewModel
+            messageService = dk.instance(),
+            stationsViewModel = stationsViewModel
         )
     }
-
 }

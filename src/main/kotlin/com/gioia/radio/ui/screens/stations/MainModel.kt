@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.main
+package com.gioia.radio.ui.screens.stations
 
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize

@@ -12,10 +12,10 @@ import com.gioia.radio.services.PlayerService
 import com.gioia.radio.services.PlayerServiceImpl
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.tools.DatabaseGeneratorImpl
-import com.gioia.radio.ui.screens.main.MainComponent
-import com.gioia.radio.ui.screens.main.MainComponentImpl
-import com.gioia.radio.ui.screens.settings.SettingsComponent
-import com.gioia.radio.ui.screens.settings.SettingsComponentImpl
+import com.gioia.radio.ui.screens.settings.SettingsViewModel
+import com.gioia.radio.ui.screens.settings.SettingsViewModelImpl
+import com.gioia.radio.ui.screens.stations.StationsViewModel
+import com.gioia.radio.ui.screens.stations.StationsViewModelImpl
 import com.gioia.radio.ui.screens.welcome.WelcomeViewModelImpl
 import org.dizitart.no2.Nitrite
 import org.kodein.di.DI
@@ -25,7 +25,8 @@ import org.kodein.di.instance
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 import java.io.File
 
-
+//fixme: Cambiar kodein por dagger/hilt (o no)
+// fixme: Ver si los viewmodel son singleton o factory
 val di = DI {
     bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance(), instance())}
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
@@ -34,8 +35,8 @@ val di = DI {
     bindSingleton<MessageService> {MessageServiceImpl(instance())}
     bindSingleton {AudioPlayerComponent()}
     bindSingleton<StateKeeper> { StateKeeperDispatcher() }
-    bindSingleton<MainComponent> { MainComponentImpl(instance(), instance(), instance(), instance()) }
-    bindSingleton<SettingsComponent> { SettingsComponentImpl(instance()) }
+    bindSingleton<StationsViewModel> { StationsViewModelImpl(instance(), instance(), instance(), instance()) }
+    bindSingleton<SettingsViewModel> { SettingsViewModelImpl(instance()) }
     bindSingleton { WelcomeViewModelImpl() } //fixme
 
     //val bundle: ResourceBundle = ResourceBundle.getBundle("Messages")

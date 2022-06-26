@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.main
+package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,23 +15,23 @@ import com.gioia.radio.services.MessageService
 import com.gioia.radio.ui.toreview.ExpandableCountryRow
 
 @Composable
-fun Stations(
-    mainComponent: MainComponent,
+fun OldStations(
+    stationsViewModel: StationsViewModel,
     messageService: MessageService
 ) {
-    val state by mainComponent.model
+    val state by stationsViewModel.model
 
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
         value = state.countryFilter,
-        onValueChange = mainComponent::onSearchByCountryName,
+        onValueChange = stationsViewModel::onSearchByCountryName,
         label = {
             Text(text = messageService.msg("search.countryName"))
         },
         trailingIcon = {
             if (state.countryFilter.isNotBlank())
-                IconButton(onClick = mainComponent::onClearCountryFilter) {
+                IconButton(onClick = stationsViewModel::onClearCountryFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.countryName.clear")
@@ -43,13 +43,13 @@ fun Stations(
         modifier = Modifier.fillMaxWidth(),
         singleLine = true,
         value = state.radioFilter,
-        onValueChange = mainComponent::onSearchByRadioName,
+        onValueChange = stationsViewModel::onSearchByRadioName,
         label = {
             Text(text = messageService.msg("search.radioName"))
         },
         trailingIcon = {
             if (state.radioFilter.isNotBlank())
-                IconButton(onClick = mainComponent::onClearRadioFilter) {
+                IconButton(onClick = stationsViewModel::onClearRadioFilter) {
                     Icon(
                         imageVector = Icons.Rounded.Cancel,
                         contentDescription = messageService.msg("search.radioName.clear")
@@ -61,7 +61,7 @@ fun Stations(
         state.countries.forEach {
             ExpandableCountryRow(
                 country = it,
-                onRadioClick = mainComponent::onRadioSelected
+                onRadioClick = stationsViewModel::onRadioSelected
             )
         }
     }

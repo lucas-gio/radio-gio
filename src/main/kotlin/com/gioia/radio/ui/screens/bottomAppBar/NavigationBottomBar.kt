@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.root.bottomAppBar
+package com.gioia.radio.ui.screens.bottomAppBar
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -30,7 +30,7 @@ fun NavigationBottomBar(
                 )
             },
             label = { Text(text = "radios")},
-            selected = activeComponent is RootComponent.Child.Radio,
+            selected = activeComponent is RootComponent.Child.Stations,
             onClick = rootComponent::onRadioNavigationItem
         )
         BottomNavigationItem(

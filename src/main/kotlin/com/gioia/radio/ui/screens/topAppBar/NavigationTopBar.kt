@@ -1,11 +1,14 @@
-package com.gioia.radio.ui.screens.root.topAppBar
+package com.gioia.radio.ui.screens.topAppBar
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import com.gioia.radio.ui.screens.stations.StationsViewModel
 
 @Composable
-fun NavigationTopBar() {
-    Text(text = "<Nombre de radio>")
+fun NavigationTopBar(
+    stationsViewModel: StationsViewModel
+) {
+    Text(text = stationsViewModel.model.value.selectedRadio?.name ?: "")
 /*
     Button(
         icon = {

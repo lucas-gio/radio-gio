@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class WelcomeViewModelImpl: ViewModel(){
     companion object {
-        const val SPLASH_DELAY = 500L
+        const val SPLASH_DELAY = 1000L
     }
 
     private val _isWelcomeFinished = MutableStateFlow(false)

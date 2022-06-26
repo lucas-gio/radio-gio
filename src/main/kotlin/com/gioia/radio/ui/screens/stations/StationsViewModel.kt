@@ -1,14 +1,12 @@
-package com.gioia.radio.ui.screens.main
+package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.runtime.State
 import com.arkivanov.decompose.ComponentContext
 import com.gioia.radio.data.domains.Radio
-import com.gioia.radio.ui.navigation.Component
 
-interface MainComponent: Component {
+interface StationsViewModel{
     val model: State<MainModel>
     var componentContext: ComponentContext?
-    var onConfigPressed: () -> Unit
 
     fun onRadioSelected(radio: Radio)
     fun onSearchByCountryName(countryName: String)

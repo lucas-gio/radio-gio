@@ -2,16 +2,17 @@ package com.gioia.radio.ui.navigation
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.*
+import com.arkivanov.decompose.router.RouterState
+import com.arkivanov.decompose.router.bringToFront
+import com.arkivanov.decompose.router.replaceCurrent
+import com.arkivanov.decompose.router.router
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
-import com.gioia.radio.config.di
 import com.gioia.radio.config.dk
 import com.gioia.radio.ui.navigation.RootComponent.Child
-import com.gioia.radio.ui.screens.main.MainComponent
-import com.gioia.radio.ui.screens.root.Root
 import com.gioia.radio.ui.screens.settings.SettingsComponent
+import com.gioia.radio.ui.screens.stations.StationsComponent
 import com.gioia.radio.ui.screens.welcome.WelcomeComponent
 import org.kodein.di.instance
 
@@ -34,7 +35,7 @@ class RootComponentImpl(
         object Welcome : Config()
 
         @Parcelize
-        object Radio : Config()
+        object Stations : Config()
 
         @Parcelize
         //data class Configuration(val itemId: Long) : Config() -->  así si la pantalla requiriese algún parámetro de filtro.
@@ -60,34 +61,38 @@ class RootComponentImpl(
         componentContext: ComponentContext
     ): Child {
         return when (config) {
-            is Config.Welcome -> Child.Welcome(WelcomeComponent(
-                componentContext = componentContext,
-                onWelcomeFinished = ::onWelcomeFinished,
-                welcomeViewModel = dk.instance()
-            ))
-            is Config.Radio -> Child.Radio(mainComponent(componentContext))
-            is Config.Search -> Child.Search(mainComponent(componentContext))
-            is Config.Favorites -> Child.Favorites(mainComponent(componentContext))
-            is Config.Settings -> Child.Settings(configurationComponent(componentContext))
+            is Config.Welcome -> Child.Welcome(
+                WelcomeComponent(
+                    componentContext = componentContext,
+                    onWelcomeFinished = {router.replaceCurrent(Config.Stations)},
+                    welcomeViewModel = dk.instance()
+                )
+            )
+            is Config.Stations -> Child.Stations(
+                StationsComponent(
+                    componentContext = componentContext,
+                    stationsViewModel = dk.instance()
+                )
+            ) //fixme: Pasar a la forma de WelcomeComponent, de un componente y viewModel
+            is Config.Search -> Child.Search(
+                StationsComponent(
+                    componentContext = componentContext,
+                    stationsViewModel = dk.instance()
+                )
+            )
+            is Config.Favorites -> Child.Favorites(
+                StationsComponent(
+                    componentContext = componentContext,
+                    stationsViewModel = dk.instance()
+                )
+            )
+            is Config.Settings -> Child.Settings(
+                SettingsComponent(
+                    componentContext = componentContext,
+                    settingsViewModel = dk.instance()
+                )
+            )
         }
-    }
-
-    private fun mainComponent(componentContext: ComponentContext): MainComponent {
-        val component: MainComponent by di.instance()
-        component.componentContext = componentContext
-        component.onConfigPressed = { router.push(Config.Search) }
-        return component
-    }
-
-    private fun configurationComponent(componentContext: ComponentContext): SettingsComponent {
-        val component: SettingsComponent by di.instance()
-        component.componentContext = componentContext
-        component.onBackPressed = { router.pop() }
-        return component
-    }
-
-    fun onWelcomeFinished(){//fixme llevar al viewModel
-        router.replaceCurrent(Config.Radio)
     }
 
     @Composable
@@ -96,7 +101,7 @@ class RootComponentImpl(
     }
 
     override fun onRadioNavigationItem() {
-        router.bringToFront(Config.Radio)
+        router.bringToFront(Config.Stations)
     }
 
     override fun onSearchNavigationItem() {

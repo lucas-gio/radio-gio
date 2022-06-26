@@ -16,8 +16,8 @@ import com.gioia.radio.App.Companion.isInitDatabase
 import com.gioia.radio.App.Companion.releaseComponents
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
+import com.gioia.radio.ui.navigation.Root
 import com.gioia.radio.ui.navigation.RootComponentImpl
-import com.gioia.radio.ui.screens.root.Root
 import com.gioia.radio.ui.themes.AppTheme
 import org.dizitart.no2.Nitrite
 import org.kodein.di.instance
@@ -26,7 +26,7 @@ import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 class App{
     companion object{
         var isInitDatabase: Boolean = false
-        var appName = "Radio kotlin compose by Lucas Gioia"
+        var appName = "Radio Gio by Lucas Gioia"
         var appVersion = "v0.1"
 
         fun releaseComponents(){

@@ -13,7 +13,6 @@ class WelcomeComponent(
 
     @Composable
     override fun render() {
-
         val scope = rememberCoroutineScope()
         LaunchedEffect(welcomeViewModel) {
             welcomeViewModel.init(scope)

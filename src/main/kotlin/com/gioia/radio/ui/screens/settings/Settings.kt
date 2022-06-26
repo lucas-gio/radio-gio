@@ -6,12 +6,15 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import com.arkivanov.decompose.ComponentContext
+
 @Composable
-fun Configuration(
-    settingsComponent: SettingsComponent
+fun Settings(
+    componentContext: ComponentContext,
+    settingsViewModel: SettingsViewModel
 ) {
     ExtendedFloatingActionButton(
-        onClick = settingsComponent.onBackPressed,
+        onClick = settingsViewModel.onBackPressed,
         icon = {
             Icon(
                 imageVector = Icons.Default.ArrowBack,

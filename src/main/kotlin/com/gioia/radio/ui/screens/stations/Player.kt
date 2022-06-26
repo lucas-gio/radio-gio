@@ -1,4 +1,4 @@
-package com.gioia.radio.ui.screens.main
+package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
@@ -17,10 +17,10 @@ import com.gioia.radio.services.MessageService
 
 @Composable
 fun Player(
-    mainComponent: MainComponent,
+    stationsViewModel: StationsViewModel,
     messageService: MessageService,
 ){
-    val state by mainComponent.model
+    val state by stationsViewModel.model
 
     Column(modifier=Modifier){
         Row(
@@ -30,7 +30,7 @@ fun Player(
             Button(
                 modifier = Modifier.padding(5.dp),
                 enabled = !state.isPlaying && state.selectedRadio != null,
-                onClick = mainComponent::onPlayPressed,
+                onClick = stationsViewModel::onPlayPressed,
                 border = BorderStroke(1.dp, Color.Black),
 
                 ) {
@@ -46,7 +46,7 @@ fun Player(
         ){
             Button(
                 modifier = Modifier.padding(5.dp),
-                onClick = mainComponent::onPreviousPressed,
+                onClick = stationsViewModel::onPreviousPressed,
                 enabled = state.selectedRadio != null,
                 border = BorderStroke(1.dp, Color.Black),
 
@@ -58,7 +58,7 @@ fun Player(
             }
             Button(
                 modifier = Modifier.padding(5.dp),
-                onClick = mainComponent::onFavouritePressed,
+                onClick = stationsViewModel::onFavouritePressed,
                 enabled = state.selectedRadio != null,
                 border = BorderStroke(1.dp, Color.Black)
             ) {
@@ -69,7 +69,7 @@ fun Player(
             }
             Button(
                 modifier = Modifier.padding(5.dp),
-                onClick = mainComponent::onNextPressed,
+                onClick = stationsViewModel::onNextPressed,
                 enabled = state.selectedRadio != null,
                 border = BorderStroke(1.dp, Color.Black),
 
@@ -86,7 +86,7 @@ fun Player(
         ) {
             Button(
                 modifier = Modifier.padding(5.dp),
-                onClick = mainComponent::onStopPressed,
+                onClick = stationsViewModel::onStopPressed,
                 enabled = state.isPlaying && state.selectedRadio != null,
                 border = BorderStroke(1.dp, Color.Black),
 
@@ -100,8 +100,8 @@ fun Player(
         Slider(
             value = state.volume,
             valueRange = 0f..100f,
-            onValueChange = mainComponent::onVolumeChange,
-            onValueChangeFinished = mainComponent::onVolumeConfirmed
+            onValueChange = stationsViewModel::onVolumeChange,
+            onValueChangeFinished = stationsViewModel::onVolumeConfirmed
         )
         Text(
             modifier = Modifier.padding(5.dp),
