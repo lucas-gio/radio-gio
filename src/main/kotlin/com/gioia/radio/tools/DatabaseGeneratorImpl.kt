@@ -1,12 +1,10 @@
 package com.gioia.radio.tools
 
-import com.gioia.radio.data.domains.Configuration
 import com.gioia.radio.data.domains.Country
-import com.gioia.radio.data.domains.Radio
-import com.gioia.radio.data.enums.ConfigKey
-import com.gioia.radio.data.enums.Locales
+import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.data.repositories.ConfigurationRepository
 import com.gioia.radio.data.repositories.CountryRepository
+import com.gioia.radio.data.repositories.RadioStationRepository
 import com.google.gson.Gson
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -15,87 +13,66 @@ import java.io.Reader
 
 class DatabaseGeneratorImpl (
     private val countryRepository: CountryRepository,
-    private val configurationRepository: ConfigurationRepository,
-) : DatabaseGenerator{
+    private val radioStationRepository: RadioStationRepository,
+    configurationRepository: ConfigurationRepository,
+) : DatabaseGenerator(
+    configurationRepository
+) {
     private var logger: Logger = LoggerFactory.getLogger(DatabaseGeneratorImpl::class.java)
-    override fun generateDatabase() {
-        initCountries()
-        initConfigurations()
-    }
+    private val nameField = "1"
+    private val countryField = "4"
+    private val urlField = "6"
 
-    private fun initConfigurations(){
-        listOf(
-            Configuration(ConfigKey.Locale.toString(), Locales.EN.toString(), "Selected locale for translations"),
-            Configuration(ConfigKey.Volume.toString(), "50", "Last volume used"),
-        )
-        .forEach(configurationRepository::upsert)
-
-        configurationRepository.createIndexes()
-    }
-
-    private fun initCountries(){
+    private fun initCountries(countries: List<Country>){
         countryRepository.removeAll()
-        countryRepository.saveAll(parseStationsJsonToList())
+        countryRepository.saveAll(countries)
         countryRepository.createIndexes()
     }
 
-    private fun parseStationsJsonToList(): List<Country> {
-        val gson = Gson()
-        val reader: Reader = InputStreamReader(DatabaseGeneratorImpl::class.java.classLoader.getResourceAsStream("radios.json"))
-        val stations: List<Map<String, String>> = gson.fromJson(reader, MutableList::class.java) as List<Map<String,String>>
-        val countriesAndRadios: HashMap<String, List<Map<String, String>>> = HashMap()
-
-        for(station in stations){
-            if( countriesAndRadios[station["4"].toString()] == null){
-                countriesAndRadios[station["4"].toString()] = mutableListOf(station)
-            }
-            else {
-                (countriesAndRadios[station["4"].toString()] as MutableList).add(station)
-            }
-        }
-
-        val result : MutableList<Country> = mutableListOf()
-        for(country in countriesAndRadios){
-            if(country.key.isEmpty() || country.key == "-"){
-                logger.atWarn().log("PAÍS SIN NOMBRE: $country" )
-            }
-            else {
-                result.add(
-                    Country(
-                        id = country.key,
-                        name = country.key,
-                        radios = parseRadioList(country)
-                    )
-                )
-            }
-        }
-
-        return result
+    private fun initRadioStations(radioStations: List<RadioStation>) {
+        radioStationRepository.removeAll()
+        radioStationRepository.saveAll(radioStations)
+        radioStationRepository.createIndexes()
     }
 
-    private fun parseRadioList(country: MutableMap.MutableEntry<String, List<Map<String, String>>>): List<Radio>{
-        val result: MutableList<Radio> = mutableListOf()
+    override fun parseDataFile() {
+        val reader: Reader = InputStreamReader(DatabaseGeneratorImpl::class.java.classLoader.getResourceAsStream("radios.json"))
+        val stations = Gson().fromJson(reader, MutableList::class.java) as List<Map<String,String>>
+        val countries = mutableListOf<Country>()
+        val radioStations = mutableListOf<RadioStation>()
+        var country: Country
 
-        for (radio in country.value) {
-            if (radio["1"].isNullOrEmpty() || radio["6"].isNullOrEmpty()) {
-                logger.atWarn().log("RADIO SIN NOMBRE: $radio")
-            } else {
-                result.add(
-                    Radio(
-                        name = radio["1"] as String,
-                        description = radio["2"],
-                        category = radio["3"],
-                        language = radio["5"],
-                        url = radio["6"] as String,
-                        url2 = radio["7"],
-                        url3 = radio["8"],
-                        url4 = radio["9"],
-                        url5 = radio["10"],
+        for(station in stations){
+            station[countryField]?.let{
+                country = Country(
+                    code = it
+                )
+
+                if(!countries.contains(country)) {
+                    countries.add(country)
+                }
+            }
+
+            if (! (station[urlField].isNullOrEmpty() || station[nameField].isNullOrEmpty())){
+                radioStations.add(
+                    RadioStation(
+                        name = station[nameField] !!,
+                        description = station["2"],
+                        category = station["3"],
+                        countryCode = station[countryField] !!,
+                        language = station["5"],
+                        url = station[urlField] !!,
+                        url2 = station["7"],
+                        url3 = station["8"],
+                        url4 = station["9"],
+                        url5 = station["10"],
                         isFavourite = false
                     )
                 )
             }
         }
-        return result
+
+        initCountries(countries)
+        initRadioStations(radioStations)
     }
 }

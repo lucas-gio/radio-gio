@@ -6,10 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.consume
-import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.data.enums.ConfigKey
 import com.gioia.radio.data.repositories.ConfigurationRepository
-import com.gioia.radio.data.repositories.CountryRepository
+import com.gioia.radio.data.repositories.RadioStationRepository
 import com.gioia.radio.services.PlayerService
 import com.gioia.radio.ui.util.ViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory
 
 class StationsViewModelImpl(
     private val playerService: PlayerService,
-    private val countryRepository: CountryRepository,
+    private val radioStationsRepository: RadioStationRepository,
     private val configurationRepository: ConfigurationRepository,
     stateKeeper: StateKeeper,
 ) : StationsViewModel, ViewModel() {
@@ -33,7 +33,7 @@ class StationsViewModelImpl(
     override var componentContext: ComponentContext? = null
     init {
         changeState { state.copy(
-            countries = countryRepository.getInitialRadioStations(),
+            radioStations = radioStationsRepository.getInitialRadioStations(),
             volume = configurationRepository.find(ConfigKey.Volume.toString())?.value?.toFloatOrNull() ?: 50f,
         )}
         logger.atDebug().log("Valores iniciales estalecidos")
@@ -58,37 +58,37 @@ class StationsViewModelImpl(
 
 
 
-    override fun onRadioSelected(radio: Radio) {
-        if(radio.name == state.selectedRadio?.name) return
-        logger.atDebug().log("Seleccionada la radio ${radio.name}")
-        onPlayPressed(true, radio)
+    override fun onRadioSelected(radioStation: RadioStation) {
+        if(radioStation.name == state.selectedRadioStation?.name) return
+        logger.atDebug().log("Seleccionada la radio ${radioStation.name}")
+        onPlayPressed(true, radioStation)
     }
 
     override fun onSearchByCountryName(countryName: String) {
-        changeState { state.copy(countryFilter = countryName, countries = countryRepository.findByCountryNameLike(countryName)) }
+        changeState { state.copy(countryFilter = countryName, radioStations = radioStationsRepository.findByCountryNameLike(countryName)) }
         logger.atDebug().log("Buscó por nombre de país, buscando por $countryName")
     }
 
     override fun onSearchByRadioName(text: String) {
-        changeState { state.copy(radioFilter = text, countries = countryRepository.findByRadioNameLike(countryFilter)) }
+        changeState { state.copy(radioFilter = text, radioStations = radioStationsRepository.findByRadioNameLike(countryFilter)) }
         logger.atDebug().log("Buscó por nombre de radio, buscando por $text")
     }
 
-    override fun onPlayPressed(isPlaying: Boolean?, radio: Radio?){
-        changeState { state.copy(isPlaying = isPlaying ?: !state.isPlaying, selectedRadio = radio ?: state.selectedRadio)}
-        playerService.playRadio(state.selectedRadio?.url ?: radio?.url ?: "")
-        logger.atDebug().log("Reproduciendo la radio ${state.selectedRadio?.name}")
+    override fun onPlayPressed(isPlaying: Boolean?, radioStation: RadioStation?){
+        changeState { state.copy(isPlaying = isPlaying ?: !state.isPlaying, selectedRadioStation = radioStation ?: state.selectedRadioStation)}
+        playerService.playRadio(state.selectedRadioStation?.url ?: radioStation?.url ?: "")
+        logger.atDebug().log("Reproduciendo la radio ${state.selectedRadioStation?.name}")
     }
 
     override fun onStopPressed(){
         changeState { state.copy(isPlaying = !state.isPlaying) }
         playerService.stopRadio()
-        logger.atDebug().log("Apagando la radio ${state.selectedRadio?.name}")
+        logger.atDebug().log("Apagando la radio ${state.selectedRadioStation?.name}")
     }
 
     override fun onFavouritePressed(){
-        logger.atDebug().log("Añandiendo a / eliminando de favoritos la radio ${state.selectedRadio?.name}")
-        playerService.toggleFavourite(state.isFavourite, state.selectedRadio)
+        logger.atDebug().log("Añandiendo a / eliminando de favoritos la radio ${state.selectedRadioStation?.name}")
+        playerService.toggleFavourite(state.isFavourite, state.selectedRadioStation)
         changeState { state.copy(isFavourite = !state.isFavourite) }
     }
 

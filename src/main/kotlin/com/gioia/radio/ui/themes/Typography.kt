@@ -1,6 +1,7 @@
 package com.gioia.radio.ui.themes
 
 import androidx.compose.material.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -44,6 +45,7 @@ val AppTypography = Typography(
     subtitle1 = TextStyle(
         fontSize = 16.sp,
         fontWeight = FontWeight.Medium,
+        color = Color(245, 176, 65)
     ),
     subtitle2 = TextStyle(
         fontSize = 14.sp,

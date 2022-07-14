@@ -3,9 +3,12 @@ package com.gioia.radio.data.domains
 import org.dizitart.no2.Document
 import org.dizitart.no2.mapper.Mappable
 import org.dizitart.no2.mapper.NitriteMapper
+import org.dizitart.no2.objects.Id
 
-class Radio(
+class RadioStation(
+    @Id
     var name: String,
+    var countryCode: String,
     var url: String,
     var url2: String?,
     var url3: String?,
@@ -16,11 +19,12 @@ class Radio(
     var language: String?,
     var isFavourite: Boolean
 ) : Mappable{
-    constructor() : this("", "", "", "", "", "", "", "", "", false)
+    constructor() : this("", "", "", "", "", "", "", "", "", "", false)
 
     override fun write(mapper: NitriteMapper?): Document {
         val document = Document()
         document["name"] = name
+        document["countryCode"] = countryCode
         document["url"] = url
         document["url2"] = url2
         document["url3"] = url3
@@ -38,6 +42,7 @@ class Radio(
             return
         }
         this.name = document["name"] as String
+        this.countryCode = document["countryCode"] as String
         this.url = document["url"] as String
         this.url2 = document["url2"] as String
         this.url3 = document["url3"] as String

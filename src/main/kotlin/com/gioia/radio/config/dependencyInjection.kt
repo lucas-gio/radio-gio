@@ -2,10 +2,7 @@ package com.gioia.radio.config
 
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.StateKeeperDispatcher
-import com.gioia.radio.data.repositories.ConfigurationRepository
-import com.gioia.radio.data.repositories.ConfigurationRepositoryImpl
-import com.gioia.radio.data.repositories.CountryRepository
-import com.gioia.radio.data.repositories.CountryRepositoryImpl
+import com.gioia.radio.data.repositories.*
 import com.gioia.radio.services.MessageService
 import com.gioia.radio.services.MessageServiceImpl
 import com.gioia.radio.services.PlayerService
@@ -26,8 +23,9 @@ import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
 import java.io.File
 
 val di = DI {
-    bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance(), instance())}
+    bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance(), instance(), instance())}
     bindSingleton<CountryRepository> {CountryRepositoryImpl(instance())}
+    bindSingleton<RadioStationRepository> { RadioStationRepositoryImpl(instance()) }
     bindSingleton<ConfigurationRepository> {ConfigurationRepositoryImpl(instance())}
     bindSingleton<PlayerService> {PlayerServiceImpl(instance())}
     bindSingleton<MessageService> {MessageServiceImpl(instance())}

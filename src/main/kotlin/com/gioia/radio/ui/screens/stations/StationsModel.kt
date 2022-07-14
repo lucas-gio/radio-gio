@@ -2,16 +2,15 @@ package com.gioia.radio.ui.screens.stations
 
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
-import com.gioia.radio.data.domains.Country
-import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.domains.RadioStation
 
 @Parcelize
 data class StationsModel(
-    var countries: List<Country> = emptyList(),
+    var radioStations: List<RadioStation> = emptyList(),
     val countryFilter: String = "",
     val radioFilter: String = "",
     val selectedCountryName: String = "",
-    val selectedRadio: Radio? = null,
+    val selectedRadioStation: RadioStation? = null,
     var isPlaying: Boolean = false,
     val isFavourite: Boolean = false,
     var resume: String = "",
@@ -19,8 +18,8 @@ data class StationsModel(
     var isExpanded: Boolean = false
 ): Parcelable {
     init{
-        if(selectedRadio != null){
-            resume = "${selectedRadio.name} - ${selectedRadio.description}"
+        if(selectedRadioStation != null){
+            resume = "${selectedRadioStation.name} - ${selectedRadioStation.description}"
         }
     }
 }

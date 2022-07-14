@@ -30,7 +30,7 @@ fun Player(
         ) {
             Button(
                 modifier = Modifier.padding(5.dp),
-                enabled = !state.isPlaying && state.selectedRadio != null,
+                enabled = !state.isPlaying && state.selectedRadioStation != null,
                 onClick = stationsViewModel::onPlayPressed,
                 border = BorderStroke(1.dp, Color.Black),
 
@@ -48,7 +48,7 @@ fun Player(
             Button(
                 modifier = Modifier.padding(5.dp),
                 onClick = stationsViewModel::onPreviousPressed,
-                enabled = state.selectedRadio != null,
+                enabled = state.selectedRadioStation != null,
                 border = BorderStroke(1.dp, Color.Black),
 
                 ) {
@@ -60,7 +60,7 @@ fun Player(
             Button(
                 modifier = Modifier.padding(5.dp),
                 onClick = stationsViewModel::onFavouritePressed,
-                enabled = state.selectedRadio != null,
+                enabled = state.selectedRadioStation != null,
                 border = BorderStroke(1.dp, Color.Black)
             ) {
                 Icon(
@@ -71,7 +71,7 @@ fun Player(
             Button(
                 modifier = Modifier.padding(5.dp),
                 onClick = stationsViewModel::onNextPressed,
-                enabled = state.selectedRadio != null,
+                enabled = state.selectedRadioStation != null,
                 border = BorderStroke(1.dp, Color.Black),
 
                 ) {
@@ -88,7 +88,7 @@ fun Player(
             Button(
                 modifier = Modifier.padding(5.dp),
                 onClick = stationsViewModel::onStopPressed,
-                enabled = state.isPlaying && state.selectedRadio != null,
+                enabled = state.isPlaying && state.selectedRadioStation != null,
                 border = BorderStroke(1.dp, Color.Black),
 
                 ) {
@@ -110,11 +110,11 @@ fun Player(
         )
         Text(
             modifier = Modifier.padding(5.dp),
-            text = state.selectedRadio?.category ?: ""
+            text = state.selectedRadioStation?.category ?: ""
         )
         Text(
             modifier = Modifier.padding(5.dp),
-            text = state.selectedRadio?.language ?: ""
+            text = state.selectedRadioStation?.language ?: ""
         )
     }
 }

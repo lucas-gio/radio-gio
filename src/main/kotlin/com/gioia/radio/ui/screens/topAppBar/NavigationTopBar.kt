@@ -4,6 +4,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.runtime.Composable
@@ -18,10 +19,10 @@ fun NavigationTopBar(
 ) {
     val state by stationsViewModel.model
 
-    Text( text = state.selectedRadio?.name ?: "" )
+    Text( text = state.selectedRadioStation?.name ?: "" )
 
     IconButton(
-        enabled = !state.isPlaying && state.selectedRadio != null,
+        enabled = !state.isPlaying && state.selectedRadioStation != null,
         onClick = stationsViewModel::onPlayPressed
     ) {
         Icon(
@@ -32,11 +33,21 @@ fun NavigationTopBar(
 
     IconButton(
         onClick = stationsViewModel::onStopPressed,
-        enabled = state.isPlaying && state.selectedRadio != null,
+        enabled = state.isPlaying && state.selectedRadioStation != null,
     ) {
         Icon(
             imageVector = Icons.Rounded.Stop,
             contentDescription = messageService.msg("button.stop")
+        )
+    }
+
+    IconButton(
+        onClick = stationsViewModel::onFavouritePressed,
+        enabled = state.selectedRadioStation != null && state.isFavourite,
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.Favorite,
+            contentDescription = messageService.msg("button.addToFavourite")
         )
     }
 }

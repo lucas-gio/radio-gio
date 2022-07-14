@@ -1,6 +1,6 @@
 package com.gioia.radio.services
 
-import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.domains.RadioStation
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
@@ -18,9 +18,9 @@ class PlayerServiceImpl(
         audioPlayerComponent.mediaPlayer().controls().pause()
     }
 
-    override fun toggleFavourite(isNowInFavourite: Boolean, radio: Radio?) {
-        if(radio == null) return
-        logger.atDebug().log("${if(isNowInFavourite) "Añandiendo a" else "Eliminando de"} favoritos la radio ${radio.name}")
+    override fun toggleFavourite(isNowInFavourite: Boolean, radioStation: RadioStation?) {
+        if(radioStation == null) return
+        logger.atDebug().log("${if(isNowInFavourite) "Añandiendo a" else "Eliminando de"} favoritos la radio ${radioStation.name}")
     }
 
     override fun changeVolume(value: Int){

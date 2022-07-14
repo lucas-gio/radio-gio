@@ -2,16 +2,16 @@ package com.gioia.radio.ui.screens.stations
 
 import androidx.compose.runtime.State
 import com.arkivanov.decompose.ComponentContext
-import com.gioia.radio.data.domains.Radio
+import com.gioia.radio.data.domains.RadioStation
 
 interface StationsViewModel{
     val model: State<StationsModel>
     var componentContext: ComponentContext?
 
-    fun onRadioSelected(radio: Radio)
+    fun onRadioSelected(radioStation: RadioStation)
     fun onSearchByCountryName(countryName: String)
     fun onSearchByRadioName(text: String)
-    fun onPlayPressed(isPlaying: Boolean? = null, radio: Radio? = null)
+    fun onPlayPressed(isPlaying: Boolean? = null, radioStation: RadioStation? = null)
     fun onStopPressed()
     fun onFavouritePressed()
     fun onClearCountryFilter()
