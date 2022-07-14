@@ -5,7 +5,6 @@ import org.dizitart.no2.IndexOptions
 import org.dizitart.no2.IndexType
 import org.dizitart.no2.Nitrite
 import org.dizitart.no2.exceptions.UniqueConstraintException
-import org.dizitart.no2.objects.ObjectFilter
 import org.dizitart.no2.objects.filters.ObjectFilters
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
