@@ -21,6 +21,7 @@ fun Stations(
     componentContext: ComponentContext,
     messageService: MessageService,
     stationsViewModel: StationsViewModel,
+    onlyFavorites: Boolean
 ) {
     val state by stationsViewModel.model
 

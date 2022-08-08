@@ -9,13 +9,15 @@ import org.kodein.di.instance
 class StationsComponent(
     private val componentContext: ComponentContext,
     private val stationsViewModel: StationsViewModel,
+    private val onlyFavorites: Boolean
 ) : Component, ComponentContext by componentContext {
     @Composable
     override fun render() {
         Stations(
-            componentContext = componentContext,
-            messageService = dk.instance(),
-            stationsViewModel = stationsViewModel
+            componentContext,
+            dk.instance(),
+            stationsViewModel,
+            onlyFavorites
         )
     }
 }

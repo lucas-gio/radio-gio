@@ -71,19 +71,22 @@ class RootComponentImpl(
             is Config.Stations -> Child.Stations(
                 StationsComponent(
                     componentContext = componentContext,
-                    stationsViewModel = dk.instance()
+                    stationsViewModel = dk.instance(),
+                    false
                 )
             )
             is Config.Search -> Child.Search(
                 StationsComponent(
                     componentContext = componentContext,
-                    stationsViewModel = dk.instance()
+                    stationsViewModel = dk.instance(),
+                    false
                 )
             )
             is Config.Favorites -> Child.Favorites(
                 StationsComponent(
                     componentContext = componentContext,
-                    stationsViewModel = dk.instance()
+                    stationsViewModel = dk.instance(tag = "favorites"),
+                    true
                 )
             )
             is Config.Settings -> Child.Settings(

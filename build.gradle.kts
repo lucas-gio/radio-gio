@@ -5,12 +5,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "com.gioia"
 //version = "v1.0.0"
 var nitrite = "3.4.4"
-var kodein = "7.12.0"
+var kodein = "7.14.0"
 var gson = "2.9.0"
 var log = "2.0.0-alpha7"
 var vlc = "4.7.3"
-var decompose = "0.6.0-native-compose-01"
-var coroutines = "1.6.2"
+var decompose = "0.8.0"
+var coroutines = "1.6.4"
 var navigation = "2.4.2"
 
 plugins {

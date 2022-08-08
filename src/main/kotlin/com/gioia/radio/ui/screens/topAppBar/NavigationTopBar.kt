@@ -9,6 +9,7 @@ import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import com.gioia.radio.services.MessageService
 import com.gioia.radio.ui.screens.stations.StationsViewModel
 
@@ -42,12 +43,12 @@ fun NavigationTopBar(
     }
 
     IconButton(
-        onClick = stationsViewModel::onFavouritePressed,
-        enabled = state.selectedRadioStation != null && state.isFavourite,
+        onClick = stationsViewModel::onFavouritePressed
     ) {
         Icon(
             imageVector = Icons.Rounded.Favorite,
-            contentDescription = messageService.msg("button.addToFavourite")
+            contentDescription = messageService.msg("button.addToFavourite"),
+            tint = if(state.isFavourite) Color.Red else Color.White
         )
     }
 }

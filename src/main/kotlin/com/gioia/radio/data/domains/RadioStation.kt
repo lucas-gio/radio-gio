@@ -5,7 +5,7 @@ import org.dizitart.no2.mapper.Mappable
 import org.dizitart.no2.mapper.NitriteMapper
 import org.dizitart.no2.objects.Id
 
-class RadioStation(
+open class RadioStation(
     @Id
     var name: String,
     var countryCode: String,

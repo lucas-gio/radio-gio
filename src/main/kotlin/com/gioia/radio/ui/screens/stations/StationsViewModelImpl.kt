@@ -17,7 +17,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 
-class StationsViewModelImpl(
+open class StationsViewModelImpl(
     private val playerService: PlayerService,
     private val radioStationsRepository: RadioStationRepository,
     private val configurationRepository: ConfigurationRepository,
@@ -26,9 +26,9 @@ class StationsViewModelImpl(
     private var logger: Logger = LoggerFactory.getLogger(StationsViewModelImpl::class.java)
 
     // Si statekeeper contiene el valor almacenado, entonces lo usa, sino usa un nuevo objeto Model.
-    private val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: StationsModel())
+    protected val _model = mutableStateOf(stateKeeper.consume(key = this.javaClass.name) ?: StationsModel())
     override val model: State<StationsModel> = _model
-    private val state by model // para evitar hacer model.value siempre
+    protected val state by model // para evitar hacer model.value siempre
 
     override var componentContext: ComponentContext? = null
     init {
@@ -50,7 +50,7 @@ class StationsViewModelImpl(
         }*/
     }
 
-    private inline fun changeState(reducer: StationsModel.() -> StationsModel): StationsModel {
+    protected inline fun changeState(reducer: StationsModel.() -> StationsModel): StationsModel {
         val newModel = state.reducer()
         _model.value = newModel
         return newModel
@@ -75,7 +75,13 @@ class StationsViewModelImpl(
     }
 
     override fun onPlayPressed(isPlaying: Boolean?, radioStation: RadioStation?){
-        changeState { state.copy(isPlaying = isPlaying ?: !state.isPlaying, selectedRadioStation = radioStation ?: state.selectedRadioStation)}
+        changeState {
+            state.copy(
+                isPlaying = isPlaying ?: !state.isPlaying,
+                selectedRadioStation = radioStation ?: state.selectedRadioStation,
+                isFavourite = radioStation?.isFavourite ?: state.selectedRadioStation?.isFavourite ?: false
+            )
+        }
         playerService.playRadio(state.selectedRadioStation?.url ?: radioStation?.url ?: "")
         logger.atDebug().log("Reproduciendo la radio ${state.selectedRadioStation?.name}")
     }
@@ -87,9 +93,9 @@ class StationsViewModelImpl(
     }
 
     override fun onFavouritePressed(){
+        changeState { state.copy(isFavourite = !state.isFavourite) }
         logger.atDebug().log("Añandiendo a / eliminando de favoritos la radio ${state.selectedRadioStation?.name}")
         playerService.toggleFavourite(state.isFavourite, state.selectedRadioStation)
-        changeState { state.copy(isFavourite = !state.isFavourite) }
     }
 
     override fun onClearCountryFilter(){
