@@ -15,6 +15,10 @@ class SettingsViewModelImpl(
     override val model: State<SettingsModel> = _model
     private val state by model
 
+    init {
+        stateKeeper.register(key = "SAVED_STATE") { state }
+    }
+
     override var componentContext: ComponentContext? = null
     override var onBackPressed: () -> Unit = {}
 }

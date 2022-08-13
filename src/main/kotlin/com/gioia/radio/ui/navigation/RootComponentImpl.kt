@@ -2,10 +2,10 @@ package com.gioia.radio.ui.navigation
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.RouterState
-import com.arkivanov.decompose.router.bringToFront
-import com.arkivanov.decompose.router.replaceCurrent
-import com.arkivanov.decompose.router.router
+import com.arkivanov.decompose.router.stack.ChildStack
+import com.arkivanov.decompose.router.stack.StackNavigation
+import com.arkivanov.decompose.router.stack.bringToFront
+import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
@@ -20,11 +20,15 @@ class RootComponentImpl(
     componentContext: ComponentContext
 ) : Component, RootComponent, ComponentContext by componentContext {
 
-    private val router = router<Config, Child>(
+    private val navigation = StackNavigation<Config>()
+
+    private val stack = childStack(
         initialConfiguration = Config.Welcome,
-        handleBackButton = true, // Pop the back stack on back button press
-        childFactory = ::createScreenComponent
-    )
+        handleBackButton = true,
+        source = navigation,
+        childFactory = ::createScreenComponent)
+
+    override val childStack: Value<ChildStack<*, Child>> get() = stack
 
     /**
      * Available screens to select
@@ -48,11 +52,6 @@ class RootComponentImpl(
         object Settings : Config()
     }
 
-    //private val appComponent: AppComponent = DaggerAppComponent
-    //    .create()
-
-    override val routerState: Value<RouterState<*, Child>> = router.state
-
     /**
      * Called when a new navigation request made.
      */
@@ -64,7 +63,7 @@ class RootComponentImpl(
             is Config.Welcome -> Child.Welcome(
                 WelcomeComponent(
                     componentContext = componentContext,
-                    onWelcomeFinished = {router.replaceCurrent(Config.Stations)},
+                    onWelcomeFinished = {navigation.bringToFront(Config.Stations)},
                     welcomeViewModel = dk.instance()
                 )
             )
@@ -104,18 +103,19 @@ class RootComponentImpl(
     }
 
     override fun onRadioNavigationItem() {
-        router.bringToFront(Config.Stations)
+        navigation
+        navigation.bringToFront(Config.Stations)
     }
 
     override fun onSearchNavigationItem() {
-        router.bringToFront(Config.Search)
+        navigation.bringToFront(Config.Search)
     }
 
     override fun onFavoriteNavigationItem() {
-        router.bringToFront(Config.Favorites)
+        navigation.bringToFront(Config.Favorites)
     }
 
     override fun onSettingsNavigationItem() {
-        router.bringToFront(Config.Settings)
+        navigation.bringToFront(Config.Settings)
     }
 }

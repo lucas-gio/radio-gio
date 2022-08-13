@@ -1,10 +1,10 @@
 package com.gioia.radio.ui.navigation
 
-import com.arkivanov.decompose.router.RouterState
+import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
 
 interface RootComponent: Component {
-    val routerState: Value<RouterState<*, Child>>
+    val childStack: Value<ChildStack<*, Child>>
     fun onRadioNavigationItem()
     fun onSearchNavigationItem()
     fun onFavoriteNavigationItem()

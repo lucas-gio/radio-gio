@@ -10,6 +10,7 @@ import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
 import com.gioia.radio.services.MessageService
 import com.gioia.radio.ui.screens.stations.StationsViewModel
 
@@ -20,7 +21,10 @@ fun NavigationTopBar(
 ) {
     val state by stationsViewModel.model
 
-    Text( text = state.selectedRadioStation?.name ?: "" )
+    Text(
+        text = state.selectedRadioStation?.name ?: "",
+        overflow = TextOverflow.Ellipsis
+    )
 
     IconButton(
         enabled = !state.isPlaying && state.selectedRadioStation != null,
@@ -51,4 +55,15 @@ fun NavigationTopBar(
             tint = if(state.isFavourite) Color.Red else Color.White
         )
     }
+/*
+    Slider(
+        value = state.volume,
+        valueRange = 0f..100f,
+        onValueChange = stationsViewModel::onVolumeChange,
+        onValueChangeFinished = stationsViewModel::onVolumeConfirmed
+    )
+    Text(
+        modifier = Modifier.padding(5.dp),
+        text = state.resume
+    )*/
 }

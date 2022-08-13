@@ -18,8 +18,8 @@ import com.gioia.radio.ui.navigation.RootComponent
 fun NavigationBottomBar(
     rootComponent: RootComponent
 ){
-    val routerState by rootComponent.routerState.subscribeAsState()
-    val activeComponent = routerState.activeChild.instance
+    val stack by rootComponent.childStack.subscribeAsState()
+    val activeComponent = stack.active.instance
 
     BottomNavigation {
         BottomNavigationItem(

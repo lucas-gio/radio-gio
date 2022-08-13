@@ -9,13 +9,13 @@ var kodein = "7.14.0"
 var gson = "2.9.0"
 var log = "2.0.0-alpha7"
 var vlc = "4.7.3"
-var decompose = "0.8.0"
+var decompose = "1.0.0-alpha-02"
 var coroutines = "1.6.4"
 var navigation = "2.4.2"
 
 plugins {
-    kotlin("jvm") version "1.6.10"
-    id("org.jetbrains.compose") version "1.1.1"
+    kotlin("jvm") version "1.7.0"
+    id("org.jetbrains.compose") version "1.2.0-alpha01-dev753"
     id("org.sonarqube") version "3.4.0.2513"
 }
 
