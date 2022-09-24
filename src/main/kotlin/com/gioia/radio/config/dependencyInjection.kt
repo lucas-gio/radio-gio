@@ -18,7 +18,6 @@ import com.gioia.radio.ui.screens.welcome.WelcomeViewModelImpl
 import org.dizitart.no2.Nitrite
 import org.kodein.di.*
 import uk.co.caprica.vlcj.player.component.AudioPlayerComponent
-import java.io.File
 
 val di = DI {
     bindSingleton<DatabaseGenerator> {DatabaseGeneratorImpl(instance(), instance(), instance())}
@@ -49,7 +48,8 @@ val di = DI {
         Nitrite
             .builder()
             //.filePath(filePath)
-            .filePath("C:${File.separator}file.db")
+            //.filePath("C:${File.separator}file.db")
+            .filePath("/home/bravo/file.db")
             .openOrCreate()
     }
 }

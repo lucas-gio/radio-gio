@@ -7,7 +7,7 @@ group = "com.gioia"
 var nitrite = "3.4.4"
 var kodein = "7.14.0"
 var gson = "2.9.0"
-var log = "2.0.0-alpha7"
+var log = "2.0.1"
 var vlc = "4.7.3"
 var decompose = "1.0.0-alpha-02"
 var coroutines = "1.6.4"
@@ -55,7 +55,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>().all{
-    kotlinOptions.jvmTarget = "16"
+    kotlinOptions.jvmTarget = "17"
     kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
 }
 
