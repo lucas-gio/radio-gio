@@ -44,6 +44,9 @@
 - [Compose multiplatform](https://github.com/JetBrains/compose-jb) - User interface framework
 - [Kotlin](https://kotlinlang.org/) - Programming language
 
+## ⭐️ How it works?
+Please, read [How it works? Explanation about inner code and dependencies used](https://github.com/lucas-gio/radio-gio/wiki#how-it-works-explanation-about-inner-code-and-dependencies-used)
+
 ## ✍️ Author
 
 🧑🏻 **Lucas Gioia**
