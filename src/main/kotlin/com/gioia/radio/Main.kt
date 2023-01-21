@@ -59,8 +59,8 @@ fun main(args: Array<String>) {
             return@application
         }
 
-        val defaultWidth = 450.dp
-        val defaultHeight = 500.dp
+        val defaultWidth = 550.dp
+        val defaultHeight = 700.dp
 
         val windowState = rememberWindowState(
             size = DpSize(defaultWidth, defaultHeight)

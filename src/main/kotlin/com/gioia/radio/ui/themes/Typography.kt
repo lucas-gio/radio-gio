@@ -43,20 +43,20 @@ val AppTypography = Typography(
         fontWeight = FontWeight.Bold,
     ),
     subtitle1 = TextStyle(
-        fontSize = 16.sp,
+        fontSize = 22.sp,
         fontWeight = FontWeight.Medium,
         color = Color(245, 176, 65)
     ),
     subtitle2 = TextStyle(
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Normal,
     ),
     body1 = TextStyle(
         fontSize = 18.sp,
         fontWeight = FontWeight.Normal,
     ),
     body2 = TextStyle(
-        fontSize = 14.sp,
+        fontSize = 19.sp,
         fontWeight = FontWeight.Normal,
     ),
     button = TextStyle(

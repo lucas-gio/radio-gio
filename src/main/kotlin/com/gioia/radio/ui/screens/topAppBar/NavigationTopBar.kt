@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import com.gioia.radio.services.MessageService
 import com.gioia.radio.ui.screens.stations.StationsViewModel
+import com.gioia.radio.ui.themes.Globals
 
 @Composable
 fun NavigationTopBar(
@@ -32,7 +33,8 @@ fun NavigationTopBar(
     ) {
         Icon(
             imageVector = Icons.Rounded.PlayArrow,
-            contentDescription = messageService.msg("button.play")
+            contentDescription = messageService.msg("button.play"),
+            modifier = Globals.iconSize
         )
     }
 
@@ -42,7 +44,8 @@ fun NavigationTopBar(
     ) {
         Icon(
             imageVector = Icons.Rounded.Stop,
-            contentDescription = messageService.msg("button.stop")
+            contentDescription = messageService.msg("button.stop"),
+            modifier = Globals.iconSize
         )
     }
 
@@ -52,7 +55,8 @@ fun NavigationTopBar(
         Icon(
             imageVector = Icons.Rounded.Favorite,
             contentDescription = messageService.msg("button.addToFavourite"),
-            tint = if(state.isFavourite) Color.Red else Color.White
+            tint = if(state.isFavourite) Color.Red else Color.White,
+            modifier = Globals.iconSize
         )
     }
 /*
