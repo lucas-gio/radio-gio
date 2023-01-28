@@ -16,17 +16,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.arkivanov.decompose.ComponentContext
+import com.gioia.radio.App
 import com.gioia.radio.data.domains.RadioStation
-import com.gioia.radio.services.MessageService
 import com.gioia.radio.ui.themes.AppTypography
 
 @Composable
 fun Stations(
-    componentContext: ComponentContext,
-    messageService: MessageService,
-    stationsViewModel: StationsViewModel,
-    onlyFavorites: Boolean
+    stationsViewModel: StationsViewModel
 ) {
     val state by stationsViewModel.model
 
@@ -34,10 +30,6 @@ fun Stations(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     ) {
-        /* stickyHeader {
-             Text(text = country.name)
-         }*/
-
         items(
             items = state.radioStations,
             { radioStation: RadioStation ->
@@ -69,7 +61,9 @@ fun Stations(
                         )
                     }
                     OutlinedButton(
-                        onClick = {  },
+                        onClick = {
+                            App.rootComponent.onStationDetail(radioStation)
+                        },
                         shape = CircleShape,
                     ) {
                         Icon(Icons.Rounded.ArrowForward ,contentDescription = "Radio info")

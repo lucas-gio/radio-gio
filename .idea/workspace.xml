@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a34332-f2a8-4da0-974e-80c7f3396e6f" name="Changes" comment="· Update gradle for support jdk 17">
+    <list default="true" id="87a34332-f2a8-4da0-974e-80c7f3396e6f" name="Changes" comment="· Action detail of radio station with parametrized action.&#10;· Now root component is global.">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetail.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetailComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/bottomAppBar/NavigationBottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/bottomAppBar/NavigationBottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponentImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponentImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/Stations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/Stations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/topAppBar/NavigationTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/topAppBar/NavigationTopBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/themes/AppTheme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/themes/AppTheme.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/themes/Typography.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/themes/Typography.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/StationsComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/StationsComponent.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="radio-gio" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="compose desktop" type="c8890929:TasksNode$1" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -83,11 +86,20 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/bravo/IdeaProjects/radio-gio",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "last_opened_file_path": "/home/bravo/IdeaProjects/radio-gio/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail",
+    "settings.editor.selected.configurable": "Errors"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.radio-gio [run]">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.gioia.radio.ui.screens.stationDetail" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.radio-gio [clean]">
     <configuration name="Init DB" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -97,6 +109,48 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="radio-gio [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="radio-gio [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="radio-gio [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -121,11 +175,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.Init DB" />
+      <item itemvalue="Gradle.radio-gio [build]" />
+      <item itemvalue="Gradle.radio-gio [clean]" />
       <item itemvalue="Gradle.radio-gio [run]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.radio-gio [clean]" />
         <item itemvalue="Gradle.radio-gio [run]" />
+        <item itemvalue="Gradle.radio-gio [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +196,14 @@
       <option name="presentableId" value="Default" />
       <updated>1664060061015</updated>
     </task>
+    <task id="LOCAL-00001" summary="· Change default size &#10;· Change font size&#10;· Add new button to each station for get more info about.&#10;· Global icon size.">
+      <created>1674270294265</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674270294265</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +220,23 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="· Update gradle for support jdk 17" />
-    <option name="LAST_COMMIT_MESSAGE" value="· Update gradle for support jdk 17" />
+    <MESSAGE value="· Change default size &#10;· Change font size&#10;· Add new button to each station for get more info about.&#10;· Global icon size." />
+    <MESSAGE value="· Action detail of radio station with parametrized action.&#10;· Now root component is global." />
+    <option name="LAST_COMMIT_MESSAGE" value="· Action detail of radio station with parametrized action.&#10;· Now root component is global." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/Component.kt</url>
+          <line>6</line>
+          <properties class="com.gioia.radio.ui.navigation.Component" method="render">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

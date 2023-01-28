@@ -17,6 +17,7 @@ import com.gioia.radio.App.Companion.releaseComponents
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.ui.navigation.Root
+import com.gioia.radio.ui.navigation.RootComponent
 import com.gioia.radio.ui.navigation.RootComponentImpl
 import com.gioia.radio.ui.themes.AppTheme
 import org.dizitart.no2.Nitrite
@@ -28,6 +29,7 @@ class App{
         var isInitDatabase: Boolean = false
         var appName = "Radio Gio by Lucas Gioia"
         var appVersion = "v0.1"
+        lateinit var rootComponent: RootComponent
 
         fun releaseComponents(){
             val audioPlayerComponent: AudioPlayerComponent by di.instance()
@@ -48,7 +50,7 @@ fun main(args: Array<String>) {
 
     val lifecycle = LifecycleRegistry()
 
-    val rootComponent = RootComponentImpl(
+    App.rootComponent = RootComponentImpl(
         componentContext = DefaultComponentContext(lifecycle = lifecycle)
     )
 
@@ -79,7 +81,7 @@ fun main(args: Array<String>) {
         ) {
             AppTheme {
                 Root(
-                    rootComponent = rootComponent
+                    rootComponent = App.rootComponent
                 )
             }
         }

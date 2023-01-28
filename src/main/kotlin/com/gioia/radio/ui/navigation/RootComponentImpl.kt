@@ -10,8 +10,10 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
 import com.gioia.radio.config.dk
+import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.ui.navigation.RootComponent.Child
 import com.gioia.radio.ui.screens.settings.SettingsComponent
+import com.gioia.radio.ui.screens.stationDetail.StationDetailComponent
 import com.gioia.radio.ui.screens.stations.StationsComponent
 import com.gioia.radio.ui.screens.welcome.WelcomeComponent
 import org.kodein.di.instance
@@ -33,13 +35,16 @@ class RootComponentImpl(
     /**
      * Available screens to select
      */
-    private sealed class Config : Parcelable {
+    sealed class Config : Parcelable {
 
         @Parcelize
         object Welcome : Config()
 
         @Parcelize
         object Stations : Config()
+
+        @Parcelize
+        data class StationDetail(val selectedStation: RadioStation) : Config()
 
         @Parcelize
         //data class Configuration(val itemId: Long) : Config() -->  así si la pantalla requiriese algún parámetro de filtro.
@@ -74,6 +79,12 @@ class RootComponentImpl(
                     false
                 )
             )
+            is Config.StationDetail -> Child.StationDetail(
+                StationDetailComponent(
+                    componentContext = componentContext,
+                    config.selectedStation
+                )
+            )
             is Config.Search -> Child.Search(
                 StationsComponent(
                     componentContext = componentContext,
@@ -103,8 +114,13 @@ class RootComponentImpl(
     }
 
     override fun onRadioNavigationItem() {
-        navigation
         navigation.bringToFront(Config.Stations)
+    }
+
+    override fun onStationDetail(radioStation: RadioStation) {
+        navigation.bringToFront(
+            Config.StationDetail(radioStation)
+        )
     }
 
     override fun onSearchNavigationItem() {
