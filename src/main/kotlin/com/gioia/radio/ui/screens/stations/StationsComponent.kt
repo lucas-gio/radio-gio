@@ -13,11 +13,6 @@ class StationsComponent(
 ) : Component, ComponentContext by componentContext {
     @Composable
     override fun render() {
-        Stations(
-            componentContext,
-            dk.instance(),
-            stationsViewModel,
-            onlyFavorites
-        )
+        Stations(stationsViewModel)
     }
 }
