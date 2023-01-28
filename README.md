@@ -16,7 +16,11 @@
 > Radio gio, an online radio player for desktop and android.
 
 ### ✨ Screenshoot
+#### v0.1
 ![](screen.jpg)
+
+#### v0.2
+![](screen20230128.jpg)
 
 ## 🦿 Prerequisites
 
