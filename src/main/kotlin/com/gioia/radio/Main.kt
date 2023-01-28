@@ -28,7 +28,7 @@ class App{
     companion object{
         var isInitDatabase: Boolean = false
         var appName = "Radio Gio by Lucas Gioia"
-        var appVersion = "v0.1"
+        var appVersion = "v0.2"
         lateinit var rootComponent: RootComponent
 
         fun releaseComponents(){
