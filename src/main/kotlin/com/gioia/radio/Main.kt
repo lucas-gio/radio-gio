@@ -29,7 +29,6 @@ class App{
         var isInitDatabase: Boolean = false
         var appName = "Radio Gio by Lucas Gioia"
         var appVersion = "v0.2"
-        lateinit var rootComponent: RootComponent
 
         fun releaseComponents(){
             val audioPlayerComponent: AudioPlayerComponent by di.instance()
@@ -50,7 +49,7 @@ fun main(args: Array<String>) {
 
     val lifecycle = LifecycleRegistry()
 
-    App.rootComponent = RootComponentImpl(
+    val rootComponent = RootComponentImpl(
         componentContext = DefaultComponentContext(lifecycle = lifecycle)
     )
 
@@ -81,7 +80,7 @@ fun main(args: Array<String>) {
         ) {
             AppTheme {
                 Root(
-                    rootComponent = App.rootComponent
+                    rootComponent = rootComponent
                 )
             }
         }

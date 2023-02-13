@@ -4,9 +4,261 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a34332-f2a8-4da0-974e-80c7f3396e6f" name="Changes" comment="· Action detail of radio station with parametrized action.&#10;· Now root component is global.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetail.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetailComponent.kt" afterDir="false" />
+    <list default="true" id="87a34332-f2a8-4da0-974e-80c7f3396e6f" name="Changes" comment="· Navigation between stations and yours details.&#10;· Renaming of objects for consistence with arkivanov.decompose documentation">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/Portugal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ae.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/af.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/al.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/am.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/aq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/as.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/at.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/au.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/aw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ax.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/az.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ba.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/be.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/br.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/by.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/bz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ci.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/co.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/cz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/de.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/dj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/dk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/dm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/do.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/dz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ec.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/eg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/eh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/er.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/es.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/et.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/fr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ga.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gb-eng.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gb-nir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gb-sct.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gb-wls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/gy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/hk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/hm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/hn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/hr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ht.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/hu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/id.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/il.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/im.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/io.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/iq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/is.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/it.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/je.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/jm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/jo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/jp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ke.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ki.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/km.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/kz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/la.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/li.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/lv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ly.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/md.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/me.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ml.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/my.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/mz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/na.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ng.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ni.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/no.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/np.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/nz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/om.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ps.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/pw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/py.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/qa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/re.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/rs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/rw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/se.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/si.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/so.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/st.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/sz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/td.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/th.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/to.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/tz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ua.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ug.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/um.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/us.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/uy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/uz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/va.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/vc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/vg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/vi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/vn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/vu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/wf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ws.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/xk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/ye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/yt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/za.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/zm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drawables/countries/zw.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -15,10 +267,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponentImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/navigation/RootComponentImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail/StationDetail.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/Stations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/Stations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/StationsComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stations/StationsComponent.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +309,25 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="radio-gio" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="compose desktop" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,25 +344,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "last_opened_file_path": "/home/bravo/IdeaProjects/radio-gio/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail",
-    "settings.editor.selected.configurable": "Errors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/bravo/IdeaProjects/radio-gio/src/main/resources/drawables/countries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/drawables/countries" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/ui/screens/stationDetail" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/drawables/countries" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.gioia.radio.ui.screens.stationDetail" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.radio-gio [clean]">
+  <component name="RunManager" selected="Gradle.radio-gio [run]">
     <configuration name="Init DB" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -109,27 +380,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="radio-gio [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="radio-gio [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -152,12 +402,75 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="radio-gio [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="radio-gio [packageDeb]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="packageDeb" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="radio-gio [packageUberJarForCurrentOS]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="packageUberJarForCurrentOS" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="radio-gio [package]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="package" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="radio-gio [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--scan" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -175,15 +488,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Init DB" />
-      <item itemvalue="Gradle.radio-gio [build]" />
       <item itemvalue="Gradle.radio-gio [clean]" />
+      <item itemvalue="Gradle.radio-gio [packageDeb]" />
+      <item itemvalue="Gradle.radio-gio [packageUberJarForCurrentOS]" />
+      <item itemvalue="Gradle.radio-gio [package]" />
       <item itemvalue="Gradle.radio-gio [run]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.radio-gio [clean]" />
         <item itemvalue="Gradle.radio-gio [run]" />
-        <item itemvalue="Gradle.radio-gio [build]" />
+        <item itemvalue="Gradle.radio-gio [clean]" />
+        <item itemvalue="Gradle.radio-gio [packageUberJarForCurrentOS]" />
+        <item itemvalue="Gradle.radio-gio [packageDeb]" />
+        <item itemvalue="Gradle.radio-gio [package]" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +520,91 @@
       <option name="project" value="LOCAL" />
       <updated>1674270294265</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="· Action detail of radio station with parametrized action.&#10;· Now root component is global.">
+      <created>1674874433352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674874433352</updated>
+    </task>
+    <task id="LOCAL-00003" summary="· Action detail of radio station with parametrized action.&#10;· Now root component is global.">
+      <created>1674874496494</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674874496494</updated>
+    </task>
+    <task id="LOCAL-00004" summary="· Radio stations icons and size review.">
+      <created>1674933216382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674933216382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="· Readme update with new screenshot.">
+      <created>1674933780680</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674933780680</updated>
+    </task>
+    <task id="LOCAL-00006" summary="· Readme update with new screenshot.">
+      <created>1674933967568</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674933967568</updated>
+    </task>
+    <task id="LOCAL-00007" summary="· Readme update with new screenshot.">
+      <created>1674933992979</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674933992979</updated>
+    </task>
+    <task id="LOCAL-00008" summary="· Readme update with new screenshot.">
+      <created>1674934045697</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674934045697</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1676311755766</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676311755766</updated>
+    </task>
+    <task id="LOCAL-00010" summary="· Readme update with new screenshot.">
+      <created>1676311782038</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676311782038</updated>
+    </task>
+    <task id="LOCAL-00011" summary="· Navigation between stations and yours details.">
+      <created>1676312528968</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676312528968</updated>
+    </task>
+    <task id="LOCAL-00012" summary="· Navigation between stations and yours details.">
+      <created>1676312589405</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1676312589405</updated>
+    </task>
+    <task id="LOCAL-00013" summary="· Navigation between stations and yours details.&#10;· Renaming of objects for consistence with arkivanov.decompose documentation">
+      <created>1676312811038</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1676312811038</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,11 +619,17 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="· Update gradle for support jdk 17" />
     <MESSAGE value="· Change default size &#10;· Change font size&#10;· Add new button to each station for get more info about.&#10;· Global icon size." />
     <MESSAGE value="· Action detail of radio station with parametrized action.&#10;· Now root component is global." />
-    <option name="LAST_COMMIT_MESSAGE" value="· Action detail of radio station with parametrized action.&#10;· Now root component is global." />
+    <MESSAGE value="· Radio stations icons and size review." />
+    <MESSAGE value="· Readme update with new screenshot." />
+    <MESSAGE value="· Navigation between stations and yours details.&#10;· Renaming of objects for consistence with arkivanov.decompose documentation" />
+    <MESSAGE value="· Navigation between stations and yours details.&#10;· Renaming of objects for consistence with arkivanov.decompose documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="· Navigation between stations and yours details.&#10;· Renaming of objects for consistence with arkivanov.decompose documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,7 +643,20 @@
           </properties>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/helpers/FlagHelper.kt</url>
+          <line>19</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/gioia/radio/helpers/FlagHelper.kt</url>
+          <line>20</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/radio_gio$radio_gio__run_.ic" NAME="radio-gio [run] Coverage Results" MODIFIED="1676315283094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

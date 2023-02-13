@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.gioia.radio.data.domains.RadioStation
@@ -45,41 +46,52 @@ fun Stations(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp))
                 {
-
                     Row(horizontalArrangement = Arrangement.spacedBy(15.dp)){
+
+                        Column() {
+                            Card(
+                                modifier = Modifier.size(45.dp),
+                                shape = CircleShape,
+                            ) {
+                                Image(
+                                    imageVector = Icons.Default.Search,
+                                    "",
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier.size(20.dp).border(1.dp, Color.Black, CircleShape)
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.size(5.dp))
+
                         Card(
-                            modifier = Modifier.size(45.dp),
+                            modifier = Modifier.size(25.dp),
                             shape = CircleShape,
                         ) {
                             Image(
-                                imageVector = Icons.Default.Search,
+                                painter = painterResource("drawables/countries/${radioStation.countryCode}.png"),
                                 "",
                                 contentScale = ContentScale.Crop,
-                                modifier = Modifier.size(20.dp).border(1.dp, Color.Black, CircleShape)
+                                modifier = Modifier.border(1.dp, Color.Black, CircleShape)
                             )
                         }
 
-                        Text(text = radioStation.name, style = AppTypography.subtitle1)
+                        Column() {
+
+                            Text(text = radioStation.name, style = AppTypography.subtitle1)
+
+                            radioStation.category?.let {
+                                Text(
+                                    text = it,
+                                    style = AppTypography.body2,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                        }
                     }
-                    radioStation.category?.let {
-                        Text(
-                            text = it,
-                            style = AppTypography.body2,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                    radioStation.description?.let {
-                        Text(
-                            text = it,
-                            style = AppTypography.subtitle2,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
+
                     OutlinedButton(
-                        onClick = {whenDetails(radioStation)} /*{
-                            App.rootComponent.onStationDetail(radioStation)
-                        }*/,
+                        onClick = {whenDetails(radioStation)},
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Icon(
