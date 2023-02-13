@@ -11,9 +11,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Welcome(
-    viewModel: WelcomeViewModelImpl,
-) {
+fun Welcome(){
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center

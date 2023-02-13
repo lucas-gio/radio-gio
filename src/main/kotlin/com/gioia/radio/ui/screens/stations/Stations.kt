@@ -10,28 +10,21 @@ import androidx.compose.foundation.shape.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DoubleArrow
-import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material.icons.filled.More
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.gioia.radio.App
 import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.ui.themes.AppTypography
 
 @Composable
 fun Stations(
-    stationsViewModel: StationsViewModel
+    stationsViewModel: StationsViewModel,
+    whenDetails: (RadioStation) -> Unit
 ) {
     val state by stationsViewModel.model
 
@@ -84,9 +77,9 @@ fun Stations(
                         )
                     }
                     OutlinedButton(
-                        onClick = {
+                        onClick = {whenDetails(radioStation)} /*{
                             App.rootComponent.onStationDetail(radioStation)
-                        },
+                        }*/,
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Icon(

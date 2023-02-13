@@ -24,8 +24,6 @@ class WelcomeComponent(
             onWelcomeFinished()
         }
 
-        Welcome(
-            viewModel = welcomeViewModel
-        )
+        Welcome()
     }
 }

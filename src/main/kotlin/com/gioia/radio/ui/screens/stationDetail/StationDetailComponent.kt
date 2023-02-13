@@ -8,12 +8,14 @@ import com.gioia.radio.ui.screens.stations.StationsViewModel
 
 class StationDetailComponent(
     private val componentContext: ComponentContext,
-    private val selectedStation: RadioStation
+    private val selectedStation: RadioStation,
+    private val onFinished: () -> Unit
 ) : Component, ComponentContext by componentContext {
     @Composable
     override fun render() {
         StationDetail(
-            selectedStation
+            selectedStation,
+            onFinished
         )
     }
 }

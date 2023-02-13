@@ -2,10 +2,7 @@ package com.gioia.radio.ui.navigation
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.stack.ChildStack
-import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.decompose.router.stack.bringToFront
-import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.*
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
@@ -18,19 +15,23 @@ import com.gioia.radio.ui.screens.stations.StationsComponent
 import com.gioia.radio.ui.screens.welcome.WelcomeComponent
 import org.kodein.di.instance
 
+/*
+ More info in: https://arkivanov.github.io/Decompose/navigation/stack/overview/
+*/
 class RootComponentImpl(
     componentContext: ComponentContext
 ) : Component, RootComponent, ComponentContext by componentContext {
 
     private val navigation = StackNavigation<Config>()
 
-    private val stack = childStack(
+    private val _childStack = childStack(
+        source = navigation,
         initialConfiguration = Config.Welcome,
         handleBackButton = true,
-        source = navigation,
-        childFactory = ::createScreenComponent)
+        childFactory = ::createChild
+    )
 
-    override val childStack: Value<ChildStack<*, Child>> get() = stack
+    override val childStack: Value<ChildStack<*, Child>> = _childStack
 
     /**
      * Available screens to select
@@ -47,7 +48,6 @@ class RootComponentImpl(
         data class StationDetail(val selectedStation: RadioStation) : Config()
 
         @Parcelize
-        //data class Configuration(val itemId: Long) : Config() -->  así si la pantalla requiriese algún parámetro de filtro.
         object Search : Config()
 
         @Parcelize
@@ -60,7 +60,7 @@ class RootComponentImpl(
     /**
      * Called when a new navigation request made.
      */
-    private fun createScreenComponent(
+    private fun createChild(
         config: Config,
         componentContext: ComponentContext
     ): Child {
@@ -68,7 +68,7 @@ class RootComponentImpl(
             is Config.Welcome -> Child.Welcome(
                 WelcomeComponent(
                     componentContext = componentContext,
-                    onWelcomeFinished = {navigation.bringToFront(Config.Stations)},
+                    onWelcomeFinished = { navigation.bringToFront(Config.Stations) },
                     welcomeViewModel = dk.instance()
                 )
             )
@@ -76,13 +76,15 @@ class RootComponentImpl(
                 StationsComponent(
                     componentContext = componentContext,
                     stationsViewModel = dk.instance(),
-                    false
+                    false,
+                    whenDetails = { it: RadioStation -> navigation.push(Config.StationDetail(selectedStation = it)) }
                 )
             )
             is Config.StationDetail -> Child.StationDetail(
                 StationDetailComponent(
                     componentContext = componentContext,
-                    config.selectedStation
+                    selectedStation = config.selectedStation,
+                    onFinished = { navigation.pop() },
                 )
             )
             is Config.Search -> Child.Search(
@@ -118,7 +120,7 @@ class RootComponentImpl(
     }
 
     override fun onStationDetail(radioStation: RadioStation) {
-        navigation.bringToFront(
+        navigation.push(
             Config.StationDetail(radioStation)
         )
     }
