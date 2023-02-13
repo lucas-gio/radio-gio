@@ -10,10 +10,11 @@ import com.gioia.radio.data.domains.RadioStation
 
 @Composable
 fun StationDetail(
-    selectedStation: RadioStation
+    selectedStation: RadioStation,
+    onFinished: () -> Unit
 ) {
     ExtendedFloatingActionButton(
-        onClick = {  },
+        onClick = onFinished,
         icon = {
             Icon(
                 imageVector = Icons.Default.ArrowBack,

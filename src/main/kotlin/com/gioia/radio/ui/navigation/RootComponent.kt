@@ -4,6 +4,9 @@ import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
 import com.gioia.radio.data.domains.RadioStation
 
+/*
+ More info in: https://arkivanov.github.io/Decompose/navigation/stack/overview/
+*/
 interface RootComponent: Component {
     val childStack: Value<ChildStack<*, Child>>
     fun onRadioNavigationItem()
