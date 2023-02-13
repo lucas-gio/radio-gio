@@ -91,14 +91,16 @@ class RootComponentImpl(
                 StationsComponent(
                     componentContext = componentContext,
                     stationsViewModel = dk.instance(),
-                    false
+                    false,
+                    whenDetails = {}
                 )
             )
             is Config.Favorites -> Child.Favorites(
                 StationsComponent(
                     componentContext = componentContext,
                     stationsViewModel = dk.instance(tag = "favorites"),
-                    true
+                    true,
+                    whenDetails = {}
                 )
             )
             is Config.Settings -> Child.Settings(
