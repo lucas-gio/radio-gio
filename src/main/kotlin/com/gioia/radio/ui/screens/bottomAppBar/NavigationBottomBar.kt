@@ -25,17 +25,6 @@ fun NavigationBottomBar(
         BottomNavigationItem(
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Radio,
-                    contentDescription = "radios",
-                    modifier = iconSize
-                )
-            },
-            selected = activeComponent is RootComponent.Child.Stations,
-            onClick = rootComponent::onRadioNavigationItem
-        )
-        BottomNavigationItem(
-            icon = {
-                Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = "search",
                     modifier = iconSize
@@ -43,6 +32,17 @@ fun NavigationBottomBar(
             },
             selected = activeComponent is RootComponent.Child.Search,
             onClick = rootComponent::onSearchNavigationItem
+        )
+        BottomNavigationItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Radio,
+                    contentDescription = "radios",
+                    modifier = iconSize
+                )
+            },
+            selected = activeComponent is RootComponent.Child.Stations,
+            onClick = rootComponent::onRadioNavigationItem
         )
         BottomNavigationItem(
             icon = {

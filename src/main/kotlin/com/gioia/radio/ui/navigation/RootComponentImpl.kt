@@ -9,6 +9,7 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import com.gioia.radio.config.dk
 import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.ui.navigation.RootComponent.Child
+import com.gioia.radio.ui.screens.search.SearchComponent
 import com.gioia.radio.ui.screens.settings.SettingsComponent
 import com.gioia.radio.ui.screens.stationDetail.StationDetailComponent
 import com.gioia.radio.ui.screens.stations.StationsComponent
@@ -88,11 +89,9 @@ class RootComponentImpl(
                 )
             )
             is Config.Search -> Child.Search(
-                StationsComponent(
+                SearchComponent(
                     componentContext = componentContext,
-                    stationsViewModel = dk.instance(),
-                    false,
-                    whenDetails = {}
+                    stationsViewModel = dk.instance(tag = "search")
                 )
             )
             is Config.Favorites -> Child.Favorites(

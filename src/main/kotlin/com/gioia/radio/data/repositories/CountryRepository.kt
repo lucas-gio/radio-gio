@@ -7,4 +7,6 @@ interface CountryRepository {
     fun saveAll(countries:List<Country>)
     fun createIndexes()
     fun setFavourite(countryName: String, radioName: String)
+
+    fun findAllCountries(): List<Country>
 }

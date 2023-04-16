@@ -33,6 +33,8 @@ class Globals{
          * Icon size of all application.
          */
         val iconSize: Modifier = Modifier.size(28.dp)
+
+        var selectedCountryCode: String = "Portugal"
     }
 }
 

@@ -2,11 +2,13 @@ package com.gioia.radio.ui.screens.stations
 
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
+import com.gioia.radio.data.domains.Country
 import com.gioia.radio.data.domains.RadioStation
 
 @Parcelize
 data class StationsModel(
     var radioStations: List<RadioStation> = emptyList(),
+    var countries: List<Country> = emptyList(),
     val countryFilter: String = "",
     val radioFilter: String = "",
     val selectedCountryName: String = "",

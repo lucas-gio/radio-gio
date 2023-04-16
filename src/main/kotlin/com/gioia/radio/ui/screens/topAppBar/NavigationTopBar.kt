@@ -5,8 +5,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Favorite
-import androidx.compose.material.icons.rounded.PlayArrow
-import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
@@ -28,28 +26,6 @@ fun NavigationTopBar(
     )
 
     IconButton(
-        enabled = !state.isPlaying && state.selectedRadioStation != null,
-        onClick = stationsViewModel::onPlayPressed
-    ) {
-        Icon(
-            imageVector = Icons.Rounded.PlayArrow,
-            contentDescription = messageService.msg("button.play"),
-            modifier = Globals.iconSize
-        )
-    }
-
-    IconButton(
-        onClick = stationsViewModel::onStopPressed,
-        enabled = state.isPlaying && state.selectedRadioStation != null,
-    ) {
-        Icon(
-            imageVector = Icons.Rounded.Stop,
-            contentDescription = messageService.msg("button.stop"),
-            modifier = Globals.iconSize
-        )
-    }
-
-    IconButton(
         onClick = stationsViewModel::onFavouritePressed
     ) {
         Icon(
@@ -59,15 +35,4 @@ fun NavigationTopBar(
             modifier = Globals.iconSize
         )
     }
-/*
-    Slider(
-        value = state.volume,
-        valueRange = 0f..100f,
-        onValueChange = stationsViewModel::onVolumeChange,
-        onValueChangeFinished = stationsViewModel::onVolumeConfirmed
-    )
-    Text(
-        modifier = Modifier.padding(5.dp),
-        text = state.resume
-    )*/
 }

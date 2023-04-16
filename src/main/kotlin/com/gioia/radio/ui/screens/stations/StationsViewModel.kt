@@ -9,6 +9,7 @@ interface StationsViewModel{
     var componentContext: ComponentContext?
 
     fun onRadioSelected(radioStation: RadioStation)
+    fun onCountrySelected(countryCode: String)
     fun onSearchByCountryName(countryName: String)
     fun onSearchByRadioName(text: String)
     fun onPlayPressed(isPlaying: Boolean? = null, radioStation: RadioStation? = null)

@@ -17,7 +17,6 @@ import com.gioia.radio.App.Companion.releaseComponents
 import com.gioia.radio.config.di
 import com.gioia.radio.tools.DatabaseGenerator
 import com.gioia.radio.ui.navigation.Root
-import com.gioia.radio.ui.navigation.RootComponent
 import com.gioia.radio.ui.navigation.RootComponentImpl
 import com.gioia.radio.ui.themes.AppTheme
 import org.dizitart.no2.Nitrite

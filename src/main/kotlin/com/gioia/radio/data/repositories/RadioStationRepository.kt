@@ -9,6 +9,7 @@ interface RadioStationRepository {
     fun getInitialRadioStations(): List<RadioStation>
     fun getFavoritesRadioStations(): List<RadioStation>
     fun findByCountryNameLike(countryCode: String): List<RadioStation>
+    fun findByCountryName(countryCode: String): List<RadioStation>
     fun findByRadioNameLike(radioName: String): List<RadioStation>
 
     fun updateOne(radioStation: RadioStation)

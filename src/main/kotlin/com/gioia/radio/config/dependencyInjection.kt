@@ -12,6 +12,7 @@ import com.gioia.radio.tools.DatabaseGeneratorImpl
 import com.gioia.radio.ui.screens.settings.SettingsViewModel
 import com.gioia.radio.ui.screens.settings.SettingsViewModelImpl
 import com.gioia.radio.ui.screens.stations.FavoriteStationsViewModelImpl
+import com.gioia.radio.ui.screens.stations.SearchViewModelImpl
 import com.gioia.radio.ui.screens.stations.StationsViewModel
 import com.gioia.radio.ui.screens.stations.StationsViewModelImpl
 import com.gioia.radio.ui.screens.welcome.WelcomeViewModelImpl
@@ -30,6 +31,8 @@ val di = DI {
     bindSingleton<StateKeeper> { StateKeeperDispatcher() }
     bindSingleton<StationsViewModel> { StationsViewModelImpl(instance(), instance(), instance(), instance()) }
     bind<FavoriteStationsViewModelImpl> (tag = "favorites") with factory {FavoriteStationsViewModelImpl(instance(), instance(), instance(), instance())}
+    bind<SearchViewModelImpl> (tag = "search") with factory { SearchViewModelImpl(instance(), instance(), instance(), instance(), instance()) }
+    //bindSingleton<SearchViewModel> { SearchViewModelImpl(instance(), instance()) }
     bindSingleton<SettingsViewModel> { SettingsViewModelImpl(instance()) }
     bindSingleton { WelcomeViewModelImpl() }
 

@@ -1,20 +1,20 @@
-package com.gioia.radio.ui.screens.stationDetail
+package com.gioia.radio.ui.screens.search
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
-import com.gioia.radio.data.domains.RadioStation
 import com.gioia.radio.ui.navigation.Component
+import com.gioia.radio.ui.screens.stations.StationsViewModel
 
-class StationDetailComponent(
+class SearchComponent(
     private val componentContext: ComponentContext,
-    private val selectedStation: RadioStation,
-    private val onFinished: () -> Unit
+    private val stationsViewModel: StationsViewModel,
 ) : Component, ComponentContext by componentContext {
     @Composable
     override fun render() {
-        StationDetail(
-            selectedStation,
-            onFinished
+        Search(
+            componentContext = componentContext,
+            stationsViewModel = stationsViewModel
         )
     }
+
 }

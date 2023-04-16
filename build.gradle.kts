@@ -5,17 +5,17 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "com.gioia"
 //version = "v1.0.0"
 var nitrite = "3.4.4"
-var kodein = "7.14.0"
-var gson = "2.9.0"
-var log = "2.0.1"
-var vlc = "4.7.3"
-var decompose = "1.0.0-alpha-02"
+var kodein = "7.15.1"
+var gson = "2.10.1"
+var log = "2.0.5"
+var vlc = "4.8.2"
+var decompose = "2.0.0-alpha-01"
 var coroutines = "1.6.4"
 var navigation = "2.4.2"
 
 plugins {
-    kotlin("jvm") version "1.7.0"
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev753"
+    kotlin("jvm") version "1.8.0"
+    id("org.jetbrains.compose") version "1.3.1"
     id("org.sonarqube") version "3.4.0.2513"
 }
 
@@ -64,7 +64,7 @@ compose.desktop {
         //https://github.com/JetBrains/compose-jb/tree/master/tutorials/Native_distributions_and_local_execution
         mainClass = "com.gioia.radio.MainKt"
         // java home para el plugin de compilación nativa.
-        javaHome = System.getenv("JDK_16")
+        //javaHome = System.getenv("JDK_16")
         nativeDistributions {
             windows {
                 //iconFile.set(project.file("icon.ico"))

@@ -1,6 +1,7 @@
 package com.gioia.radio.data.repositories
 
 import com.gioia.radio.data.domains.RadioStation
+import com.gioia.radio.ui.themes.Globals
 import org.dizitart.no2.*
 import org.dizitart.no2.exceptions.UniqueConstraintException
 import org.dizitart.no2.objects.ObjectFilter
@@ -47,7 +48,7 @@ class RadioStationRepositoryImpl (
     }
 
     override fun getInitialRadioStations(): List<RadioStation>{
-        return findByCountryNameLike("Portugal")
+        return findByCountryNameLike(Globals.selectedCountryCode)
         /*return getRepository()
             ?.find(
                 FindOptions
@@ -69,6 +70,10 @@ class RadioStationRepositoryImpl (
     override fun findByCountryNameLike(countryCode: String): List<RadioStation>{
         return findByCriteriaWithLimit(ObjectFilters.regex("countryCode", "^(?i).{0,}$countryCode.{0,}$"))
     }
+    override fun findByCountryName(countryCode: String): List<RadioStation>{
+        return findByCriteriaWithLimit(ObjectFilters.eq("countryCode", countryCode))
+    }
+
 
     override fun findByRadioNameLike(radioName: String): List<RadioStation>{
         TODO("")

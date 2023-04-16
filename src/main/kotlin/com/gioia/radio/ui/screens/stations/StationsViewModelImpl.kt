@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory
 
 open class StationsViewModelImpl(
     private val playerService: PlayerService,
-    private val radioStationsRepository: RadioStationRepository,
+    val radioStationsRepository: RadioStationRepository,
     private val configurationRepository: ConfigurationRepository,
     stateKeeper: StateKeeper,
 ) : StationsViewModel, ViewModel() {
@@ -127,6 +127,14 @@ open class StationsViewModelImpl(
         if(volumeConfig != null){
             volumeConfig.value = state.volume.toString()
             configurationRepository.upsert(volumeConfig)
+        }
+    }
+
+    override fun onCountrySelected(countryCode: String){
+        changeState { state.copy(countryFilter = "", radioStations = radioStationsRepository.findByCountryName(countryCode)) }
+        logger.atDebug().log("Se cambió estado radioStations a radios de $countryCode")
+        if(state.isPlaying) {
+            onStopPressed()
         }
     }
 }
