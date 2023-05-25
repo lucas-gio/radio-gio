@@ -4,10 +4,10 @@ import com.gioia.radiogio.data.domains.RadioStation;
 
 import java.util.List;
 
-public interface RadioStationRepository extends Indexable{
+public interface RadioStationRepository{
     void removeAll();
     void saveAll(List<RadioStation> radioStation);
-    List<RadioStation> getInitialRadioStations();
+    List<RadioStation> getTestRadioStations(String countryCode);
     List<RadioStation> getFavoritesRadioStations();
     List<RadioStation> findByCountryNameLike(String countryCode);
     List<RadioStation> findByCountryName(String countryCode);

@@ -1,7 +1,9 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.Country;
-import org.dizitart.no2.*;
+import org.dizitart.no2.FindOptions;
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
@@ -51,18 +53,6 @@ class CountryRepositoryImpl implements CountryRepository{
         )
         .toList();
     }
-
-    @Override
-     public void createIndexes() {
-        ObjectRepository repository = getRepository();
-        if (!repository.hasIndex("code")) {
-            repository.createIndex(
-                "code",
-                IndexOptions.indexOptions(IndexType.NonUnique, false)
-            );
-        }
-    }
-
 
     @Override
      public void setFavourite(String countryName, String radioName) {

@@ -1,8 +1,6 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.Configuration;
-import org.dizitart.no2.IndexOptions;
-import org.dizitart.no2.IndexType;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
@@ -36,17 +34,7 @@ public class ConfigurationRepositoryImpl implements ConfigurationRepository{
                 ObjectFilters.eq("key", key)
             )
             .firstOrDefault();
-        logger.atDebug().log("Leída la configuración $key, valor: " + (config.value != null ? config.value : "n.d"));
+        logger.atDebug().log("Leída la configuración $key, valor: " + (config.getValue() != null ? config.getValue() : "n.d"));
         return config;
-    }
-
-    @Override
-    public void createIndexes(){
-        ObjectRepository repository = getRepository();
-        if (!repository.hasIndex("key")) {
-            repository.createIndex("key",
-                IndexOptions.indexOptions(IndexType.Unique, false)
-            );
-        }
     }
 }

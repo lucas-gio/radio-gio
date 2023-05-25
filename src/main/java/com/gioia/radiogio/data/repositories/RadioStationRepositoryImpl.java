@@ -1,28 +1,31 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.RadioStation;
-import org.dizitart.no2.*;
+import org.dizitart.no2.FindOptions;
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
 import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @Repository
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 class RadioStationRepositoryImpl implements RadioStationRepository {
-    private Nitrite database;
+    @Autowired
+    private Nitrite nitrite;
     private Logger logger = LoggerFactory.getLogger(RadioStationRepositoryImpl.class);
 
     private ObjectRepository<RadioStation> getRepository() {
-        return database.getRepository(RadioStation.class);
+        return nitrite.getRepository(RadioStation.class);
     }
 
 
@@ -49,26 +52,10 @@ class RadioStationRepositoryImpl implements RadioStationRepository {
     }
 
     @Override
-    public void createIndexes(){
-        ObjectRepository repository = getRepository();
-
-        Stream.of("name", "isFavorite")
-            .filter(repository::hasIndex)
-            .forEach(newIndex->
-                repository.createIndex(newIndex, IndexOptions.indexOptions(IndexType.NonUnique, false))
-            );
-    }
-
-    @Override
-    public List<RadioStation> getInitialRadioStations(){
-        return findByCountryNameLike("AR");
-        /*return getRepository()
-            ?.find(
-                FindOptions
-                    .sort("name", SortOrder.Ascending)
-                    .thenLimit(0, 5)
-            )
-            ?.toList() ?: emptyList()*/ //
+    public List<RadioStation> getTestRadioStations(String countryCode){
+        return getRepository()
+                .find( )
+                .toList();
     }
 
     @Override

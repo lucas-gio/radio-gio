@@ -4,7 +4,7 @@ import com.gioia.radiogio.data.domains.Country;
 
 import java.util.List;
 
-interface CountryRepository extends Indexable{
+interface CountryRepository{
     void removeAll();
     void saveAll(List<Country> countries);
     void setFavourite(String countryName, String radioName);

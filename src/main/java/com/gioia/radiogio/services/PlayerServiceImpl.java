@@ -32,13 +32,13 @@ class PlayerServiceImpl implements PlayerService {
         if(radioStation == null) return;
 
         if(isNowInFavourite){
-            logger.atDebug().log("Añandiendo a favoritos la radio" + radioStation.name);
+            logger.atDebug().log("Añandiendo a favoritos la radio" + radioStation.getName());
         }
         else {
-            logger.atDebug().log("Eliminando de favoritos la radio" + radioStation.name);
+            logger.atDebug().log("Eliminando de favoritos la radio" + radioStation.getName());
         }
 
-        radioStation.isFavourite = !radioStation.isFavourite;
+        radioStation.setFavourite(!radioStation.getFavourite());
         radioStationRepository.updateOne(radioStation);
     }
 
