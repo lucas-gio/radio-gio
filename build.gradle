@@ -25,6 +25,8 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "org.dizitart:nitrite:3.4.4"
+	implementation("uk.co.caprica:vlcj:4.8.2")
 }
 
 tasks.named('test') {
