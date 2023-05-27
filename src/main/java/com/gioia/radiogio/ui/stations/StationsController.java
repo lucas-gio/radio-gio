@@ -1,5 +1,6 @@
 package com.gioia.radiogio.ui.stations;
 
+import com.gioia.radiogio.data.repositories.OldCountryRepository;
 import com.gioia.radiogio.services.StationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -17,9 +18,14 @@ public class StationsController {
     @Autowired
     private StationsService stationsService;
 
+    @Autowired
+    private OldCountryRepository oldCountryRepository;
+
     @GetMapping("/test/{countryCode}")
     /**
-    *    List 5 radio stations of an country
+    *    List 5 radio stations of an country.
+     *    Example: GET http://localhost:8080/stations/test/AR
+     *    returns Argentinian test stations.
      */
     public String test(Model model, @PathVariable(value = "countryCode") String countryCode) {
         model.addAttribute("stationsList", stationsService.test(countryCode));

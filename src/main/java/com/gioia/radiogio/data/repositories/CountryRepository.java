@@ -1,13 +1,9 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.Country;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-interface CountryRepository{
-    void removeAll();
-    void saveAll(List<Country> countries);
-    void setFavourite(String countryName, String radioName);
-
-    List<Country> findAllCountries();
+@Repository
+public interface CountryRepository extends JpaRepository<Country, String> {
 }

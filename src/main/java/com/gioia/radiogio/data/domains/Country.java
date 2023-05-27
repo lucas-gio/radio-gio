@@ -1,29 +1,26 @@
 package com.gioia.radiogio.data.domains;
 
-import org.dizitart.no2.IndexType;
-import org.dizitart.no2.objects.Id;
-import org.dizitart.no2.objects.Index;
-import org.dizitart.no2.objects.Indices;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
-@Indices({
+@Data
+/*@Indices({
         @Index(value = "code", type = IndexType.NonUnique),
-})
+})*/
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Country implements Serializable {
-    public Country(){
-        // Empty for DB mapping use.
-    }
-
     @Id
     private String code;
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(final String code) {
-        this.code = code;
-    }
+    private String name;
 }

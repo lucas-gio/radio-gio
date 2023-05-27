@@ -5,6 +5,7 @@ import com.gioia.radiogio.data.repositories.RadioStationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,16 @@ public class StationsServiceImpl implements StationsService{
 
     @Override
     public List<RadioStation> test(String countryCode) {
-        return radioStationRepository.getTestRadioStations(countryCode);
+        return radioStationRepository.findAll(
+                Example.of(
+                        RadioStation.builder()
+                                .countryCode(countryCode)
+                                .build()
+                )
+        );
+    }
+
+    public void saveAll(List<RadioStation> radioStationList){
+        radioStationRepository.saveAllAndFlush(radioStationList);
     }
 }

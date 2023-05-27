@@ -2,7 +2,7 @@ package com.gioia.radiogio.services;
 
 import com.gioia.radiogio.data.domains.RadioStation;
 
-interface PlayerService {
+public interface PlayerService {
     void playRadio(String url);
     void stopRadio();
     void toggleFavourite(Boolean isNowInFavourite, RadioStation radioStation);

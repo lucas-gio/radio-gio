@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-class MessageServiceImpl implements MessageService{
-    //private val configurationRepository: ConfigurationRepository,
+public class MessageServiceImpl implements MessageService{
+    //private val configurationRepository: OldConfigurationRepository,
     //var configuredLocale: String? = configurationRepository.find(ConfigKey.Locale.toString())?.value
     //private val resourcesName = "messages"
     @Override

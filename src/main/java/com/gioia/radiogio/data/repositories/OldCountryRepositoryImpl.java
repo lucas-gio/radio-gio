@@ -1,12 +1,6 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.Country;
-import org.dizitart.no2.FindOptions;
-import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.SortOrder;
-import org.dizitart.no2.exceptions.UniqueConstraintException;
-import org.dizitart.no2.objects.ObjectRepository;
-import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -17,23 +11,18 @@ import java.util.List;
 
 @Repository
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-class CountryRepositoryImpl implements CountryRepository{
-    private Nitrite database;
-    private Logger logger = LoggerFactory.getLogger(CountryRepositoryImpl.class);
-
-    private ObjectRepository<Country> getRepository() {
-        return database.getRepository(Country.class);
-    }
+public class OldCountryRepositoryImpl implements OldCountryRepository {
+    private Logger logger = LoggerFactory.getLogger(OldCountryRepositoryImpl.class);
 
     @Override
      public void removeAll() {
-        getRepository().remove(ObjectFilters.ALL);
+        //getRepository().remove(ObjectFilters.ALL);
         logger.atDebug().log("Removed all countries from database.");
     }
 
     @Override
     public void saveAll(List<Country> countries) {
-        ObjectRepository repository = getRepository();
+        /*ObjectRepository repository = getRepository();
         countries.stream().forEach(country-> {
             try {
                 repository.insert(country);
@@ -42,16 +31,17 @@ class CountryRepositoryImpl implements CountryRepository{
             catch (UniqueConstraintException e) {
                 logger.atDebug().log("REPEATED IGNORED COUNTRY: ${it.code}");
             }
-        });
+        });*/
     }
 
     @Override
     public List<Country> findAllCountries(){
-        return getRepository()
+        /*return getRepository()
         .find(
             FindOptions.sort("code", SortOrder.Ascending)
         )
-        .toList();
+        .toList();*/
+        return List.of();
     }
 
     @Override

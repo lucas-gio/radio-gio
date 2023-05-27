@@ -1,16 +1,8 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.RadioStation;
-import org.dizitart.no2.FindOptions;
-import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.SortOrder;
-import org.dizitart.no2.exceptions.UniqueConstraintException;
-import org.dizitart.no2.objects.ObjectFilter;
-import org.dizitart.no2.objects.ObjectRepository;
-import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -19,25 +11,18 @@ import java.util.List;
 
 @Repository
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-class RadioStationRepositoryImpl implements RadioStationRepository {
-    @Autowired
-    private Nitrite nitrite;
-    private Logger logger = LoggerFactory.getLogger(RadioStationRepositoryImpl.class);
-
-    private ObjectRepository<RadioStation> getRepository() {
-        return nitrite.getRepository(RadioStation.class);
-    }
-
+public class OldRadioStationRepositoryImpl implements OldRadioStationRepository {
+    private Logger logger = LoggerFactory.getLogger(OldRadioStationRepositoryImpl.class);
 
     @Override
     public void removeAll(){
-        getRepository().remove(ObjectFilters.ALL);
+        //getRepository().remove(ObjectFilters.ALL);
         logger.atDebug().log("Removed all radio stations from database.");
     }
 
     @Override
     public void saveAll(List<RadioStation> radioStation){
-        ObjectRepository repository =  getRepository();
+        /*ObjectRepository repository =  getRepository();
         radioStation
             .stream()
             .forEach(it-> {
@@ -48,34 +33,38 @@ class RadioStationRepositoryImpl implements RadioStationRepository {
                 catch (UniqueConstraintException e) {
                     logger.atDebug().log("REPEATED IGNORED STATION: ${it.name}");
                 }
-            });
+            });*/
     }
 
     @Override
     public List<RadioStation> getTestRadioStations(String countryCode){
-        return getRepository()
+       /* return getRepository()
                 .find( )
-                .toList();
+                .toList();*/
+        return List.of();
     }
 
     @Override
     public List<RadioStation> getFavoritesRadioStations(){
-        return getRepository()
+        /*return getRepository()
             .find(
                 ObjectFilters.eq("isFavourite", true),
                 FindOptions.sort("name", SortOrder.Ascending)
             )
-            .toList();
+            .toList();*/
+        return List.of();
     }
 
 
     @Override
     public List<RadioStation> findByCountryNameLike(String countryCode){
-        return findByCriteriaWithLimit(ObjectFilters.regex("countryCode", "^(?i).{0,}$countryCode.{0,}$"));
+       // return findByCriteriaWithLimit(ObjectFilters.regex("countryCode", "^(?i).{0,}$countryCode.{0,}$"));
+        return List.of();
     }
 
     public List<RadioStation> findByCountryName(String countryCode){
-        return findByCriteriaWithLimit(ObjectFilters.eq("countryCode", countryCode));
+        //return findByCriteriaWithLimit(ObjectFilters.eq("countryCode", countryCode));
+        return List.of();
     }
 
     @Override
@@ -87,19 +76,21 @@ class RadioStationRepositoryImpl implements RadioStationRepository {
         return List.of();
     }
 
-    private List<RadioStation> findByCriteriaWithLimit(ObjectFilter criteria){
-        return getRepository()
+    private List<RadioStation> findByCriteriaWithLimit(){
+        /*return getRepository()
             .find(
                 criteria,
                 FindOptions
                     .sort("name", SortOrder.Ascending)
                     .thenLimit(0, 5000)
             )
-            .toList();
+            .toList();*/
+
+        return List.of();
     }
 
     @Override
     public void updateOne(RadioStation radioStation){
-        getRepository().update(radioStation);
+        //getRepository().update(radioStation);
     }
 }

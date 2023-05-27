@@ -9,4 +9,6 @@ public interface StationsService {
      *    List 5 radio stations of an country
      */
     List<RadioStation> test(String countryCode);
+
+    void saveAll(List<RadioStation> radioStationList);
 }

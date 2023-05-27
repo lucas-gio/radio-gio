@@ -1,16 +1,9 @@
 package com.gioia.radiogio.data.repositories;
 
 import com.gioia.radiogio.data.domains.RadioStation;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface RadioStationRepository{
-    void removeAll();
-    void saveAll(List<RadioStation> radioStation);
-    List<RadioStation> getTestRadioStations(String countryCode);
-    List<RadioStation> getFavoritesRadioStations();
-    List<RadioStation> findByCountryNameLike(String countryCode);
-    List<RadioStation> findByCountryName(String countryCode);
-    List<RadioStation> findByRadioNameLike(String radioName);
-    void updateOne(RadioStation radioStation);
+@Repository
+public interface RadioStationRepository extends JpaRepository<RadioStation, String> {
 }
