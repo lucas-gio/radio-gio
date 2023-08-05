@@ -13,7 +13,7 @@ import uk.co.caprica.vlcj.player.component.AudioPlayerComponent;
 @Service
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class PlayerServiceImpl implements PlayerService {
-    //@Autowired
+    @Autowired
     private AudioPlayerComponent audioPlayerComponent;
 
     @Autowired

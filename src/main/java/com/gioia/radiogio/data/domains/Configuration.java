@@ -22,7 +22,7 @@ import java.io.Serializable;
 public class Configuration implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String key;
-    private String value;
+    private String code;
+    private String val;
     private String description;
 }

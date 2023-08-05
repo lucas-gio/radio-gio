@@ -10,6 +10,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import uk.co.caprica.vlcj.player.base.MediaPlayer;
+import uk.co.caprica.vlcj.player.component.AudioPlayerComponent;
+import uk.co.caprica.vlcj.player.component.EmbeddedMediaPlayerComponent;
+import uk.co.caprica.vlcj.player.component.MediaPlayerComponent;
 
 import javax.sql.DataSource;
 
@@ -28,15 +32,11 @@ public class BeansConfig {
     }
 
     @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(environment.getProperty("driverClassName"));
-        dataSource.setUrl(environment.getProperty("url"));
-        dataSource.setUsername(environment.getProperty("user"));
-        dataSource.setPassword(environment.getProperty("password"));
-        return dataSource;
+    AudioPlayerComponent audioPlayerComponent(){
+        return new AudioPlayerComponent();
     }
 
+    // getRunner executes before init.
     @Bean
     public CommandLineRunner getRunner(ApplicationContext ctx){
         return (args) -> {

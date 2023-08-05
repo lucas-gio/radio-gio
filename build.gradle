@@ -27,13 +27,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework:spring-jdbc:6.0.9'
-	implementation 'org.xerial:sqlite-jdbc:3.40.1.0'
+	//implementation 'org.xerial:sqlite-jdbc:3.40.1.0'
+	implementation 'com.h2database:h2'
 	implementation("uk.co.caprica:vlcj:4.8.2")
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// Internet radio stations detail, for download radio list.
 	//https://github.com/sfuhrm/radiobrowser4j
-	implementation 'de.sfuhrm:radiobrowser4j:2.2.5'
+	implementation 'de.sfuhrm:radiobrowser4j:2.5.2'
 }
 
 tasks.named('test') {

@@ -23,27 +23,24 @@ public class Initializer {
     @Autowired
     private CountryService countryService;
 
-    private static boolean CREATE_DB = false;
     private Logger logger = LoggerFactory.getLogger(Initializer.class);
 
     public void init(){
         logger.atDebug().log("Turning on.");
         logger.atDebug().log("Performing tasks before turning on Radio Gio. Starting");
 
-        if(CREATE_DB){
-            logger.atDebug().log("Database creation: STARTING");
-            createDatabase();
-            logger.atDebug().log("Database creation: END");
-        }
+        logger.atDebug().log("Database creation: STARTING");
+        loadDatabase();
+        logger.atDebug().log("Database creation: END");
 
         logger.atDebug().log("Performing tasks before turning on Radio Gio. End");
     }
 
-    private void createDatabase(){
+    private void loadDatabase(){
         // 5000ms timeout, user agent is Demo agent/1.0
         List<RadioStation> radioStations = new RadioBrowser(5000, "Demo agent/1.0")
                 .listStations(ListParameter.create().order(FieldName.NAME))
-                //.limit(64)
+                .limit(10)
                 .filter(station ->
                         ! station.getName().isBlank()
                 )

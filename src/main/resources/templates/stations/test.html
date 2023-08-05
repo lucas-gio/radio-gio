@@ -8,9 +8,9 @@
   <table>
     <tr th:each="station : ${stationsList}">
       <td th:text="${station.name}"></td>
-      <td th:text="${station.name}"></td>
-      <td th:text="${station.name}"></td>
-      
+      <a th:href="@{/stations/station/{id}(id=${station.url})}">View</a>
+
+
       </tr>
   </table>
 
