@@ -9,8 +9,9 @@
 # Radio Gio
 
 [![Java CI with Gradle](https://github.com/lucas-gio/radio-gio/actions/workflows/gradle.yml/badge.svg?branch=web-dev)](https://github.com/lucas-gio/radio-gio/actions/workflows/gradle.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-gio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-gio)
-[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-gio/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-gio)
+[![CodeQL](https://github.com/lucas-gio/radio-gio/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/lucas-gio/radio-gio/actions/workflows/github-code-scanning/codeql)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-gio&metric=alert_status&branch=web-dev)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-gio&branch=web-dev)
+[![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-gio/badge/web-dev)](https://www.codefactor.io/repository/github/lucas-gio/radio-gio/overview/web-dev)
 [![Discussion](https://img.shields.io/badge/chat-Discussion-blueviolet)](https://github.com/lucas-gio/radio-gio/discussions)
 
 > Radio gio, an online radio player for desktop and server.
