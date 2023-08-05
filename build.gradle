@@ -2,6 +2,15 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.0'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id "org.sonarqube" version "4.2.1.3168"
+}
+
+sonar {
+	properties {
+		property "sonar.projectKey", "lucas-gio_lucas-gio"
+		property "sonar.organization", "lucas-gio"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
 }
 
 group = 'com.gioia'
