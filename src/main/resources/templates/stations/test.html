@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <table>
+    <tr th:each="station : ${stationsList}">
+      <td th:text="${station.name}"></td>
+      <a th:href="@{/stations/station/{id}(id=${station.url})}">View</a>
+
+
+      </tr>
+  </table>
+
+</body>
+</html>
