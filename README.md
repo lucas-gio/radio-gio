@@ -8,7 +8,7 @@
   -->
 # Radio Gio
 
-[![Build](https://github.com/lucas-gio/radio-gio/actions/workflows/build.yml/badge.svg)](https://github.com/lucas-gio/radio-gio/actions/workflows/build.yml)
+[![Java CI with Gradle](https://github.com/lucas-gio/radio-gio/actions/workflows/gradle.yml/badge.svg?branch=web-dev)](https://github.com/lucas-gio/radio-gio/actions/workflows/gradle.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lucas-gio_radio-gio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lucas-gio_radio-gio)
 [![CodeFactor](https://www.codefactor.io/repository/github/lucas-gio/radio-gio/badge)](https://www.codefactor.io/repository/github/lucas-gio/radio-gio)
 [![Discussion](https://img.shields.io/badge/chat-Discussion-blueviolet)](https://github.com/lucas-gio/radio-gio/discussions)
