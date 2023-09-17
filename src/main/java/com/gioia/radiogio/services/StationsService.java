@@ -11,4 +11,6 @@ public interface StationsService {
     List<RadioStation> test(String countryCode);
 
     void saveAll(List<RadioStation> radioStationList);
+
+    RadioStation getRadioStationByUrl(String url);
 }

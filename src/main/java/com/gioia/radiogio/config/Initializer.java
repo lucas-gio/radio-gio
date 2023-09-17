@@ -2,11 +2,13 @@ package com.gioia.radiogio.config;
 
 import com.gioia.radiogio.data.domains.Country;
 import com.gioia.radiogio.data.domains.RadioStation;
+import com.gioia.radiogio.helpers.EncoderHelper;
 import com.gioia.radiogio.services.CountryService;
 import com.gioia.radiogio.services.StationsService;
 import de.sfuhrm.radiobrowser4j.FieldName;
 import de.sfuhrm.radiobrowser4j.ListParameter;
 import de.sfuhrm.radiobrowser4j.RadioBrowser;
+import de.sfuhrm.radiobrowser4j.Station;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +39,16 @@ public class Initializer {
     }
 
     private void loadDatabase(){
-        // 5000ms timeout, user agent is Demo agent/1.0
         List<RadioStation> radioStations = new RadioBrowser(5000, "Demo agent/1.0")
                 .listStations(ListParameter.create().order(FieldName.NAME))
-                .limit(10)
+                .limit(100)
                 .filter(station ->
                         ! station.getName().isBlank()
                 )
+                .filter((Station it)->{
+                    String url = it.getUrlResolved();
+                    return url != null && url.length() < 250;
+                })
                 .peek(station ->
                         logger.atDebug().log("Converter: add " + station.getName() + " station")
                 )
@@ -70,9 +75,8 @@ public class Initializer {
                 .collect(Collectors.toList());
 
         countryService.saveAll(countryList);
-        countryList = null;
-
         stationsService.saveAll(radioStations);
+        countryList = null;
         radioStations = null;
     }
 }

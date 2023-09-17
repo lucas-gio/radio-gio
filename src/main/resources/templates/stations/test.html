@@ -6,12 +6,22 @@
 </head>
 <body>
   <table>
-    <tr th:each="station : ${stationsList}">
-      <td th:text="${station.name}"></td>
-      <a th:href="@{/stations/station/{id}(id=${station.url})}">View</a>
-
-
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th></th>
       </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="station : ${stationsList}">
+        <td th:text="${station.name}"></td>
+        <td><a th:href="@{/stations/sound/{id}  (id=${station.url}) }">Play</a></td>
+        <td><a th:href="@{/stations/silence }">Stop</a></td>
+        <td><a th:href="@{/stations/info/{id}  (id=${station.url}) }">Info</a></td>
+      </tr>
+    </tbody>
+
   </table>
 
 </body>
