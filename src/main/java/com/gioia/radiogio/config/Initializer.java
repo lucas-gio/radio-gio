@@ -40,7 +40,7 @@ public class Initializer {
         // 5000ms timeout, user agent is Demo agent/1.0
         List<RadioStation> radioStations = new RadioBrowser(5000, "Demo agent/1.0")
                 .listStations(ListParameter.create().order(FieldName.NAME))
-                .limit(10)
+                .limit(50)
                 .filter(station ->
                         ! station.getName().isBlank()
                 )
